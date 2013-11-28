@@ -1,0 +1,9 @@
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\bin\Debug\ClientGUI.exe.config
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\bin\Debug\ClientGUI.exe
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\bin\Debug\ClientGUI.pdb
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\obj\Debug\ClientGUI.csprojResolveAssemblyReference.cache
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\obj\Debug\ClientGUI.Main.resources
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\obj\Debug\ClientGUI.Properties.Resources.resources
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\obj\Debug\ClientGUI.csproj.GenerateResource.Cache
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\obj\Debug\ClientGUI.exe
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\ClientGUI\obj\Debug\ClientGUI.pdb

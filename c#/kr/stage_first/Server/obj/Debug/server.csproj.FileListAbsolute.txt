@@ -1,0 +1,12 @@
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\stage_first\obj\Debug\server.csprojResolveAssemblyReference.cache
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\stage_first\bin\Debug\server.exe.config
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\stage_first\bin\Debug\server.exe
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\stage_first\bin\Debug\server.pdb
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\stage_first\obj\Debug\server.exe
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\stage_first\obj\Debug\server.pdb
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Server\bin\Debug\server.exe.config
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Server\bin\Debug\server.exe
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Server\bin\Debug\server.pdb
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Server\obj\Debug\server.csprojResolveAssemblyReference.cache
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Server\obj\Debug\server.exe
+N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Server\obj\Debug\server.pdb
