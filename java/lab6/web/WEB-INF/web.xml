@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+    <servlet>
+        <display-name>Sing up user</display-name>
+        <servlet-name>regServlet</servlet-name>
+        <servlet-class>user.RegServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>Sing in user</display-name>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>user.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>regServlet</servlet-name>
+        <url-pattern>/singup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/singin</url-pattern>
+    </servlet-mapping>
+</web-app>
