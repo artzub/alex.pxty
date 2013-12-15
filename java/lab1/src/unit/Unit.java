@@ -51,7 +51,7 @@ public class Unit {
 
     public Unit convertTo(UnitTypes type, int digits) {
         double coff = 1,
-               scale = 1;
+               scale = 1; // 1 kg = 0.001 g
 
         switch (typeUnit) {
             case Gram:
@@ -92,6 +92,7 @@ public class Unit {
                 break;
             case Ounce:
                 switch (type) {
+
                     case Kg:
                         scale = 0.001;
                     case Gram:

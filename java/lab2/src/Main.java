@@ -17,6 +17,7 @@ public class Main {
         System.out.println("Add book:");
         bookshelf.add(new Book("Dune Messiah", "Frank Herbert", Book.Genres.ScienceFiction));
         System.out.println(bookshelf);
+
         System.out.println();
 
         System.out.println("Add book after test:");

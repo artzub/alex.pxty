@@ -82,6 +82,7 @@ public class Bookshelf implements Shelf<Book> {
             return;
 
         getBooks().remove(book);
+        removeFromBooksByAuthor(book);
     }
 
     @Override
@@ -105,7 +106,8 @@ public class Bookshelf implements Shelf<Book> {
         if(getBooks().isEmpty())
             return;
 
-        Collections.sort(books, getBookComparator(type, desc));
+        Collections.sort(books,getBookComparator(type, desc));
+
     }
 
     @Override

@@ -38,3 +38,4 @@ public class RegServlet extends HttpServlet {
         resp.sendRedirect("index.jsp");
     }
 }
+
