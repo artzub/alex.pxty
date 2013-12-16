@@ -4,10 +4,10 @@ using System.Threading;
 
 namespace Core.Messaging
 {
-	public class Server
+	public class Server : ServerBase
 	{
-		public static string pathServer = "Label:SearcherServerMSMQ";
-		public static string pathClient = "Label:SearcherClientMSMQ";
+        public static string pathServer = ".\\Private$\\SearcherServerMSMQ";
+        public static string pathClient = ".\\Private$\\SearcherClientMSMQ";
 
 		private MessageQueue mqClient;
 		private MessageQueue mqServer;
@@ -34,73 +34,36 @@ namespace Core.Messaging
 			Console.WriteLine("MQ Client path: {0}", mqClient.Path);
 			Console.WriteLine("Waiting for message...");
 			while (true) {
-				if (!mqClient.Transactional) {
-					Thread.Sleep(1000);
-					continue;
-				}
-
-				var mqt = new MessageQueueTransaction();
-				mqt.Begin ();
-				var obj = mqClient.Receive (mqt);
-				mqt.Commit();
-
-				Console.WriteLine("{0}", obj);
+				var obj = mqClient.Receive();
 
 				if (obj != null) {
 
-					var str = obj.ToString();
-					switch(str.Substring(0, 3)) {
-						//:0:2
-						case ":0:":
-							schr = new Searcher(Convert.ToInt32(str.Replace(":0:", "")));						
-							if (schr == null)								
-								SendText(mqServer, "-1");
-							else 
-								SendText(mqServer, string.Format("Seacher made (step {0})", schr.Step));
-						break;
-						//:1:2,3,4,5
-						case ":1:":
-							//make
-							if (schr == null) {
-								SendText(mqServer, "-1");
-								continue;
-							}
+                    var msg = SearcherMessage.Parse(obj.Body);
 
-							foreach(var item in str.Replace(":1:", "").Split(','))
-								if (!string.IsNullOrEmpty(item))
-									schr.AddItem(Convert.ToInt32(item));
-							SendText(mqServer, string.Format("Seacher filled: {0}", schr));
-						break;
-						case ":2:":
-							//run
-							if (schr == null) {
-								SendText(mqServer, "-1");
-								continue;
-							}
-							
-							schr.Fix();
-							SendText(mqServer, string.Format("Seacher fixed: {0}", schr));
-						break;
+                    Console.WriteLine("{0}", msg);
 
-					}
+                    SendText(mqServer, DoWork(msg, ref schr));
+					
 					Console.WriteLine("Waiting for message...");
 				}
 			}
 		}
 
-		public static void SendText (MessageQueue mq,  string str)
-		{
-			var mqt = new MessageQueueTransaction();
-			try {
-				mqt.Begin();
-				var msg = new Message(str);
-				mq.Send (msg, mqt);
-				mqt.Commit();
+        public static void Send(MessageQueue mq, SearcherMessage msg) {
+            try {
+                mq.Send(msg);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
-			} catch (Exception ex) {
-				Console.WriteLine(ex.Message);
-				mqt.Abort();
-			}
+		public static void SendText(MessageQueue mq,  string str)
+		{
+			Send(mq, new SearcherMessage() { 
+                Type = TypeSearcherMessage.None,
+                Message = str
+            });
 		}
 	}
 }

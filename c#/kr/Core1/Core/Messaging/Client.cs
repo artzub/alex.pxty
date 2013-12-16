@@ -1,6 +1,7 @@
 using System;
 using System.Messaging;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace Core.Messaging
 {
@@ -18,18 +19,49 @@ namespace Core.Messaging
 		}
 
 		public string Receive() {
-			if (!mqServer.Transactional)
-				return string.Empty;
-
 			var result = string.Empty;
+            var msg = mqServer.Receive();
 
-			var mqt = new MessageQueueTransaction();
-			mqt.Begin ();
-			var obj = mqClient.Receive (mqt);
-			mqt.Commit();
+            if (msg != null)
+                if (msg.Body is SearcherMessage) {
+                    var smsg = msg.Body as SearcherMessage;
+                    result = smsg.ToString(true);
+                }
+                else {
+                    result = string.Format("{0}", msg.Body);
+                }
 
-			return string.Format("{0}", obj);
+			return result;
 		}
+
+        public void SendInit(int step) {
+            var msg = new SearcherMessage() {
+                Type = TypeSearcherMessage.Init,
+                Message = step.ToString()
+            };
+            Send(msg);
+        }
+
+        public void SendAdd(IList<string> list) {
+            string str = string.Empty;
+            foreach (var item in list) {
+                str += item + ',';
+            }
+            Send((new SearcherMessage() {
+                Type = TypeSearcherMessage.Add,
+                Message = str
+            }));
+        }
+
+        public void SendFix() {
+            Send(new SearcherMessage() {
+                Type = TypeSearcherMessage.Fix
+            });
+        }
+
+        public void Send(SearcherMessage msg) {
+            Server.Send(mqClient, msg);
+        }
 
 		public void SendText(string str) {
 			Server.SendText(mqClient, str);

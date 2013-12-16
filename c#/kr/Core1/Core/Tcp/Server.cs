@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Core.Tcp
 {
-	public class Server
+	public class Server : ServerBase
 	{
 		private Socket mainSocket;
 		class ClientInfo {
@@ -77,40 +77,13 @@ namespace Core.Tcp
 						break;
 					str = Encoding.ASCII.GetString (buffer, 0, readBytes);
 					Console.WriteLine ("Client {0} said: {1}", clientInfo.Thread.ManagedThreadId ,str);
-					switch(str.Substring(0, 3)) {
-						//:0:2
-						case ":0:":
-							schr = new Searcher(Convert.ToInt32(str.Replace(":0:", "")));						
-							if (schr == null)
-								SendText(clientInfo.Socket, "-1");
-							else 
-								SendText(clientInfo.Socket, string.Format("Seacher made (step {0})", schr.Step));
-						break;
-						//:1:2,3,4,5
-						case ":1:":
-							//make
-							if (schr == null) {
-								SendText(clientInfo.Socket, "-1");
-								continue;
-							}
 
-							foreach(var item in str.Replace(":1:", "").Split(','))
-								if (!string.IsNullOrEmpty(item))
-									schr.AddItem(Convert.ToInt32(item));
-							SendText(clientInfo.Socket, string.Format("Seacher filled: {0}", schr));
-						break;
-						case ":2:":
-							//run
-							if (schr == null) {
-								SendText(clientInfo.Socket, "-1");
-								continue;
-							}
-							
-							schr.Fix();
-							SendText(clientInfo.Socket, string.Format("Seacher fixed: {0}", schr));
-						break;
+                    var msg = SearcherMessage.Parse(str);
 
-					}
+                    if (msg == null)
+                        continue;
+
+                    SendText(clientInfo.Socket, DoWork(msg, ref schr));
 				}
 			} catch(Exception ex) {
 				Console.WriteLine("Client {0} Error: {1}",  clientInfo.Thread.ManagedThreadId, ex.Message);
@@ -118,7 +91,7 @@ namespace Core.Tcp
 
 		}
 
-		private int SendText(Socket s, string str) {
+        private int SendText(Socket s, string str) {
 			return s.Send(Encoding.ASCII.GetBytes(str));
 		}
 	}

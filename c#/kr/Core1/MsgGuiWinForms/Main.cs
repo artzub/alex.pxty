@@ -2,6 +2,7 @@ using Core;
 using Core.Messaging;
 using System;
 using System.Collections;
+using System.Linq;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -259,8 +260,8 @@ namespace Winforms {
 				stage = 4;
 			switch (stage) {
 			case 1:
-				this.client.SendText(":0:" + this.step.ToString());
-				this.button2.Enabled = false;
+				client.SendInit(step);
+				button2.Enabled = false;
 				break;
 			case 2:
 				if (this.listView1.Items.Count > 0 && (!Searcher.Validate(Convert.ToInt32(this.listView1.Items.Count <= 0 ? this.numericUpDown1.Value.ToString() : this.listView1.Items[0].Text), this.step, Convert.ToInt32(this.numericUpDown1.Value)) || this.listView1.Items[this.listView1.Items.Count - 1].Text == this.numericUpDown1.Value.ToString())) {
@@ -274,24 +275,10 @@ namespace Winforms {
 					break;
 				}
 			case 3:
-				string str = "";
-				IEnumerator enumerator = this.listView1.Items.GetEnumerator();
-				try {
-					while (enumerator.MoveNext()) {
-						ListViewItem listViewItem = (ListViewItem) enumerator.Current;
-              			str = str + listViewItem.Text + ",";
-					}
-				}
-				finally
-				{
-					IDisposable disposable;
-					if ((disposable = enumerator as IDisposable) != null)
-						disposable.Dispose();
-				}
-				client.SendText(string.Format(":1:{0}", (object) str));
+				client.SendAdd(listView1.Items.Cast<ListViewItem>().Select(x => x.Text).ToList());
           		break;
 			case 4:
-				client.SendText(":2:");
+				client.SendFix();
 				break;
 			}
 		}
@@ -312,12 +299,12 @@ namespace Winforms {
 
 			this.client = new Client();
       		bg.RunWorkerAsync();
+            client.SendText("Ready!!!");
 			button1.Enabled = false;
 			numericUpDown2.Enabled = true;
 			numericUpDown2.Focus();
 		}
 		private void HandleDoWork(object sender, DoWorkEventArgs e) {
-//			string str1= string.Empty;
             while (client != null) {
 				string str2 = client.Receive();
         		if (!string.IsNullOrEmpty(str2))
