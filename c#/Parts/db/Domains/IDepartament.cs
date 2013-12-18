@@ -1,0 +1,28 @@
+using System;
+
+namespace db.Domains
+{
+	public interface IDepartament : IDomain
+	{
+		long Num {
+			get;
+			set;
+		}
+
+		object IdTypeDep {
+			get;
+			set;
+		}
+
+        ITypeDep TypeDep {
+            get;
+            set;
+        }
+
+        System.Collections.Generic.ICollection<IStage> Stages {
+            get;
+            private set;
+        }
+	}
+}
+

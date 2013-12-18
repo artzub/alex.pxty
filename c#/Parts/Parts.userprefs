@@ -1,18 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../kr/stage_first/stage_first.sln">
+  <MonoDevelop.Ide.Workbench ActiveDocument="db/Domains/Departament.cs">
     <Files>
-      <File FileName="db/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="db/MyClass.cs" Line="5" Column="13" />
-      <File FileName="testdb/Main.cs" Line="10" Column="7" />
-      <File FileName="testdb/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="db/ISurface.cs" Line="1" Column="1" />
-      <File FileName="db/Surface.cs" Line="1" Column="1" />
-      <File FileName="db/IAlloy.cs" Line="1" Column="1" />
-      <File FileName="db/INamed.cs" Line="1" Column="1" />
-      <File FileName="db/IDomain.cs" Line="1" Column="1" />
-      <File FileName="../kr/stage_first/stage_first.sln" Line="1" Column="1" />
+      <File FileName="db/MyClass.cs" Line="15" Column="4" />
+      <File FileName="db/Domains/Stage.cs" Line="5" Column="37" />
+      <File FileName="db/Domains/Part.cs" Line="13" Column="66" />
+      <File FileName="db/Domains/IPart.cs" Line="12" Column="3" />
+      <File FileName="db/Domains/Surface.cs" Line="18" Column="4" />
+      <File FileName="db/Domains/TypeDep.cs" Line="13" Column="8" />
+      <File FileName="db/Domains/Alloy.cs" Line="1" Column="1" />
+      <File FileName="db/Domains/Departament.cs" Line="6" Column="32" />
     </Files>
+    <Pads>
+      <Pad Id="ClassPad">
+        <State expanded="True">
+          <Option id="GroupByAccess" value="True" />
+          <Node name="db" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
