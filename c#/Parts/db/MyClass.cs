@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Data.OracleClient;
 using System.Collections.Generic;
+using db.Domains;
 
 namespace db
 {
