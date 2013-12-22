@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Core;
 
-namespace WebService {
+namespace WcfServiceLibrary {
     public class SearcherWeb : ISearcher {
         private Searcher schr;
         private Searcher Schr {

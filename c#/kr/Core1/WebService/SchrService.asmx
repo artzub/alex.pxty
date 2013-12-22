@@ -1,1 +1,0 @@
-﻿<%@ WebService Language="C#" CodeBehind="SchrService.asmx.cs" Class="WebService.SchrService" %>
