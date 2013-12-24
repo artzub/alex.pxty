@@ -41,7 +41,7 @@
     <Compile Include="Domains\ISurface.cs" />
     <Compile Include="Domains\Surface.cs" />
     <Compile Include="Domains\ITypeDep.cs" />
-    <Compile Include="MyClass.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Domains\Alloy.cs" />
     <Compile Include="Domains\DomainNamed.cs" />
     <Compile Include="Domains\IDepartament.cs" />

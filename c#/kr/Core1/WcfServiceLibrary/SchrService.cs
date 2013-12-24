@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-
-namespace WcfServiceLibrary {
+﻿namespace WcfServiceLibrary {
     public class SchrService : ISchrService {
 
         public string AddItem(int item) {
@@ -15,7 +8,7 @@ namespace WcfServiceLibrary {
             if (schrw.Initialized)
                 res = schrw.AddItem(item);
 
-            if (res > 0)
+            if (res > -1)
                 str = "";
             return str + GetState();
         }

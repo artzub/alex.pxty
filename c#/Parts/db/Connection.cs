@@ -6,7 +6,7 @@ using db.Domains;
 
 namespace db
 {
-	public class MyClass
+	public class Connection
 	{
 		OracleConnection t;
 		public IList<INamed> getSurface ()
@@ -22,7 +22,7 @@ namespace db
 			return list;
 		}
 
-		public MyClass ()				
+		public Connection ()				
 		{
 			var conn = "User ID=PARTS;" +
 				"Password=Zelda;" +

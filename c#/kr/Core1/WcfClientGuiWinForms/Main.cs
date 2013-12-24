@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using WcfClientGuiWinForms.ServiceReferenceConsole;
+using WcfServiceLibrary;
 
 namespace WcfClientGuiWinForms {
 	public class Main : Form {
@@ -38,7 +38,6 @@ namespace WcfClientGuiWinForms {
 	    private NumericUpDown numericUpDown1;
 	    private NumericUpDown numericUpDown2;
 	    private SchrServiceClient client;
-	    private BackgroundWorker bg;
 		public Main() {		
 			this.InitializeComponent();
 		    
@@ -51,13 +50,8 @@ namespace WcfClientGuiWinForms {
 		    this.button3.Click += new EventHandler(this.HandleClick);
 		    this.button4.Click += new EventHandler(this.HandleClick);
 
-            label1.Visible = false;
-            textBox1.Visible = false;
-            button1.Enabled = true;
             textBox2.Visible = false;
             label2.Visible = false;
-
-            client = new SchrServiceClient();
 
             button1.Enabled = false;
             numericUpDown2.Enabled = true;
@@ -302,6 +296,12 @@ namespace WcfClientGuiWinForms {
 				textBox2.Text = "80";
       		if (!int.TryParse(this.textBox2.Text, out result))
 				return;
+
+            var tb = textBox1.Text.LastIndexOf(".svc") > -1 ? SchrServiceClient.TypeBinding.BaseHttp : SchrServiceClient.TypeBinding.WSHttp;
+            textBox1.Enabled = false;
+            button1.Enabled = false;
+            client = SchrServiceClient.GetClient(textBox1.Text, tb);
+            AppendLog(client.ToString());
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace testdb
 	{
 		public static void Main (string[] args)
 		{
-			var list = (new MyClass()).getSurface();
+			var list = (new Connection()).getSurface();
 
 			foreach(var item in list)
 				Console.WriteLine(item);

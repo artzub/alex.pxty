@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Core;
+﻿using Core;
 
 namespace WcfServiceLibrary {
     public class SearcherWeb : ISearcher {

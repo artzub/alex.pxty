@@ -37,17 +37,6 @@
     </Compile>
     <Compile Include="program.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Service References\SchrServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceReferenceConsole\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Runtime.Serialization" />
@@ -59,20 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\SchrServiceReference\SchrService.wsdl" />
-    <None Include="Service References\SchrServiceReference\SchrService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SchrServiceReference\SchrService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReferenceConsole\SchrService.wsdl" />
-    <None Include="Service References\ServiceReferenceConsole\SchrService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReferenceConsole\SchrService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -86,39 +61,5 @@
       <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
       <Name>WcfServiceLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SchrServiceReference\" />
-    <WCFMetadataStorage Include="Service References\ServiceReferenceConsole\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SchrServiceReference\SchrService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SchrServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SchrServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SchrServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceConsole\SchrService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceConsole\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceConsole\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceConsole\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 </Project>
