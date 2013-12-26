@@ -11,7 +11,7 @@ namespace db.Domains
 
 		public ICollection<IPart> Parts {
 			get;
-			private set;
+			set;
 		}
 
 	}

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="db.Mapping.Mapper&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABICBAAAAAAAACAAAAIABAAABAgAAAAAAAAA=</HashCode>
+      <FileName>Mapping\Mapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="db.Mapping.AlloyMapper" Collapsed="true">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\AlloyMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.Mapping.SurfaceMapper" Collapsed="true">
+    <Position X="6.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\SurfaceMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.Mapping.PartMapper" Collapsed="true">
+    <Position X="8.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\PartMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.Mapping.StageMapper" Collapsed="true">
+    <Position X="11.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\StageMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.Mapping.DepartamentMapper" Collapsed="true">
+    <Position X="13.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\DepartamentMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.Mapping.TypeDepMapper" Collapsed="true">
+    <Position X="3.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\TypeDepMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="db.Mapping.IBaseMapper" Collapsed="true">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\IBaseMapper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="db.Mapping.IMapper&lt;T&gt;" Collapsed="true">
+    <Position X="1" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Mapping\IMapper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

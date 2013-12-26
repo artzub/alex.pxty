@@ -19,7 +19,7 @@ namespace db.Domains
 
         public System.Collections.Generic.ICollection<IStage> Stages {
 			get;
-			private set;
+			set;
         }
     }
 }

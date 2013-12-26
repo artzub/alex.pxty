@@ -8,17 +8,16 @@ namespace db
 {
 	public class Connection
 	{
-		OracleConnection t;
+		/*OracleConnection t;
 		public IList<INamed> getSurface ()
 		{
 			var list = new List<INamed>();
 
-			using (var r = t.CreateCommand()) {
-				r.CommandText = "select * from surface";
-				using(var er = r.ExecuteReader ()) 
-					while(er.Read())
-						list.Add(new Surface(er["ID"], er["NAME"].ToString()));
-			}
+			var r = t.CreateCommand();
+			r.CommandText = "select * from surface";
+			var er = r.ExecuteReader ();
+			while(er.Read())
+				list.Add(new Surface(er["ID"], er["NAME"].ToString()));			
 			return list;
 		}
 
@@ -33,7 +32,7 @@ namespace db
 				"(SERVICE_NAME=XE)))";
 			t = new OracleConnection (conn);
 			t.Open ();
-		}
+		}*/
 	}
 }
 

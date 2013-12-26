@@ -11,7 +11,7 @@ namespace db.Domains
 
         public ICollection<IDepartament> Departaments {
 			get;
-			private set;
+			set;
         }
     }
 }

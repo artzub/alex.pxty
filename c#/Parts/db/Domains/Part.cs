@@ -5,7 +5,7 @@ namespace db.Domains
 {
     public class Part : DomainNamed, IPart
     {
-		private void init (long cost = 0, Int64 idAlloy = null)	{
+		private void init (long cost = 0, object idAlloy = null)	{
 			Cost = cost;
 			IdAlloy = idAlloy;			
 		}
@@ -40,7 +40,7 @@ namespace db.Domains
 
         public ICollection<IStage> Stages {
 			get;
-			private set;
+			set;
         }
     }
 }

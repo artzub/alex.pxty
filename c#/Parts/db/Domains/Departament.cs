@@ -45,7 +45,7 @@ namespace db.Domains
 
         public ICollection<IStage> Stages {
 			get;
-			private set;
+			set;
         }
     }
 }

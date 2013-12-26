@@ -21,7 +21,7 @@ namespace db.Domains
 
         System.Collections.Generic.ICollection<IStage> Stages {
             get;
-            private set;
+            set;
         }
 	}
 }

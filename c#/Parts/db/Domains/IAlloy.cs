@@ -7,7 +7,7 @@ namespace db.Domains
 	{
 		ICollection<IPart> Parts {
 			get;
-			private set;
+			set;
         }
 	}
 }

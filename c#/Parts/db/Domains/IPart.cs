@@ -22,7 +22,7 @@ namespace db.Domains
 
         ICollection<IStage> Stages {
             get;
-            private set;
+            set;
         }
 	}
 }
