@@ -30,30 +30,60 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Mapping\AlloyMapper.cs" />
+    <Compile Include="Mapping\AssemblyInfo.cs" />
+    <Compile Include="DataAccess\DatabaseConnection.cs" />
+    <Compile Include="DataAccess\DatabaseGateway.cs" />
+    <Compile Include="DataAccess\OracleConnection.cs" />
+    <Compile Include="DataAccess\Provider.cs" />
+    <Compile Include="DataAccess\Queries.cs" />
+    <Compile Include="Mapping\BaseColumnsWrapper.cs" />
+    <Compile Include="Mapping\DepartamentMapper.cs" />
+    <Compile Include="Mapping\DomainColumnsWrapper.cs" />
+    <Compile Include="Mapping\DomainNamedColumnsWrapper.cs" />
+    <Compile Include="Mapping\IBaseMapper.cs" />
+    <Compile Include="DataAccess\IConnectSetting.cs" />
+    <Compile Include="DataAccess\IDatabaseConnection.cs" />
+    <Compile Include="Mapping\IMapper.cs" />
+    <Compile Include="DataAccess\InsertStatementBuilder.cs" />
+    <Compile Include="DataAccess\IStatementBuilder.cs" />
+    <Compile Include="DataAccess\Parameter.cs" />
+    <Compile Include="DataAccess\StatementBuilder.cs" />
+    <Compile Include="DataAccess\StoredProsedureStatementBuilder.cs" />
+    <Compile Include="DataAccess\UpdateStatementBiulder.cs" />
     <Compile Include="Domains\Departament.cs" />
-    <Compile Include="Domains\IDomain.cs" />
-    <Compile Include="Domains\INamed.cs" />
+    <Compile Include="IDomain.cs" />
+    <Compile Include="INamed.cs" />
     <Compile Include="Domains\IAlloy.cs" />
     <Compile Include="Domains\ISurface.cs" />
     <Compile Include="Domains\Surface.cs" />
     <Compile Include="Domains\ITypeDep.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Domains\Alloy.cs" />
-    <Compile Include="Domains\DomainNamed.cs" />
+    <Compile Include="DomainNamed.cs" />
     <Compile Include="Domains\IDepartament.cs" />
     <Compile Include="Domains\IPart.cs" />
     <Compile Include="Domains\IStage.cs" />
-    <Compile Include="Domains\Domain.cs" />
+    <Compile Include="Domain.cs" />
     <Compile Include="Domains\Part.cs" />
     <Compile Include="Domains\Stage.cs" />
     <Compile Include="Domains\TypeDep.cs" />
+    <Compile Include="Mapping\Mapper.cs" />
+    <Compile Include="Mapping\PartMapper.cs" />
+    <Compile Include="Mapping\StageMapper.cs" />
+    <Compile Include="Mapping\SurfaceMapper.cs" />
+    <Compile Include="Mapping\TypeDepMapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mapping\Mapping.cd" />
+    <None Include="DataAccess\DataAccess.cd" />
+    <None Include="Domains\Domains.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Mapping\" />
-  </ItemGroup>
 </Project>

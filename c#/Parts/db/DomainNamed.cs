@@ -4,7 +4,7 @@ namespace db
 {
 	public class DomainNamed : Domain, INamed 
 	{
-		public DomainNamed (object id = null, object name = default(string)) 
+		public DomainNamed (object id = null, string name = default(string)) 
 			: base(id) {
 			Name = name;
 		}

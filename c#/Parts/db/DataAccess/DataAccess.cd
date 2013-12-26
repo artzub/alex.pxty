@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="db.DataAccess.DatabaseConnection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAIAAAAAAEgBAEAIAAAAAAAAAgAACAgAA=</HashCode>
+      <FileName>DataAccess\DatabaseConnection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="db.DataAccess.DatabaseGateway" Collapsed="true">
+    <Position X="1.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgACCAAAAAEAAAABAAAAAQAAAgABAAAABAAAAAE=</HashCode>
+      <FileName>DataAccess\DatabaseGateway.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.DataAccess.InsertStatementBuilder" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\InsertStatementBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.DataAccess.OracleConnection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAIAAAAAAEAAAAAIBAACAAQAAAAACAgAA=</HashCode>
+      <FileName>DataAccess\OracleConnection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="db.DataAccess.Parameter" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAACAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>DataAccess\Parameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.DataAccess.Provider" Collapsed="true">
+    <Position X="1.75" Y="3.75" Width="1.5" />
+    <AssociationLine Name="DatabaseGateway" Type="db.DataAccess.DatabaseGateway">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.4" Y="0.143" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>DataAccess\Provider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DatabaseGateway" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="db.DataAccess.Queries" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAgAAAAAAAIAAAEAAIAAAAQABAAA=</HashCode>
+      <FileName>DataAccess\Queries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.DataAccess.StatementBuilder" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAiAAAAIAABAIAAAQCAAAA=</HashCode>
+      <FileName>DataAccess\StatementBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="db.DataAccess.StoredProsedureStatementBuilder" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\StoredProsedureStatementBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="db.DataAccess.UpdateStatementBuilder" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAEAAAAAQAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>DataAccess\UpdateStatementBiulder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="db.DataAccess.IConnectSetting" Collapsed="true">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAABAAAAAEAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>DataAccess\IConnectSetting.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="db.DataAccess.IDatabaseConnection" Collapsed="true">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAEAAAAAIAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>DataAccess\IDatabaseConnection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="db.DataAccess.IStatementBuilder" Collapsed="true">
+    <Position X="12.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAQAAAAA=</HashCode>
+      <FileName>DataAccess\IStatementBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

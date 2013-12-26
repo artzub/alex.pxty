@@ -7,7 +7,7 @@ namespace db.Domains
 	{
 		ICollection<IDepartament> Departaments {
 			get;
-			private set;
+			set;
 		}
 	}
 }
