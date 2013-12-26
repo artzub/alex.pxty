@@ -248,9 +248,9 @@ namespace RemClientGuiWinForms {
 				client.InitStep(step);
 				button2.Enabled = false;
 				numericUpDown1.Enabled = true;
-				numericUpDown1.Maximum = step < 0 ? int.MinValue : int.MaxValue;
-				numericUpDown1.Minimum = step < 0 ? int.MaxValue : int.MinValue;
-				numericUpDown1.Increment = step;
+				numericUpDown1.Maximum = int.MaxValue;
+				numericUpDown1.Minimum = int.MinValue;
+				numericUpDown1.Increment = Math.Abs(step);
 				button3.Enabled = true;
 				numericUpDown1.Focus ();
 				break;
@@ -259,7 +259,12 @@ namespace RemClientGuiWinForms {
 					MessageBox.Show(string.Format("This value isn't correct"));
 				else {
 					this.listView1.Items.Add(this.numericUpDown1.Value.ToString());
-            		this.numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
+					if (step == 0)
+						numericUpDown1.Minimum = numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
+					else if (step > 0)
+						numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
+					else
+						numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
             		this.button4.Enabled = this.listView1.Items.Count > 0;
 				}
 				break;
@@ -298,15 +303,20 @@ namespace RemClientGuiWinForms {
 				textBox2.Text = "80";
       		if (!int.TryParse(this.textBox2.Text, out result))
 				return;
-			client = new Client();
-      		if (!client.Enable)
-				return;
 
-			AppendLog(string.Format("Connected to {0}:{1}",textBox1.Text, result));
-      		
-			this.button1.Enabled = false;
-			this.numericUpDown2.Enabled = true;
-			this.numericUpDown2.Focus();
+			try {
+				client = new Client();
+				if (!client.Enable)
+					return;
+
+				AppendLog(string.Format("Connected to {0}:{1}",textBox1.Text, result));
+
+				this.button1.Enabled = false;
+				this.numericUpDown2.Enabled = true;
+				this.numericUpDown2.Focus();	
+			} catch (Exception ex) {
+				AppendLog (ex.Message);
+			}
 		}
 	}
 }

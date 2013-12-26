@@ -1,15 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ComPlusServer/SearcherComp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WcfClientGuiWinForms/Main.cs">
     <Files>
-      <File FileName="ComClientGuiWinForms/Main.cs" Line="58" Column="27" />
-      <File FileName="ComPlusClient/SearcherClient.cs" Line="3" Column="21" />
-      <File FileName="ComPlusServer/SearcherComp.cs" Line="21" Column="38" />
+      <File FileName="WcfClientGuiWinForms/Main.cs" Line="1" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/home/alexey/prg/Core/Core/MyClass.cs" line="22" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/kr/Core1/WcfClientGuiWinForms/Main.cs" line="253" column="1" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/kr/Core1/WcfServiceLibrary/ClientSchrService.cs" line="65" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

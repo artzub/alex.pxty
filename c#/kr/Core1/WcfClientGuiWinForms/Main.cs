@@ -244,33 +244,42 @@ namespace WcfClientGuiWinForms {
 			else if (sender == this.button4)
 				stage = 3;
 
-			switch (stage) {
-			case 1:
-				str = client.Init(step);
-                AppendLog(str);
-				button2.Enabled = false;
-				numericUpDown1.Enabled = true;
-				numericUpDown1.Maximum = step < 0 ? int.MinValue : int.MaxValue;
-				numericUpDown1.Minimum = step < 0 ? int.MaxValue : int.MinValue;
-				numericUpDown1.Increment = step;
-				button3.Enabled = true;
-				numericUpDown1.Focus ();
-				break;
-			case 2:
-				str = client.AddItem(Convert.ToInt32(numericUpDown1.Value));
-                AppendLog(str);
-				if (!str.Contains("correct")) {
-					this.listView1.Items.Add(this.numericUpDown1.Value.ToString());
-            		this.numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
-            		this.button4.Enabled = this.listView1.Items.Count > 0;
+			try {
+				switch (stage) {
+					case 1:
+						str = client.Init(step);
+		                AppendLog(str);
+						button2.Enabled = false;
+						numericUpDown1.Enabled = true;
+						numericUpDown1.Maximum = int.MaxValue;
+						numericUpDown1.Minimum = int.MinValue;
+	                    numericUpDown1.Increment = Math.Abs(step);
+						button3.Enabled = true;
+						numericUpDown1.Focus ();
+						break;
+					case 2:
+						str = client.AddItem(Convert.ToInt32(numericUpDown1.Value));
+		                AppendLog(str);
+						if (!str.Contains("correct")) {
+							listView1.Items.Add(this.numericUpDown1.Value.ToString());
+							if (step == 0)
+		            			numericUpDown1.Minimum = numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
+							else if (step > 0)
+								numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
+							else
+								numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
+		            		button4.Enabled = this.listView1.Items.Count > 0;
+						}
+						break;
+					case 3:
+						AppendLog("before:");
+						AppendLog(client.GetState());
+		                AppendLog("after:");
+						AppendLog(client.Fix());
+						break;
 				}
-				break;
-			case 3:
-				AppendLog("before:");
-				AppendLog(client.GetState());
-                AppendLog("after:");
-				AppendLog(client.Fix());
-				break;
+			} catch (Exception ex) {
+				AppendLog(ex.Message);
 			}
 		}
 
@@ -291,17 +300,19 @@ namespace WcfClientGuiWinForms {
 		}
 
 		private void clickConnect(object sndr, EventArgs e) {
-			int result = 80;
-			if (string.IsNullOrEmpty(this.textBox2.Text))
-				textBox2.Text = "80";
-      		if (!int.TryParse(this.textBox2.Text, out result))
-				return;
 
             var tb = textBox1.Text.LastIndexOf(".svc") > -1 ? SchrServiceClient.TypeBinding.BaseHttp : SchrServiceClient.TypeBinding.WSHttp;
-            textBox1.Enabled = false;
-            button1.Enabled = false;
-            client = SchrServiceClient.GetClient(textBox1.Text, tb);
-            AppendLog(client.ToString());
+            
+            try {
+                client = SchrServiceClient.GetClient(textBox1.Text, tb);
+                AppendLog(client);
+				textBox1.Enabled = false;
+            	button1.Enabled = false;
+            }
+            catch (Exception ex) {
+                AppendLog(ex.Message);
+            }
+            
 		}
 	}
 }

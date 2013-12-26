@@ -20,7 +20,7 @@ namespace Core.Remoting
 				sch = (ISearcher)Activator.GetObject (typeof(ISearcher), string.Format("tcp://{0}:{1}/Searcher", host, port), 2);
 
 				Enable = sch != null;
-			} catch (Exception ex) {
+			} catch (Exception) {
 			}
 		}
 

@@ -77,12 +77,12 @@ namespace Core
 				Items.First == null) 
 				return false;
 
-			var item = Items.First;
+            var item = Items.First;
 			while (item.Next != null) {
-				while(item.Next.Value - item.Value > Step) {
-					items.AddBefore(item.Next, item.Next.Value-Step);
-				}
-				item = item.Next;
+                while (Math.Abs(item.Next.Value - item.Value) > Math.Abs(Step)) {
+                    items.AddBefore(item.Next, item.Next.Value - Step);
+                }                
+                item = item.Next;
 			}
 			return true;
 		}
