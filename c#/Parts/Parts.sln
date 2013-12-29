@@ -3,24 +3,59 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db", "db\db.csproj", "{AC3005A7-6499-4FA1-9702-0DA2EC65A444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testdb", "testdb\testdb.csproj", "{76AA6CE0-F2ED-42AD-BD6E-AEBD0BBFC5A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "consoleClient", "consoleClient\consoleClient.csproj", "{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parts", "Parts\Parts.csproj", "{B5CC78CC-83DC-477D-9141-99A205F6C2B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{76AA6CE0-F2ED-42AD-BD6E-AEBD0BBFC5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76AA6CE0-F2ED-42AD-BD6E-AEBD0BBFC5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76AA6CE0-F2ED-42AD-BD6E-AEBD0BBFC5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76AA6CE0-F2ED-42AD-BD6E-AEBD0BBFC5A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Debug|x86.Build.0 = Debug|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Release|x86.ActiveCfg = Release|Any CPU
+		{11FEA58E-D8C3-43E4-96B3-037AE9BC0829}.Release|x86.Build.0 = Release|Any CPU
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Release|x86.ActiveCfg = Release|Any CPU
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Debug|Any CPU.Build.0 = Debug|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Debug|x86.ActiveCfg = Debug|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Debug|x86.Build.0 = Debug|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Release|Any CPU.ActiveCfg = Release|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Release|Any CPU.Build.0 = Release|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Release|x86.ActiveCfg = Release|x86
+		{B5CC78CC-83DC-477D-9141-99A205F6C2B1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = testdb\testdb.csproj
+		StartupItem = consoleClient\consoleClient.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

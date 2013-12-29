@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WcfClientGuiWinForms/Main.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WcfConsoleService/Program.cs">
     <Files>
       <File FileName="WcfClientGuiWinForms/Main.cs" Line="1" Column="12" />
+      <File FileName="WcfConsoleService/Program.cs" Line="37" Column="65" />
+      <File FileName="WcfConsoleService/app.config" Line="1" Column="1" />
+      <File FileName="WcfServiceLibrary/ISchrService.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

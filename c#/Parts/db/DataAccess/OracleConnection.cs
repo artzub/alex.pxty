@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using System.Data.OracleClient;
 using System;
 
 namespace db.DataAccess {
@@ -41,10 +42,20 @@ namespace db.DataAccess {
 			}
 		}
 
+        public void Initialize(string connectionString) {
+            try {
+                dbconn = new DatabaseConnection(new System.Data.OracleClient.OracleConnection(connectionString));
+            }
+            catch (Exception) {
+                
+                throw;
+            }
+        }
+
 		private OracleConnection() {
 			try {
 				SettingSectionName = this.GetType().Name;
-				dbconn = new DataAccess.DatabaseConnection(SettingSectionName);
+				//dbconn = //new DataAccess.DatabaseConnection(SettingSectionName);
 			}
 			catch (Exception e) {
 				throw (e);

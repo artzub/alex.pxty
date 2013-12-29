@@ -49,6 +49,18 @@ namespace db.DataAccess {
 			}
 		}
 
+        public DatabaseConnection(IDbConnection conn) {
+            try {
+                //SettingSectionName = settingSectionName;
+                //InitializeConnectionInformation();
+                //OpenBaseConnection();
+                baseConnection = conn;
+            }
+            catch (Exception e) {
+                throw (e);
+            }
+        }
+
 		private void OpenBaseConnection() {			
 			try {
 				baseConnection = connectionInformation.CreateConnection();				
