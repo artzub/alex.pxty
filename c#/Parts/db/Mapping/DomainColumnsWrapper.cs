@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using db.Domains;
+using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class DomainColumnsWrapper : BaseColumnsWrapper {
         public DomainColumnsWrapper(DataRow row) : base(row) {           
         }

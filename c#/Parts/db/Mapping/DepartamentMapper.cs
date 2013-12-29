@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Data;
-using db.Domains;
+using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class DepartamentMapper : Mapper<IDepartament> {
 
         private const string tableName = "Departament"; //TODO
 
-        public DepartamentMapper(db.DataAccess.Queries select)
+        public DepartamentMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 

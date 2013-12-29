@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class StoredProsedureStatementBuilder : StatementBuilder {
 
 		public StoredProsedureStatementBuilder(string storedProcedureName, string paramPrefix = "")

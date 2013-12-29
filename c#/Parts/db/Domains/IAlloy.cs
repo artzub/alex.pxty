@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace db.Domains
+namespace Db.Domains
 {
 	public interface IAlloy : IDomain, INamed
 	{

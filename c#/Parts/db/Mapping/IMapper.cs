@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace db.Mapping {
+namespace Db.Mapping {
 	/// <summary>
 	/// Позволяет обеспечить получение всех данных или поиска данных по идентификатору записи.
 	/// </summary>

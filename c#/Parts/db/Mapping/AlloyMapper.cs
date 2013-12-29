@@ -1,11 +1,11 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class AlloyMapper : Mapper<IAlloy> {
 
         private const string tableName = "ALLOY";
 
-        public AlloyMapper(db.DataAccess.Queries select) 
+        public AlloyMapper(Db.DataAccess.Queries select) 
             : base(tableName, select: select) {
         }
 

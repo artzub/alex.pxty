@@ -1,6 +1,6 @@
 using System;
 
-namespace db
+namespace Db
 {
 	public interface INamed
 	{

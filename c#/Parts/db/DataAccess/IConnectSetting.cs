@@ -1,4 +1,4 @@
-﻿namespace db.DataAccess {
+﻿namespace Db.DataAccess {
 	public interface IConnectSetting {		
 		bool Save();
 		object Load();

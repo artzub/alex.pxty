@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
-using db.DataAccess;
+using Db.DataAccess;
 
-namespace db.Mapping {
+namespace Db.Mapping {
 	public abstract class Mapper<T> : IMapper<T> {
 		private string sqlGetAll;		
 		private string tableName;
+
+        public string TableName {
+            get {
+                return tableName;
+            }
+        }
 
 		/// <summary>
 		/// Запрос на получение всех данных их таблицы
@@ -42,8 +48,13 @@ namespace db.Mapping {
 		/// Получить все данные в таблице 
 		/// </summary>
 		/// <returns>таблица типом <see cref="System.Data.DataTable"/></returns>
-		virtual public System.Data.DataTable GetAllInTable() {
-            return Provider.DatabaseGateway.QueryForDataTable(SqlGetAll);
+		virtual public System.Data.DataTable GetAllInTable(Queries select = null) {
+            var query = string.Empty;
+            if (select != null)
+                query = select.ToString();
+            if (string.IsNullOrWhiteSpace(query))
+                query = SqlGetAll;
+            return Provider.DatabaseGateway.QueryForDataTable(query);
 		}
 
 		/// <summary>

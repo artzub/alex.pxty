@@ -1,10 +1,10 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class TypeDepMapper : Mapper<ITypeDep> {
         private const string tableName = "TYPEDEP"; //TODO: correct name
 
-        public TypeDepMapper(db.DataAccess.Queries select)
+        public TypeDepMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 

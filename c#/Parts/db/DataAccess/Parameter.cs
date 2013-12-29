@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class Parameter {
 		
 		public Parameter(string name, object value, int size, ParameterDirection direction = ParameterDirection.Input) {

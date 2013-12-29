@@ -1,11 +1,11 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class SurfaceMapper : Mapper<ISurface> {
 
         private const string tableName = "SURFACE";
 
-        public SurfaceMapper(db.DataAccess.Queries select)
+        public SurfaceMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 

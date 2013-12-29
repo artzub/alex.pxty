@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AC3005A7-6499-4FA1-9702-0DA2EC65A444}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>db</RootNamespace>
-    <AssemblyName>db</AssemblyName>
+    <RootNamespace>Db</RootNamespace>
+    <AssemblyName>Db</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +36,8 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DeleteStatementBuilder.cs" />
+    <Compile Include="IDefaultEmpty.cs" />
     <Compile Include="Mapping\AlloyMapper.cs" />
     <Compile Include="Mapping\AssemblyInfo.cs" />
     <Compile Include="DataAccess\DatabaseConnection.cs" />
@@ -79,11 +81,15 @@
     <Compile Include="Mapping\StageMapper.cs" />
     <Compile Include="Mapping\SurfaceMapper.cs" />
     <Compile Include="Mapping\TypeDepMapper.cs" />
+    <Compile Include="Types.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Mapping\Mapping.cd" />
     <None Include="DataAccess\DataAccess.cd" />
     <None Include="Domains\Domains.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

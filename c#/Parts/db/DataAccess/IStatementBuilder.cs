@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public interface IStatementBuilder {
 		IList<Parameter> Parameters {
 			get;

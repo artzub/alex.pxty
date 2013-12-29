@@ -1,6 +1,6 @@
 using System;
 
-namespace db.Domains
+namespace Db.Domains
 {
     public class Surface : DomainNamed, ISurface
 	{

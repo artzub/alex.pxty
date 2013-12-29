@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Data;
-using db.Domains;
+using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class PartMapper : Mapper<IPart> {
 
         private const string tableName = "PART";
 
-        public PartMapper(db.DataAccess.Queries select)
+        public PartMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 

@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace db.Domains
+namespace Db.Domains
 {
-    public class Stage : Domain, IStage
-    {
+    public class Stage : Domain, IStage/*, IDefaultEmpty<Stage>*/ {
         private void init (object idStagePrev = null, object idStageNext = null,
             object idDepartament = null, object idSurface = null, object idPart = null)
 		{
@@ -96,5 +95,21 @@ namespace db.Domains
 			get;
 			set;
         }
+
+        #region IDefaultEmpty<Stage> Members
+
+        public static Stage Default {
+            get {
+                return new Stage(1, 1, 1, 1, 1, 1);
+            }
+        }
+
+        public static Stage Empty {
+            get {
+                return new Stage(null, null, null, null, null, null);
+            }
+        }
+
+        #endregion
     }
 }

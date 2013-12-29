@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Controller.AlloyController" Collapsed="true">
+    <Position X="8.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AlloyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller.BaseController" Collapsed="true">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAEgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controller.Controller&lt;T&gt;" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAGAAAAAAACAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Controller.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controller.DepartamentController" Collapsed="true">
+    <Position X="13.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\DepartamentController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller.PartController" Collapsed="true">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\PartController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller.StageController" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\StageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller.SurfaceController" Collapsed="true">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\SurfaceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller.TypeDepController" Collapsed="true">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\TypeDepController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller.DataManager" Collapsed="true">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <AssociationLine Name="alloyController" Type="Controller.AlloyController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6" />
+        <Point X="8.312" Y="5.625" />
+        <Point X="9.5" Y="5.625" />
+        <Point X="9.5" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="typeDepController" Type="Controller.TypeDepController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6" />
+        <Point X="8.312" Y="5.625" />
+        <Point X="11.75" Y="5.625" />
+        <Point X="11.75" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="departamentController" Type="Controller.DepartamentController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6" />
+        <Point X="8.312" Y="5.625" />
+        <Point X="14" Y="5.625" />
+        <Point X="14" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="surfaceController" Type="Controller.SurfaceController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6" />
+        <Point X="8.312" Y="5.625" />
+        <Point X="7.25" Y="5.625" />
+        <Point X="7.25" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="stageController" Type="Controller.StageController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6" />
+        <Point X="8.312" Y="5.625" />
+        <Point X="5" Y="5.625" />
+        <Point X="5" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="PartController" Type="Controller.PartController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6" />
+        <Point X="8.312" Y="5.625" />
+        <Point X="3.281" Y="5.625" />
+        <Point X="3.281" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAihAAACgAAAAAAAAAAAAAAAAAQAAIAABAAAAAQAAQA=</HashCode>
+      <FileName>DataManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="alloyController" />
+      <Field Name="typeDepController" />
+      <Field Name="departamentController" />
+      <Field Name="surfaceController" />
+      <Field Name="stageController" />
+      <Field Name="PartController" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Controller.IController&lt;T&gt;" Collapsed="true">
+    <Position X="1.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAEAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generic\IController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Controller.IController" Collapsed="true">
+    <Position X="1.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

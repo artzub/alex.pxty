@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.Common;
 using System;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class DatabaseConnection : IDatabaseConnection {
 		private ConnectionInformation connectionInformation;
 		private IDbConnection baseConnection;

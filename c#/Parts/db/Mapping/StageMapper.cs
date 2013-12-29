@@ -1,11 +1,11 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class StageMapper : Mapper<IStage> {
 
         private const string tableName = "Stage"; //TODO
 
-        public StageMapper(db.DataAccess.Queries select)
+        public StageMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 
