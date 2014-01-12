@@ -3,15 +3,19 @@ using System.Collections.Generic;
 
 namespace Db.Domains
 {
-	public class Alloy : DomainNamed, IAlloy
+	public class Alloy : DomainNamed
 	{
-		public Alloy (object id = null, string name = default(string)) 
+		public Alloy (object id = null, string name = default(string), Func<ICollection<Part>> lazyFactory = null) 
 			: base(id, name) {
+            lazy = new Lazy<ICollection<Part>>(lazyFactory ?? (() => new HashSet<Part>()));
 		}
 
-		public ICollection<IPart> Parts {
-			get;
-			set;
+        private Lazy<ICollection<Part>> lazy;
+
+		public ICollection<Part> Parts {
+			get {
+                return lazy.Value;
+            }
 		}
 
 	}

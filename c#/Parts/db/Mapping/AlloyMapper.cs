@@ -17,7 +17,10 @@ namespace Db.Mapping {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);
-            return new Alloy(cols.Id, cols.Name);
+            var query = string.Format("select p.* from part p on p.id_alloy = {0}", cols.Id);
+            return new Alloy(cols.Id, cols.Name, () => {
+                return new System.Collections.Generic.HashSet<Part>(new PartMapper(query).GetAll());
+            });
         }
     }
 }

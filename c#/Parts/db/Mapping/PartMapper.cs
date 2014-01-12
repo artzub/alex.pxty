@@ -20,7 +20,8 @@ namespace Db.Mapping {
                 return null;
             var cols = new ColumnsWrapper(row);
             var alloy = new AlloyMapper().FindById(cols.IdAlloy);
-            return new Part(cols.Id, cols.Name, cols.Cost, alloy);
+            var query = string.Format("select * from stage where id_part = {0}", cols.Id);
+            return new Part(cols.Id, cols.Name, cols.Cost, alloy, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainNamedColumnsWrapper {

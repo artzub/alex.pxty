@@ -3,7 +3,7 @@ using System.Data;
 using Db.Domains;
 
 namespace Db.Mapping {
-    public class DepartamentMapper : Mapper<IDepartament> {
+    public class DepartamentMapper : Mapper<Departament> {
 
         private const string tableName = "Dep"; //TODO
 
@@ -15,14 +15,15 @@ namespace Db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IDepartament CreateItemFromRow(System.Data.DataRow row) {
+        protected override Departament CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
 
             var cols = new ColumnsWrapper(row);
 
             var typeDep = new TypeDepMapper().FindById(cols.IdTypeDep);
-            return new Departament(cols.Id, cols.Num, typeDep);
+            var query = string.Format("select * from stage where id_dep = {0}", cols.Id);
+            return new Departament(cols.Id, cols.Num, typeDep, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainColumnsWrapper {

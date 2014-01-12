@@ -2,7 +2,7 @@
 
 namespace Db.Domains
 {
-    public class Stage : Domain, IStage/*, IDefaultEmpty<Stage>*/ {
+    public class Stage : Domain/*, IDefaultEmpty<Stage>*/ {
         private void init (object idStagePrev = null, object idStageNext = null,
             object idDepartament = null, object idSurface = null, object idPart = null)
 		{
@@ -18,8 +18,8 @@ namespace Db.Domains
             init(idStagePrev, idStageNext, idDepartament, idSurface, idPart);
         }
 
-        public Stage(object id = null, IStage stagePrev = null, IStage stageNext = null,
-            IDepartament departament = null, ISurface surface = null, IPart part = null)
+        public Stage(object id = null, Stage stagePrev = null, Stage stageNext = null,
+            Departament departament = null, Surface surface = null, Part part = null)
             : base(id) {
             //init();
             StageNext = stageNext;
@@ -71,27 +71,27 @@ namespace Db.Domains
 			set;
         }
 
-        public IStage StageNext {
+        public Stage StageNext {
 			get;
 			set;
         }
 
-        public IStage StagePrev {
+        public Stage StagePrev {
 			get;
 			set;
         }
 
-        public ISurface Surface {
+        public Surface Surface {
 			get;
 			set;
         }
 
-        public IDepartament Departament {
+        public Departament Departament {
 			get;
 			set;
         }
 
-        public IPart Part {
+        public Part Part {
 			get;
 			set;
         }

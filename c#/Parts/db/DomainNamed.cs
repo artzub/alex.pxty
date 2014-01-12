@@ -14,9 +14,8 @@ namespace Db
 			set;
 		}
 
-		public override string ToString ()
-		{
-			return string.Format ("[{0} Id={1}, Name={2}]", this.GetType().Name, Id, Name);
+		public override string ToString () {
+			return Name;
 		}
 	}
 }

@@ -16,7 +16,10 @@ namespace Db.Mapping {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);
-            return new TypeDep(cols.Id, cols.Name);
+            var query = string.Format("select d.* from dep d where d.id_type_dep = {0}", cols.Id);
+            return new TypeDep(cols.Id, cols.Name, () => {
+                return new System.Collections.Generic.HashSet<Departament>(new DepartamentMapper(query).GetAll());
+            });
         }
     }
 }

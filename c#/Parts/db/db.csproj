@@ -62,16 +62,10 @@
     <Compile Include="Domains\Departament.cs" />
     <Compile Include="IDomain.cs" />
     <Compile Include="INamed.cs" />
-    <Compile Include="Domains\IAlloy.cs" />
-    <Compile Include="Domains\ISurface.cs" />
     <Compile Include="Domains\Surface.cs" />
-    <Compile Include="Domains\ITypeDep.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Domains\Alloy.cs" />
     <Compile Include="DomainNamed.cs" />
-    <Compile Include="Domains\IDepartament.cs" />
-    <Compile Include="Domains\IPart.cs" />
-    <Compile Include="Domains\IStage.cs" />
     <Compile Include="Domain.cs" />
     <Compile Include="Domains\Part.cs" />
     <Compile Include="Domains\Stage.cs" />
@@ -81,9 +75,7 @@
     <Compile Include="Mapping\StageMapper.cs" />
     <Compile Include="Mapping\SurfaceMapper.cs" />
     <Compile Include="Mapping\TypeDepMapper.cs" />
-    <Compile Include="Types.cs">
-      <DependentUpon>INamed.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Types.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Mapping\Mapping.cd" />

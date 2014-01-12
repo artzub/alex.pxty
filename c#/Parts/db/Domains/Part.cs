@@ -3,21 +3,22 @@ using System.Collections.Generic;
 
 namespace Db.Domains
 {
-    public class Part : DomainNamed, IPart
+    public class Part : DomainNamed
     {
-		private void init (long cost = 0, object idAlloy = null)	{
+		private void init (long cost = 0, object idAlloy = null, Func<ICollection<Stage>> lazyFactory = null)	{
 			Cost = cost;
-			IdAlloy = idAlloy;			
+			IdAlloy = idAlloy;
+            lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
 		}
 
-		public Part (object id = null, string name = null, long cost = 0, object idAlloy = null)
+		public Part (object id = null, string name = null, long cost = 0, object idAlloy = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id, name) {
-			init (cost, idAlloy);
+			init (cost, idAlloy, lazyFactory);
 		}
 
-		public Part (object id = null, string name = null, long cost = 0, IAlloy alloy = null)
+        public Part(object id = null, string name = null, long cost = 0, Alloy alloy = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id, name) {
-			init (cost, null);
+			init (cost, null, lazyFactory);
 			Alloy = alloy;
 			if (Alloy != null)
 				IdAlloy = Alloy.Id;
@@ -33,14 +34,17 @@ namespace Db.Domains
 			set;
         }
 
-        public IAlloy Alloy {
+        public Alloy Alloy {
 			get;
 			set;
         }
 
-        public ICollection<IStage> Stages {
-			get;
-			set;
+        private Lazy<ICollection<Stage>> lazy;
+
+        public ICollection<Stage> Stages {
+			get {
+                return lazy.Value;
+            }
         }
     }
 }

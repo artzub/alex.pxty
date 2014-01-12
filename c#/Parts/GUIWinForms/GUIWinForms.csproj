@@ -68,12 +68,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="Properties\DataSources\db.Domains.Alloy.datasource" />
-    <None Include="Properties\DataSources\db.Domains.Departament.datasource" />
-    <None Include="Properties\DataSources\db.Domains.Part.datasource" />
-    <None Include="Properties\DataSources\db.Domains.Stage.datasource" />
-    <None Include="Properties\DataSources\db.Domains.Surface.datasource" />
-    <None Include="Properties\DataSources\db.Domains.TypeDep.datasource" />
+    <None Include="Properties\DataSources\Db.Domains.Alloy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,10 +84,19 @@
       <Project>{D155BB45-A054-4C38-A6F1-FE1B0017F793}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\db\db.csproj">
+    <ProjectReference Include="..\db\Db.csproj">
       <Project>{AC3005A7-6499-4FA1-9702-0DA2EC65A444}</Project>
-      <Name>db</Name>
+      <Name>Db</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
