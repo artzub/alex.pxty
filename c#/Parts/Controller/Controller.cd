@@ -10,7 +10,7 @@
   <Class Name="Controller.BaseController" Collapsed="true">
     <Position X="7.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAEgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAIAAAAAAAAAACAAAACAAAAEgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\BaseController.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -18,7 +18,7 @@
   <Class Name="Controller.Controller&lt;T&gt;" Collapsed="true">
     <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIAAGAAAAAAACAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAIAAGAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\Controller.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -109,7 +109,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAihAAACgAAAAAAAAAAAAAAAAAQAAIAABAAAAAQAAQA=</HashCode>
+      <HashCode>AAyhAIACgAQAEAAEBhAAAQoAAA0ACIAMBAgAAgRAAQA=</HashCode>
       <FileName>DataManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -118,7 +118,7 @@
       <Field Name="departamentController" />
       <Field Name="surfaceController" />
       <Field Name="stageController" />
-      <Field Name="PartController" />
+      <Property Name="PartController" />
     </ShowAsAssociation>
   </Class>
   <Interface Name="Controller.IController&lt;T&gt;" Collapsed="true">
@@ -131,7 +131,7 @@
   <Interface Name="Controller.IController" Collapsed="true">
     <Position X="1.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAIAAAAAAAAAAAAAAACAAAAEgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IController.cs</FileName>
     </TypeIdentifier>
   </Interface>

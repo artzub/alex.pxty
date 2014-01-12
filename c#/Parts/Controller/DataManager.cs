@@ -16,6 +16,20 @@ namespace Controller {
         private SurfaceController surfaceController;
         private StageController stageController;
         private PartController partController;
+
+        public DataManager() {
+            var conn = "User ID=PARTS;" +
+                "Password=Zelda;" +
+                    "Data Source=(" +
+                    "DESCRIPTION=(" +
+                    "ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" +
+                    "(CONNECT_DATA=(SERVER=DEDICATED)" +
+                    "(SERVICE_NAME=XE)))";
+            OracleConnection.Instance.Initialize(conn);
+
+            OracleConnection.Instance.Open();
+            Provider.Initialize(OracleConnection.Instance);
+        }
         
         public AlloyController AlloyController {
             get {

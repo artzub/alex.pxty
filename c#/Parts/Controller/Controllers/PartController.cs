@@ -9,7 +9,7 @@ namespace Controller {
         public PartController()
             : base() {
                 mapper = new PartMapper();
-                base.Mapper = (IMapper<Part>)mapper;
+                base.Mapper = mapper;
         }
 
         protected override object ChangeRow(Part item, string procedureName) {

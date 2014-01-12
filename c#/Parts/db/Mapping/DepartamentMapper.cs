@@ -5,7 +5,7 @@ using Db.Domains;
 namespace Db.Mapping {
     public class DepartamentMapper : Mapper<IDepartament> {
 
-        private const string tableName = "Departament"; //TODO
+        private const string tableName = "Dep"; //TODO
 
         public DepartamentMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
@@ -32,13 +32,13 @@ namespace Db.Mapping {
 
             public long Num {
                 get {
-                    return Row.IsNull("NUM") ? 0 : Convert.ToInt64(Row["NUM"]);
+                    return 0; //Row.IsNull("NUM") ? 0 : Convert.ToInt64(Row["NUM"]);
                 }
             }
 
             public object IdTypeDep {
                 get {
-                    return Row["id_typedep"];
+                    return Row["id_type_dep"];
                 }
             }
         }

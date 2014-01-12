@@ -9,7 +9,7 @@ namespace Controller {
         public DepartamentController()
             : base() {
                 mapper = new DepartamentMapper();
-                base.Mapper = (IMapper<Departament>)mapper;
+                base.Mapper = mapper;
         }
 
         protected override object ChangeRow(Departament item, string procedureName) {

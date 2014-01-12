@@ -3,7 +3,7 @@ using System.Data;
 using Db.Domains;
 
 namespace Db.Mapping {
-    public class PartMapper : Mapper<IPart> {
+    public class PartMapper : Mapper<Part> {
 
         private const string tableName = "PART";
 
@@ -15,7 +15,7 @@ namespace Db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IPart CreateItemFromRow(System.Data.DataRow row) {
+        protected override Part CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new ColumnsWrapper(row);

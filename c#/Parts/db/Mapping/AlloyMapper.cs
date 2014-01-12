@@ -1,7 +1,7 @@
 ﻿using Db.Domains;
 
 namespace Db.Mapping {
-    public class AlloyMapper : Mapper<IAlloy> {
+    public class AlloyMapper : Mapper<Alloy> {
 
         private const string tableName = "ALLOY";
 
@@ -13,7 +13,7 @@ namespace Db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IAlloy CreateItemFromRow(System.Data.DataRow row) {
+        protected override Alloy CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);

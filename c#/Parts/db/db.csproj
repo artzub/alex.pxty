@@ -33,7 +33,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\DeleteStatementBuilder.cs" />
@@ -81,7 +81,9 @@
     <Compile Include="Mapping\StageMapper.cs" />
     <Compile Include="Mapping\SurfaceMapper.cs" />
     <Compile Include="Mapping\TypeDepMapper.cs" />
-    <Compile Include="Types.cs" />
+    <Compile Include="Types.cs">
+      <DependentUpon>INamed.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Mapping\Mapping.cd" />

@@ -38,16 +38,28 @@ namespace Db.DataAccess {
 			}
 		}
 
-		public DatabaseConnection(string settingSectionName) {
-			try {
-				SettingSectionName = settingSectionName;
-				InitializeConnectionInformation();
-				OpenBaseConnection();
-			}
-			catch (Exception e) {
-				throw (e);
-			}
-		}
+        public DatabaseConnection(string settingSectionName) {
+            try {
+                SettingSectionName = settingSectionName;
+                InitializeConnectionInformation();
+                OpenBaseConnection();
+            }
+            catch (Exception e) {
+                throw (e);
+            }
+        }
+
+        public DatabaseConnection(IDbConnection conn) {
+            try {
+                //SettingSectionName = settingSectionName;
+                //InitializeConnectionInformation();
+                //OpenBaseConnection();
+                baseConnection = conn;
+            }
+            catch (Exception e) {
+                throw (e);
+            }
+        }
 
 		private void OpenBaseConnection() {			
 			try {

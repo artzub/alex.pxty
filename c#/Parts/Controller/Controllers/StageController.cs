@@ -9,7 +9,7 @@ namespace Controller {
         public StageController()
             : base() {
                 mapper = new StageMapper();
-                base.Mapper = (IMapper<Stage>)mapper;
+                base.Mapper = mapper;
         }
 
         protected override object ChangeRow(Stage item, string procedureName) {

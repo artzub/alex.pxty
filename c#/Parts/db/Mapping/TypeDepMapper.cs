@@ -1,8 +1,8 @@
 ﻿using Db.Domains;
 
 namespace Db.Mapping {
-    public class TypeDepMapper : Mapper<ITypeDep> {
-        private const string tableName = "TYPEDEP"; //TODO: correct name
+    public class TypeDepMapper : Mapper<TypeDep> {
+        private const string tableName = "TYPE_DEP"; //TODO: correct name
 
         public TypeDepMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
@@ -12,7 +12,7 @@ namespace Db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override ITypeDep CreateItemFromRow(System.Data.DataRow row) {
+        protected override TypeDep CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);

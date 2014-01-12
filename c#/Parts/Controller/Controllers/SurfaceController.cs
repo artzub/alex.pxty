@@ -8,7 +8,7 @@ namespace Controller {
         public SurfaceController()
             : base() {
                 mapper = new SurfaceMapper();
-                base.Mapper = (IMapper<Surface>)mapper;
+                base.Mapper = mapper;
         }
     }
 }

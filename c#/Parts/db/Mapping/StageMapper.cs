@@ -1,7 +1,7 @@
 ﻿using Db.Domains;
 
 namespace Db.Mapping {
-    public class StageMapper : Mapper<IStage> {
+    public class StageMapper : Mapper<Stage> {
 
         private const string tableName = "Stage"; //TODO
 
@@ -13,7 +13,7 @@ namespace Db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IStage CreateItemFromRow(System.Data.DataRow row) {
+        protected override Stage CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
 
@@ -21,9 +21,9 @@ namespace Db.Mapping {
             var part = new PartMapper().FindById(cols.IdPart);
             var surface = new SurfaceMapper().FindById(cols.IdSurface);
             var dep = new DepartamentMapper().FindById(cols.IdDepartament);
-            var stp = new StageMapper().FindById(cols.IdStagePrev);
-            var stn = new StageMapper().FindById(cols.IdStageNext);
-            return new Stage(cols.Id, stp, stn, dep, surface, part);
+            //var stp = new StageMapper().FindById(cols.IdStagePrev);
+            //var stn = new StageMapper().FindById(cols.IdStageNext);
+            return new Stage(cols.Id, null, null, dep, surface, part);
         }
 
         private sealed class ColumnsWrapper : DomainColumnsWrapper {
@@ -32,13 +32,13 @@ namespace Db.Mapping {
 
             public object IdStagePrev {
                 get {
-                    return Row["id_stag_prev"];
+                    return Row["id_prev"];
                 }
             }
 
             public object IdStageNext {
                 get {
-                    return Row["id_stag_next"];
+                    return Row["id_next"];
                 }
             }
 
@@ -50,7 +50,7 @@ namespace Db.Mapping {
 
             public object IdDepartament {
                 get {
-                    return Row["id_departament"];
+                    return Row["id_dep"];
                 }
             }
 

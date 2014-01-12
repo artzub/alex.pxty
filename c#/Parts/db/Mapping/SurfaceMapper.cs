@@ -1,7 +1,7 @@
 ﻿using Db.Domains;
 
 namespace Db.Mapping {
-    public class SurfaceMapper : Mapper<ISurface> {
+    public class SurfaceMapper : Mapper<Surface> {
 
         private const string tableName = "SURFACE";
 
@@ -13,7 +13,7 @@ namespace Db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override ISurface CreateItemFromRow(System.Data.DataRow row) {
+        protected override Surface CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);

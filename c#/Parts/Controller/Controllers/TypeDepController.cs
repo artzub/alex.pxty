@@ -8,7 +8,7 @@ namespace Controller {
         public TypeDepController()
             : base() {
                 mapper = new TypeDepMapper();
-                base.Mapper = (IMapper<TypeDep>)mapper;
+                base.Mapper = mapper;
         }
     }
 }

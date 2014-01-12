@@ -893,7 +893,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.TabPage tabPage3;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+   //     private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private System.Windows.Forms.DataGridView surfaceDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -903,7 +903,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.TabPage tabPage4;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+  //      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private System.Windows.Forms.DataGridView alloyDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
@@ -912,7 +912,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.TabPage tabPage5;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
+    //    private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
         private System.Windows.Forms.DataGridView departamentDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeDep;
