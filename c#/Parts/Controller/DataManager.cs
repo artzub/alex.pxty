@@ -18,7 +18,7 @@ namespace Controller {
         private PartController partController;
 
         public DataManager() {
-            var conn = "User ID=PARTS;" +
+            /*var conn = "User ID=PARTS;" +
                 "Password=Zelda;" +
                     "Data Source=(" +
                     "DESCRIPTION=(" +
@@ -28,7 +28,7 @@ namespace Controller {
             OracleConnection.Instance.Initialize(conn);
 
             OracleConnection.Instance.Open();
-            Provider.Initialize(OracleConnection.Instance);
+            Provider.Initialize(OracleConnection.Instance);*/
         }
         
         public AlloyController AlloyController {
@@ -201,6 +201,42 @@ namespace Controller {
             return InvokeAction(item, "Delete");
         }
 
+        #region GetById
+
+        public IDomain GetById(Type type, object id) {
+            var ctor = GetContollerByType(type);
+            return (IDomain)ctor.GetItemById(id);
+        }
+
+        public Alloy GetAlloyById(object id) {
+            return (Alloy)GetById(Types.Alloy, id);
+        }
+
+        public Surface GetSurfaceById(object id) {
+            return (Surface)GetById(Types.Surface, id);
+        }
+
+        public Part GetPartById(object id) {
+            return (Part)GetById(Types.Part, id);
+        }
+
+        public Stage GetStageById(object id) {
+            return (Stage)GetById(Types.Stage, id);
+        }
+
+        public TypeDep GetTypeDepById(object id) {
+            return (TypeDep)GetById(Types.TypeDep, id);
+        }
+
+        public Departament GetDepartamentById(object id) {
+            return (Departament)GetById(Types.Departament, id);
+        }
+
+        #endregion
+
+
+        #region GetNewItem
+        
         private object GetNewItem(Type type) {
             if (type == null)
                 return null;
@@ -213,6 +249,28 @@ namespace Controller {
         public Alloy GetNewAlloy() {
             return (Alloy)GetNewItem(Types.Alloy);
         }
+
+        public TypeDep GetNewTypeDep() {
+            return (TypeDep)GetNewItem(Types.TypeDep);
+        }
+
+        public Surface GetNewSurface() {
+            return (Surface)GetNewItem(Types.Surface);
+        }
+
+        public Departament GetNewDepartament() {
+            return (Departament)GetNewItem(Types.Departament);
+        }
+
+        public Part GetNewPart() {
+            return (Part)GetNewItem(Types.Part);
+        }
+
+        public Stage GetNewStage() {
+            return (Stage)GetNewItem(Types.Stage);
+        }
+
+        #endregion
 
         #endregion
 

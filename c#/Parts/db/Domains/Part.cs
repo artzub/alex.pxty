@@ -11,6 +11,11 @@ namespace Db.Domains
             lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
 		}
 
+        public Part(object id)
+            : base(id) {
+            init();
+        }
+
 		public Part (object id = null, string name = null, long cost = 0, object idAlloy = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id, name) {
 			init (cost, idAlloy, lazyFactory);

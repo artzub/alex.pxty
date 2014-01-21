@@ -21,9 +21,13 @@ namespace Db.Mapping {
             var part = new PartMapper().FindById(cols.IdPart);
             var surface = new SurfaceMapper().FindById(cols.IdSurface);
             var dep = new DepartamentMapper().FindById(cols.IdDepartament);
-            //var stp = new StageMapper().FindById(cols.IdStagePrev);
-            //var stn = new StageMapper().FindById(cols.IdStageNext);
-            return new Stage(cols.Id, null, null, dep, surface, part);
+
+            var st = new Stage(cols.Id, null, null, dep, surface, part);
+
+            st.StagePrev = cols.IdStagePrev.Equals(cols.Id) ? st : (cols.IdStagePrev.Equals(1) ? Stage.Default : (new StageMapper()).FindById(cols.IdStagePrev));
+            st.StageNext = cols.IdStageNext.Equals(cols.Id) ? st : (cols.IdStageNext.Equals(1) ? Stage.Default : (new StageMapper()).FindById(cols.IdStageNext));
+
+            return st;
         }
 
         private sealed class ColumnsWrapper : DomainColumnsWrapper {

@@ -32,6 +32,8 @@ namespace Controller {
 
         public abstract object GetNew();
 
+        public abstract object GetItemById(object id);
+
         #endregion
     }
 }

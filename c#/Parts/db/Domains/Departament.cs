@@ -5,12 +5,16 @@ namespace Db.Domains
 {
     public class Departament : Domain {
 
-        private void init(long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null)
-		{
+        private void init(long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null) {
 			Num = num;
 			IdTypeDep = idTypeDep;
             lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
 		}
+
+        public Departament(object id = null)
+            : base(id) {
+            init();
+        }
 
         public Departament(object id = null, long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id) {

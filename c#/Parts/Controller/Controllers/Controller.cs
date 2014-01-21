@@ -41,8 +41,6 @@ namespace Controller {
             return (T)ctor.Invoke(new object[] {id});
         }
 
-
-
         public ICollection<T> GetData(Db.DataAccess.Queries select = null) {
             return ((IMapper<T>)Mapper).GetAll();
         }
@@ -60,5 +58,18 @@ namespace Controller {
         public override object GetNew() {
             return GetNew(null);
         }
+
+        #region IController<T> Members
+
+
+        public virtual T GetById(object id) {
+            return ((IMapper<T>)Mapper).FindById(id);
+        }
+
+        public override object GetItemById(object id) {
+            return GetById(id);
+        }
+
+        #endregion
     }
 }

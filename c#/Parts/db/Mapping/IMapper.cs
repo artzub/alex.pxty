@@ -16,7 +16,7 @@ namespace Db.Mapping {
 		/// Получить запись по идентификатору
 		/// </summary>
 		/// <param name="id">идентификатор</param>
-        /// <returns>запись типа <see cref="T"></returns>
+        /// <returns>запись типа <see cref="T" /></returns>
 		T FindById(object id);
 	}
 }

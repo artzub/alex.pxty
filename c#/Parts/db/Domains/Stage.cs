@@ -13,6 +13,11 @@ namespace Db.Domains
             IdSurface = idSurface;
 		}
 
+        public Stage(object id)
+            : base(id) {
+            init();
+        }
+
         public Stage(object id = null, object idStagePrev = null, object idStageNext = null,
             object idDepartament = null, object idSurface = null, object idPart = null) : base(id) {
             init(idStagePrev, idStageNext, idDepartament, idSurface, idPart);

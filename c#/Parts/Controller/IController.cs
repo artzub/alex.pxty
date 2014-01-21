@@ -5,5 +5,6 @@
         object Save(Db.IDomain item);
         object Update(Db.IDomain item);
         object GetNew();
+        object GetItemById(object id);
     }
 }
