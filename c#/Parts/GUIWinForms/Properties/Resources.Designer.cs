@@ -67,6 +67,13 @@ namespace GUIWinForms.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap cancel_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("cancel_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap delete_16x16 {
             get {
                 object obj = ResourceManager.GetObject("delete_16x16", resourceCulture);
@@ -77,6 +84,20 @@ namespace GUIWinForms.Properties {
         internal static System.Drawing.Bitmap edit_16x16 {
             get {
                 object obj = ResourceManager.GetObject("edit_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lens_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("lens_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap right_arrow_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("right_arrow_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

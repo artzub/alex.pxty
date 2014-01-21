@@ -16,7 +16,7 @@ namespace GUIWinForms {
 
         public MainForm() {
             InitializeComponent();
-            dm = new DataManager();
+            dm = DataManager.Instance;
 
             /*surfaceBindingSource.DataSource = dm.Surfaces;
             stageBindingSource.DataSource = dm.Stages;
@@ -29,7 +29,7 @@ namespace GUIWinForms {
 
         private void Edit(object obj = null, Type type = null) {
             var item = obj as IDomain;
-            if (item == null && type == null)
+            if (item == null)
                 return;
 
             if (type == null)
@@ -37,15 +37,17 @@ namespace GUIWinForms {
 
             if (type != item.GetType())
                 return;
-        }
 
-        private void editToolStripButton_Click(object sender, EventArgs e) {
-            //Edit(curBs.Current);
 
-            using (var ef = new EditForm(dm.GetNewStage())) {
+            
+            using (var ef = new EditForm()) {
                 if (ef.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
                     MessageBox.Show("Test");
             }
+        }
+
+        private void editToolStripButton_Click(object sender, EventArgs e) {
+            Edit(curBs.Current);
         }
 
         void dbbe_ButtonClick(object sender, EventArgsButtonsClick e) {

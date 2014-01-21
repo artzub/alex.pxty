@@ -17,7 +17,7 @@ namespace Controller {
         private StageController stageController;
         private PartController partController;
 
-        public DataManager() {
+        private DataManager() {
             /*var conn = "User ID=PARTS;" +
                 "Password=Zelda;" +
                     "Data Source=(" +
@@ -29,6 +29,15 @@ namespace Controller {
 
             OracleConnection.Instance.Open();
             Provider.Initialize(OracleConnection.Instance);*/
+        }
+
+        private static DataManager instance;
+        public static DataManager Instance {
+            get {
+                if (instance == null)
+                    instance = new DataManager();
+                return instance;
+            }
         }
         
         public AlloyController AlloyController {
@@ -80,6 +89,29 @@ namespace Controller {
         }
 
         #region GetData
+
+        public object GetAllByType(Type type) {
+            object result = null;
+            /*if (Types.Alloy.IsAssignableFrom(type)) {
+                result = Alloies;
+            }
+            else if (Types.Surface.IsAssignableFrom(type)) {
+                result = Surfaces;
+            }
+            else if (Types.TypeDep.IsAssignableFrom(type)) {
+                result = TypeDeps;
+            }
+            else if (Types.Part.IsAssignableFrom(type)) {
+                result = Parts;
+            }
+            else if (Types.Departament.IsAssignableFrom(type)) {
+                result = Departaments;
+            }
+            else if (Types.Stage.IsAssignableFrom(type)) {
+                result = Stages;
+            }*/
+            return result;
+        }
 
         private HashSet<Alloy> alloies;
         public ICollection<Alloy> Alloies {
