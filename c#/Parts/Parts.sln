@@ -1,6 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Db", "db\Db.csproj", "{AC3005A7-6499-4FA1-9702-0DA2EC65A444}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db", "db\db.csproj", "{AC3005A7-6499-4FA1-9702-0DA2EC65A444}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{D155BB45-A054-4C38-A6F1-FE1B0017F793}"
 EndProject
@@ -16,6 +17,17 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Any CPU.Build.0 = Debug|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|x86.ActiveCfg = Debug|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|x86.Build.0 = Debug|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|Any CPU.ActiveCfg = Release|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|Mixed Platforms.Build.0 = Release|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|x86.ActiveCfg = Release|x86
+		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|x86.Build.0 = Release|x86
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC3005A7-6499-4FA1-9702-0DA2EC65A444}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -36,22 +48,11 @@ Global
 		{D155BB45-A054-4C38-A6F1-FE1B0017F793}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D155BB45-A054-4C38-A6F1-FE1B0017F793}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D155BB45-A054-4C38-A6F1-FE1B0017F793}.Release|x86.ActiveCfg = Release|Any CPU
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Any CPU.Build.0 = Debug|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|x86.ActiveCfg = Debug|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Debug|x86.Build.0 = Debug|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|Any CPU.ActiveCfg = Release|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|Mixed Platforms.Build.0 = Release|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|x86.ActiveCfg = Release|x86
-		{68E9A94A-D4DB-4D04-B3B1-19514BFA3AE2}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = GUIWinForms\GUIWinForms.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = testdb\testdb.csproj
 	EndGlobalSection
 EndGlobal

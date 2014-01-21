@@ -54,9 +54,9 @@
     <Compile Include="Controllers\TypeDepController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\db\Db.csproj">
+    <ProjectReference Include="..\db\db.csproj">
       <Project>{AC3005A7-6499-4FA1-9702-0DA2EC65A444}</Project>
-      <Name>Db</Name>
+      <Name>db</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

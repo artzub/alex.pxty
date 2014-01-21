@@ -23,6 +23,9 @@ namespace GUIWinForms {
                     EditValue = (obj as INamed).Name,
                     Width = 300
                 };
+				te.OnApplyValue += (object sender, ValidateEventArgs e) => {
+					(obj as INamed).Name = string.Format("{0}", e.Value);
+				};
                 te.OnValidatingValue += new EventHandler<ValidateEventArgs>(te_OnValidatingValue);
                 
                 list.Add(te);
@@ -47,6 +50,9 @@ namespace GUIWinForms {
                     };
                     be.AddButton();
 
+					be.OnApplyValue += (object sender, ValidateEventArgs e) => {
+						item.TypeDep = e.EditValue as TypeDep;
+					};
                     be.OnValidatingValue += new EventHandler<ValidateEventArgs>(be_OnValidatingValue);
                     be.ButtonClick += new EventHandler<EventArgsButtonsClick>(be_ButtonClick);
 
@@ -59,7 +65,7 @@ namespace GUIWinForms {
                 var item = obj as Part;
 
                 var be = new DbButtonsEdit() {
-                    Dock = System.Windows.Forms.DockStyle.Top,
+					Width = 300,
                     Label = "Сплав:",
                     EditValue = item.Alloy ?? Alloy.Default,
                     Tag = Types.Alloy
@@ -70,7 +76,7 @@ namespace GUIWinForms {
                 list.Add(be);
 
                 list.Add(new DbSpinEdit() {
-                    Dock = System.Windows.Forms.DockStyle.Top,
+					Width = 300,
                     Label = "Цена:",
                     Value = item.Cost,
                     Minimum = 0,
@@ -93,7 +99,7 @@ namespace GUIWinForms {
                 list.Add(be);
 
                 be = new DbButtonsEdit() {
-                    Dock = System.Windows.Forms.DockStyle.Top,
+					Width = 300,
                     Label = "Поверхность:",
                     EditValue = item.Surface ?? Surface.Default,
                     Tag = Types.Surface
@@ -104,7 +110,7 @@ namespace GUIWinForms {
                 list.Add(be);
 
                 be = new DbButtonsEdit() {
-                    Dock = System.Windows.Forms.DockStyle.Top,
+					Width = 300,
                     Label = "Предыдущий этап:",
                     EditValue = item.StagePrev ?? Stage.Default,
                     Tag = Types.Stage
@@ -115,7 +121,7 @@ namespace GUIWinForms {
                 list.Add(be);
 
                 be = new DbButtonsEdit() {
-                    Dock = System.Windows.Forms.DockStyle.Top,
+					Width = 300,
                     Label = "Следующий этап:",
                     EditValue = item.StageNext ?? Stage.Default,
                     Tag = Types.Stage
@@ -135,12 +141,12 @@ namespace GUIWinForms {
             if (type == null)
                 return list;
 
-            if (Types.Domain.IsAssignableFrom(type)) {
+            /*if (Types.Domain.IsAssignableFrom(type)) {
                 list.Add(new DataGridViewTextBoxColumn() {
                     DataPropertyName = "Id",
                     HeaderText = "Id"
                 });
-            }
+            }*/
 
             if (Types.Named.IsAssignableFrom(type)) {
                 list.Add(new DataGridViewTextBoxColumn() {
@@ -159,11 +165,15 @@ namespace GUIWinForms {
                     HeaderText = "Цех"
                 });
             }
-            else if (Types.Departament.IsAssignableFrom(type)) {
+            else if (Types.Part.IsAssignableFrom(type)) {
                 list.Add(new DataGridViewTextBoxColumn() {
-                    DataPropertyName = "Сплав",
-                    HeaderText = "Alloy"
+					DataPropertyName = "Alloy",
+                    HeaderText = "Сплав"
                 });
+				list.Add(new DataGridViewTextBoxColumn() {
+					DataPropertyName = "Cost",
+					HeaderText = "Цена"
+				});
             }
 
             return list;

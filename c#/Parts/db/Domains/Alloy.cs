@@ -5,22 +5,17 @@ namespace Db.Domains
 {
 	public class Alloy : DomainNamed
 	{
-        private void init(Func<ICollection<Part>> lazyFactory = null) {
-            lazy = new Lazy<ICollection<Part>>(lazyFactory ?? (() => new HashSet<Part>()));
-        }
-
         public Alloy(object id)
-            : base(id) {
-                init();
+            : this(id, default(string), null) {
         }
 
 		public Alloy (object id = null, string name = default(string), Func<ICollection<Part>> lazyFactory = null) 
 			: base(id, name) {
-            init(lazyFactory);
+			InitLazyFactory(lazyFactory);
 		}
 
         public void InitLazyFactory(Func<ICollection<Part>> lazyFactory) {
-            init(lazyFactory);
+			lazy = new Lazy<ICollection<Part>>(lazyFactory ?? (() => new HashSet<Part>()));
         }
 
         private Lazy<ICollection<Part>> lazy;

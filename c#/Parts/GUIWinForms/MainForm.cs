@@ -22,36 +22,33 @@ namespace GUIWinForms {
             stageBindingSource.DataSource = dm.Stages;
             partBindingSource.DataSource = dm.Parts;
             alloyBindingSource.DataSource = dm.Alloies;
-            //departamentBindingSource.DataSource = dm.Departaments;
+            //departamentBindingSource.DataSource = dm.Departaments;*/
 
-            curBs = partBindingSource;*/
+            curBs = partBindingSource;
         }
 
         private void Edit(object obj = null, Type type = null) {
-            var item = obj as IDomain;
-            if (item == null)
-                return;
-
-            if (type == null)
-                type = item.GetType();
-
-            if (type != item.GetType())
-                return;
-
-
+			if (type == null && obj == null)
+				return;
             
-            using (var ef = new EditForm()) {
-                if (ef.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-                    MessageBox.Show("Test");
+            if (type == null)
+                type = obj.GetType();
+
+			if (obj == null)
+				obj = dm.GetNewItem(type);
+
+            using (var ef = new EditForm(obj)) {
+				if (ef.ShowDialog (this) == System.Windows.Forms.DialogResult.OK)
+					try {
+						dm.Save (ef.EditValue as IDomain);	
+					} catch (Exception ex) {
+						MessageBox.Show (ex.Message);
+					}
             }
         }
 
         private void editToolStripButton_Click(object sender, EventArgs e) {
-            Edit(curBs.Current);
-        }
-
-        void dbbe_ButtonClick(object sender, EventArgsButtonsClick e) {
-            MessageBox.Show(string.Format("{0}: {1}", e.IndexButton, e.Type));
+            Edit(curBs.Current, Types.Part);
         }
     }
 }

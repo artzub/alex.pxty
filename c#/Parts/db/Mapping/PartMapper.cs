@@ -21,7 +21,7 @@ namespace Db.Mapping {
             var cols = new ColumnsWrapper(row);
             var alloy = new AlloyMapper().FindById(cols.IdAlloy);
             var query = string.Format("select * from stage where id_part = {0}", cols.Id);
-            return new Part(cols.Id, cols.Name, cols.Cost, alloy, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
+            return new Part(cols.Id, cols.Name, cols.Cost, cols.BLNumber, alloy, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainNamedColumnsWrapper {
@@ -34,11 +34,17 @@ namespace Db.Mapping {
                 }
             }
 
-            public long Cost {
+            public decimal Cost {
                 get {
-                    return Row.IsNull("Cost") ? 0 : Convert.ToInt64(Row["COST"]);
+                    return Row.IsNull("Cost") ? 0 : Convert.ToDecimal(Row["COST"]);
                 }
             }
+
+			public string BLNumber {
+				get {
+					return string.Format("{0}", Row ["BLNUM"]);
+				}
+			}
         }
     }
 }

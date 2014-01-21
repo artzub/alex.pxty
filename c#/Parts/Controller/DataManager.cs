@@ -18,7 +18,7 @@ namespace Controller {
         private PartController partController;
 
         private DataManager() {
-            /*var conn = "User ID=PARTS;" +
+            var conn = "User ID=PARTS;" +
                 "Password=Zelda;" +
                     "Data Source=(" +
                     "DESCRIPTION=(" +
@@ -28,7 +28,7 @@ namespace Controller {
             OracleConnection.Instance.Initialize(conn);
 
             OracleConnection.Instance.Open();
-            Provider.Initialize(OracleConnection.Instance);*/
+            Provider.Initialize(OracleConnection.Instance);
         }
 
         private static DataManager instance;
@@ -92,7 +92,8 @@ namespace Controller {
 
         public object GetAllByType(Type type) {
             object result = null;
-            /*if (Types.Alloy.IsAssignableFrom(type)) {
+			//return result;
+            if (Types.Alloy.IsAssignableFrom(type)) {
                 result = Alloies;
             }
             else if (Types.Surface.IsAssignableFrom(type)) {
@@ -109,7 +110,7 @@ namespace Controller {
             }
             else if (Types.Stage.IsAssignableFrom(type)) {
                 result = Stages;
-            }*/
+            }
             return result;
         }
 
@@ -182,14 +183,9 @@ namespace Controller {
 
             if (ctrl != null) {
 
-                result = ctrl.GetType().InvokeMember(
-                    action,
-                    BindingFlags.Static |
-                    BindingFlags.Public |
-                    BindingFlags.InvokeMethod,
-                    null, null, 
-                    new object[] {item}
-                );
+				var method = ctrl.GetType().GetMethod (action);
+
+				result = method.Invoke(ctrl, new object[] {item});
 
                 //result = ctrl.Save(item);
             }
@@ -222,7 +218,15 @@ namespace Controller {
         } 
 
         public object Save(IDomain item) {
-            return InvokeAction(item, "Save");
+			var res = InvokeAction (item, "Save");
+			if (item == null || res == null || res.Equals (0)) 
+				return res;
+
+			var type = item.GetType ();
+			if (Types.Alloy.IsAssignableFrom (type))
+				Alloies.Add (AlloyController.GetById (res));
+
+            return res;
         }
 
         public object Update(IDomain item) {
@@ -269,7 +273,7 @@ namespace Controller {
 
         #region GetNewItem
         
-        private object GetNewItem(Type type) {
+        public object GetNewItem(Type type) {
             if (type == null)
                 return null;
 

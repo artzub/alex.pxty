@@ -20,20 +20,20 @@ namespace Controller {
 
             var builder = new StoredProsedureStatementBuilder(procedureName);
             builder.AddParameter("new_name", cur.Name);
-            builder.AddParameter("old_id", cur.Id);
-            builder.AddParameter("new_ID", null, 32, System.Data.ParameterDirection.InputOutput);
+			builder.AddParameter("old_id", Convert.ToInt64(cur.Id ?? 0));
+			builder.AddParameter("new_ID", Convert.ToInt64(0), 32, System.Data.ParameterDirection.InputOutput);
 
-            return new DatabaseGateway().StoredProcedureExcecut(builder, "new_ID");
+			return Provider.DatabaseGateway.StoredProcedureExcecut(builder, "new_ID");;
         }
 
         #region IController<T> Members
 
-        public virtual object Save(T item) {
-            return ChangeRow(item, Mapper.TableName + "_CHANGE_ITEM");
+		public override object Save(Db.IDomain item) {
+            return ChangeRow((T)item, Mapper.TableName + "_CHANGE_ITEM");
         }
 
-        public virtual object Update(T item) {
-            return ChangeRow(item, Mapper.TableName + "_CHANGE_ITEM");
+		public override object Update(Db.IDomain item) {
+            return ChangeRow((T)item, Mapper.TableName + "_CHANGE_ITEM");
         }
 
         public T GetNew(object id) {
@@ -46,14 +46,6 @@ namespace Controller {
         }
 
         #endregion
-
-        public override object Save(IDomain item) {
-            return Save((T)item);
-        }
-
-        public override object Update(IDomain item) {
-            return Update((T)item);
-        }
 
         public override object GetNew() {
             return GetNew(null);

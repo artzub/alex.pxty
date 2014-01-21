@@ -28,7 +28,7 @@ namespace Controller {
 
         public abstract object Save(Db.IDomain item);
 
-        public abstract object Update(Db.IDomain item);
+		public abstract object Update(Db.IDomain item);
 
         public abstract object GetNew();
 

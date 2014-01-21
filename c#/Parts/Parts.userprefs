@@ -1,36 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Controller" expanded="True" />
-          <Node name="db" expanded="True">
-            <Node name="DataAccess" expanded="True" />
-            <Node name="Mapping" expanded="True" />
-          </Node>
-          <Node name="GUIWinForms" expanded="True" selected="True">
-            <Node name="References" expanded="True" />
-            <Node name="MainForm.cs" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True">
-          <Option id="GroupByAccess" value="True" />
-          <Node name="db" expanded="True" selected="True" />
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-      <Pad Id="ConnectionManagerPad">
-        <State selected="True" />
-      </Pad>
-    </Pads>
+  <MonoDevelop.Ide.Workbench ActiveDocument="db/DataAccess/DatabaseGateway.cs">
+    <Files>
+      <File FileName="Controller/Controllers/Controller.cs" Line="28" Column="1" />
+      <File FileName="GUIWinForms/EditRowController.cs" Line="55" Column="8" />
+      <File FileName="GUIWinForms/EditForm.cs" Line="41" Column="1" />
+      <File FileName="Controller/DataManager.cs" Line="221" Column="1" />
+      <File FileName="GUIWinForms/MainForm.cs" Line="45" Column="1" />
+      <File FileName="db/DataAccess/DatabaseGateway.cs" Line="106" Column="39" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/DataManager.cs" line="222" column="1" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/DataManager.cs" line="221" column="1" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/Controllers/Controller.cs" line="17" column="1" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/Controllers/Controller.cs" line="30" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="db/Mapping/PartMapper.cs" line="21" offsetX="438" offsetY="360" expression="cols" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

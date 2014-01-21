@@ -101,7 +101,6 @@ namespace Db.DataAccess {
 
 		public object StoredProcedureExcecut(IStatementBuilder builder, string nameReturningParameter) {
 			try {
-				//IDbTransaction transaction = connection.BaseConnection.BeginTransaction(IsolationLevel.ReadCommitted);
 				IDbCommand command = connection.CreateCommand(builder.TableName);
 				command.CommandType = CommandType.StoredProcedure;
 
@@ -116,14 +115,11 @@ namespace Db.DataAccess {
 				}
 				try {
 					command.ExecuteNonQuery();
-					//transaction.Commit();
 				}
 				catch (System.Exception e) {
-					//transaction.Rollback();
 					throw (e);
 				}
 				finally {
-					//transaction.Dispose();
 				}
 				return ((IDbDataParameter) command.Parameters[nameReturningParameter]).Value;
 			}

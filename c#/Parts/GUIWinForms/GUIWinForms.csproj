@@ -152,8 +152,6 @@
       <DependentUpon>SelectForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="Properties\DataSources\Db.Domains.Alloy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,15 +161,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Properties\DataSources\db.Domains.Alloy.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controller\Controller.csproj">
       <Project>{D155BB45-A054-4C38-A6F1-FE1B0017F793}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\db\Db.csproj">
+    <ProjectReference Include="..\db\db.csproj">
       <Project>{AC3005A7-6499-4FA1-9702-0DA2EC65A444}</Project>
-      <Name>Db</Name>
+      <Name>db</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

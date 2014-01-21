@@ -16,7 +16,8 @@ namespace GUIWinForms {
         public EditForm(object editValue, bool initEdit = true) {
             InitializeComponent();
             EditValue = editValue;
-            Init(EditRowController.GetRowEditors(editValue));
+			if (initEdit)
+            	Init(EditRowController.GetRowEditors(editValue));
         }
 
         public void Init(IList<DbEdit> list) {
@@ -29,7 +30,7 @@ namespace GUIWinForms {
         }
 
         private void EditForm_FormClosing(object sender, FormClosingEventArgs e) {
-            if (e.CloseReason == CloseReason.None && DialogResult == System.Windows.Forms.DialogResult.OK) {
+			if ((e.CloseReason == CloseReason.None || e.CloseReason == CloseReason.UserClosing) && DialogResult == System.Windows.Forms.DialogResult.OK) {
                 foreach (IDbEdit item in flp.Controls) {
                     e.Cancel = !item.ValidateValue();
                     if (e.Cancel) {
@@ -37,6 +38,7 @@ namespace GUIWinForms {
                         (item as Control).Focus();
                         break;
                     }
+					item.ApplyValue();
                 }
             }
         }

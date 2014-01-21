@@ -1,6 +1,7 @@
 ﻿using Db.DataAccess;
 using Db.Mapping;
 using Db.Domains;
+using System;
 
 namespace Controller {
     public class PartController : Controller<Part> {
@@ -19,11 +20,11 @@ namespace Controller {
                 return null;
 
             var builder = new StoredProsedureStatementBuilder(procedureName);
-            builder.AddParameter("new_id_alloy", item.IdAlloy ?? item.Alloy.Id);
+            builder.AddParameter("new_id_alloy", Convert.ToInt64(item.IdAlloy ?? item.Alloy.Id));
             builder.AddParameter("new_name", item.Name);
             builder.AddParameter("new_cost", item.Cost);
-            builder.AddParameter("old_id", item.Id);
-            builder.AddParameter("new_ID", null, 32, System.Data.ParameterDirection.InputOutput);
+			builder.AddParameter("old_id", Convert.ToInt64(item.Id));
+			builder.AddParameter("new_ID", Convert.ToInt64(null), 32, System.Data.ParameterDirection.InputOutput);
 
             return new DatabaseGateway().StoredProcedureExcecut(builder, "new_ID");
         }

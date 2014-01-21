@@ -60,7 +60,13 @@ namespace GUIWinForms {
             return DoValidateValue(this);
         }
 
+		public void ApplyValue() {
+			if (OnApplyValue != null) 
+				OnApplyValue (this, new ValidateEventArgs (GetValue(), EditValue));
+		}
+
         public event EventHandler<ValidateEventArgs> OnValidatingValue;
+		public event EventHandler<ValidateEventArgs> OnApplyValue;
                 
         protected virtual void EditValueChange(object value) {            
         }

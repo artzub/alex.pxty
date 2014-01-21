@@ -10,7 +10,10 @@ namespace GUIWinForms {
             set;
         }
         bool ValidateValue();
+		void ApplyValue();
         event EventHandler<ValidateEventArgs> OnValidatingValue;
+		event EventHandler<ValidateEventArgs> OnApplyValue;
+
         string Label {
             get;
             set;
