@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace db.Mapping {
+namespace Db.Mapping {
     public class BaseColumnsWrapper {
         public BaseColumnsWrapper(DataRow row) {
             Row = row;

@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.Common;
 using System;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class DatabaseConnection : IDatabaseConnection {
 		private ConnectionInformation connectionInformation;
 		private IDbConnection baseConnection;
@@ -38,16 +38,16 @@ namespace db.DataAccess {
 			}
 		}
 
-		public DatabaseConnection(string settingSectionName) {
-			try {
-				SettingSectionName = settingSectionName;
-				InitializeConnectionInformation();
-				OpenBaseConnection();
-			}
-			catch (Exception e) {
-				throw (e);
-			}
-		}
+        public DatabaseConnection(string settingSectionName) {
+            try {
+                SettingSectionName = settingSectionName;
+                InitializeConnectionInformation();
+                OpenBaseConnection();
+            }
+            catch (Exception e) {
+                throw (e);
+            }
+        }
 
         public DatabaseConnection(IDbConnection conn) {
             try {

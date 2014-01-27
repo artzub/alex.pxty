@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Text;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public abstract class StatementBuilder : IStatementBuilder {
 
 		protected IDictionary<string, Parameter> parameters;
@@ -28,6 +29,17 @@ namespace db.DataAccess {
 				paramPrefix = value;
 			}
 		}
+
+        protected virtual string GetParameters(string separator) {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (Parameter parameter in Parameters) {
+                builder.AppendFormat(" {0}={1}{0} {2}", parameter.Name, ParamPrefix, separator);
+            }
+            builder.Remove(builder.Length - separator.Length, separator.Length);
+
+            return builder.ToString();
+        }
 
 		public StatementBuilder(string tableName, string paramPrefix = "") {
 			this.tableName = tableName;

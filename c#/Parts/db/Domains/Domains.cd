@@ -1,123 +1,92 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="db.Domain" Collapsed="true">
-    <Position X="6" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Domains\Domain.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="db.DomainNamed" Collapsed="true">
-    <Position X="6" Y="7.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Domains\DomainNamed.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="db.Domains.Alloy" Collapsed="true">
-    <Position X="2.75" Y="8.75" Width="1.5" />
+  <Class Name="Db.Domains.Alloy" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domains\Alloy.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="db.Domains.Departament" Collapsed="true">
-    <Position X="0.5" Y="7.25" Width="1.5" />
+  <Class Name="Db.Domains.Departament" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAgAAAAAAAAAAAIAAAgAAAAAABA=</HashCode>
       <FileName>Domains\Departament.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="db.Domains.Part" Collapsed="true">
-    <Position X="5" Y="8.75" Width="1.5" />
+  <Class Name="Db.Domains.Part" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAIAAAgACEAAAAA=</HashCode>
       <FileName>Domains\Part.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="db.Domains.Stage" Collapsed="true">
-    <Position X="11.75" Y="7.25" Width="1.5" />
+  <Class Name="Db.Domains.Stage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAABIQAAAAAEAAAAAAAEAAAAAAAAAAAAAAABUAI=</HashCode>
+      <HashCode>AAAAQAABIQAAAAAEAAIAIAAEAAAAAAIAAAAAAAABUAI=</HashCode>
       <FileName>Domains\Stage.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="db.Domains.Surface" Collapsed="true">
-    <Position X="7.25" Y="8.75" Width="1.5" />
+  <Class Name="Db.Domains.Surface" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Domains\Surface.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="db.Domains.TypeDep" Collapsed="true">
-    <Position X="9.5" Y="8.75" Width="1.5" />
+  <Class Name="Db.Domains.TypeDep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domains\TypeDep.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Db.Types" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAEAAAAAAAEAAAAAAAAAAgACAAAABA=</HashCode>
+      <FileName>Types.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Db.DomainNamed" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainNamed.cs</FileName>
+    </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="db.IDomain" Collapsed="true">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+  <Class Name="Db.Domain" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Domains\IDomain.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain.cs</FileName>
     </TypeIdentifier>
-  </Interface>
-  <Interface Name="db.INamed" Collapsed="true">
-    <Position X="0.75" Y="0.5" Width="1.5" />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Db.INamed" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Domains\INamed.cs</FileName>
+      <FileName>INamed.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="db.Domains.IAlloy" Collapsed="true">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+  <Interface Name="Db.IDomain" Collapsed="true">
+    <Position X="16.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Domains\IAlloy.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDomain.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="db.Domains.IDepartament" Collapsed="true">
-    <Position X="9.5" Y="1.75" Width="1.5" />
+  <Interface Name="Db.IDefaultEmpty&lt;T&gt;" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAABA=</HashCode>
-      <FileName>Domains\IDepartament.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="db.Domains.IPart" Collapsed="true">
-    <Position X="6.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAgACEAAAAA=</HashCode>
-      <FileName>Domains\IPart.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="db.Domains.IStage" Collapsed="true">
-    <Position X="14" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAQAABIQAAAAAEAAAAAAAEAAAAAAAAAAAAAAABUAI=</HashCode>
-      <FileName>Domains\IStage.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="db.Domains.ISurface" Collapsed="true">
-    <Position X="3.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
-      <FileName>Domains\ISurface.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="db.Domains.ITypeDep" Collapsed="true">
-    <Position X="3.75" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Domains\ITypeDep.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDefaultEmpty.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

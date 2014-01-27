@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public interface IDatabaseConnection : IDisposable {
 		void Close();
 		void Open();

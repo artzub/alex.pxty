@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Data;
-using db.Domains;
+using Db.Domains;
 
-namespace db.Mapping {
-    public class PartMapper : Mapper<IPart> {
+namespace Db.Mapping {
+    public class PartMapper : Mapper<Part> {
 
         private const string tableName = "PART";
 
-        public PartMapper(db.DataAccess.Queries select)
+        public PartMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 
@@ -15,12 +15,13 @@ namespace db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IPart CreateItemFromRow(System.Data.DataRow row) {
+        protected override Part CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new ColumnsWrapper(row);
             var alloy = new AlloyMapper().FindById(cols.IdAlloy);
-            return new Part(cols.Id, cols.Name, cols.Cost, alloy);
+            var query = string.Format("select * from stage where id_part = {0}", cols.Id);
+            return new Part(cols.Id, cols.Name, cols.Cost, cols.BLNumber, alloy, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainNamedColumnsWrapper {
@@ -33,11 +34,17 @@ namespace db.Mapping {
                 }
             }
 
-            public long Cost {
+            public decimal Cost {
                 get {
-                    return Row.IsNull("Cost") ? 0 : Convert.ToInt64(Row["COST"]);
+                    return Row.IsNull("Cost") ? 0 : Convert.ToDecimal(Row["COST"]);
                 }
             }
+
+			public string BLNumber {
+				get {
+					return string.Format("{0}", Row ["BLNUM"]);
+				}
+			}
         }
     }
 }

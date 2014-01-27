@@ -1,6 +1,6 @@
 using System;
 
-namespace db
+namespace Db
 {
 	public class Domain : IDomain
 	{

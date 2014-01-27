@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace db.Domains
+namespace Db.Domains
 {
-    public class Departament : Domain, IDepartament {
+    public class Departament : Domain {
 
-		private void init (long num = 0, object idTypeDep = null)
-		{
+        private void init(long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null) {
 			Num = num;
 			IdTypeDep = idTypeDep;
+            lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
 		}
 
-		public Departament (object id = null, long num = 0, object idTypeDep = null)
+        public Departament(object id = null)
+            : base(id) {
+            init();
+        }
+
+        public Departament(object id = null, long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id) {
-			init (num, idTypeDep);
+            init(num, idTypeDep, lazyFactory);
 		}
 
-		public Departament (object id = null, long num = 0, ITypeDep typeDep = null)
+        public Departament(object id = null, long num = 0, TypeDep typeDep = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id) {
-			init (num, null);
+            init(num, null, lazyFactory);
 			TypeDep = typeDep;
 			if (TypeDep != null)
 				IdTypeDep = TypeDep.Id;
@@ -38,14 +43,17 @@ namespace db.Domains
 			set;
         }
 
-        public ITypeDep TypeDep {
+        public TypeDep TypeDep {
 			get;
 			set;
         }
 
-        public ICollection<IStage> Stages {
-			get;
-			set;
+        private Lazy<ICollection<Stage>> lazy;
+
+        public ICollection<Stage> Stages {
+			get {
+                return lazy.Value;
+            }
         }
     }
 }

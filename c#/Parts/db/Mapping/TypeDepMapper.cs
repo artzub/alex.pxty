@@ -1,10 +1,10 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
-    public class TypeDepMapper : Mapper<ITypeDep> {
-        private const string tableName = "TYPEDEP"; //TODO: correct name
+namespace Db.Mapping {
+    public class TypeDepMapper : Mapper<TypeDep> {
+        private const string tableName = "TYPE_DEP"; //TODO: correct name
 
-        public TypeDepMapper(db.DataAccess.Queries select)
+        public TypeDepMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 
@@ -12,11 +12,14 @@ namespace db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override ITypeDep CreateItemFromRow(System.Data.DataRow row) {
+        protected override TypeDep CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);
-            return new TypeDep(cols.Id, cols.Name);
+            var query = string.Format("select d.* from dep d where d.id_type_dep = {0}", cols.Id);
+            return new TypeDep(cols.Id, cols.Name, () => {
+                return new System.Collections.Generic.HashSet<Departament>(new DepartamentMapper(query).GetAll());
+            });
         }
     }
 }

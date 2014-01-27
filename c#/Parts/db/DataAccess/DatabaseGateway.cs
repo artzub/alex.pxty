@@ -1,6 +1,7 @@
 ﻿using System.Data;
+using System;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class DatabaseGateway {
 		private IDatabaseConnection connection;
 		public IDatabaseConnection Connection {
@@ -53,7 +54,7 @@ namespace db.DataAccess {
 		public int ChangeRow(IStatementBuilder builder) {
 			try {
 				int result = 0;
-				IDbTransaction transaction = connection.BaseConnection.BeginTransaction(IsolationLevel.ReadCommitted);
+				//IDbTransaction transaction = connection.BaseConnection.BeginTransaction(IsolationLevel.ReadCommitted);
 				IDbCommand command = connection.CreateCommand(builder.ToString());
 				foreach (Parameter parameter in builder.Parameters) {
 					IDbDataParameter commandParameter = command.CreateParameter();
@@ -66,22 +67,22 @@ namespace db.DataAccess {
 				}
 				try {
 					result = command.ExecuteNonQuery();
-					transaction.Commit();
+					//transaction.Commit();
 				}
 				catch (System.Exception e) {
-					transaction.Rollback();
+					//transaction.Rollback();
 					throw (e);
 				}
 				finally {
-					transaction.Dispose();
+					//transaction.Dispose();
 				}
 				return result;
 			}
 			catch (System.Exception e) {
 				if (e.InnerException != null)
-					throw (e.InnerException);
+					throw new Exception(e.Message, e.InnerException);
 				else
-					throw (e);
+					throw  new Exception(e.Message, e);
 			}
 		}
 
@@ -93,9 +94,13 @@ namespace db.DataAccess {
 			return ChangeRow(builder);
 		}
 
+        public int DeleteRow(DeleteStatementBuilder builder) {
+            return ChangeRow(builder);
+        }
+
+
 		public object StoredProcedureExcecut(IStatementBuilder builder, string nameReturningParameter) {
 			try {
-				//IDbTransaction transaction = connection.BaseConnection.BeginTransaction(IsolationLevel.ReadCommitted);
 				IDbCommand command = connection.CreateCommand(builder.TableName);
 				command.CommandType = CommandType.StoredProcedure;
 
@@ -110,14 +115,11 @@ namespace db.DataAccess {
 				}
 				try {
 					command.ExecuteNonQuery();
-					//transaction.Commit();
 				}
 				catch (System.Exception e) {
-					//transaction.Rollback();
 					throw (e);
 				}
 				finally {
-					//transaction.Dispose();
 				}
 				return ((IDbDataParameter) command.Parameters[nameReturningParameter]).Value;
 			}

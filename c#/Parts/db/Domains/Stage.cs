@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace db.Domains
+namespace Db.Domains
 {
-    public class Stage : Domain, IStage
-    {
+    public class Stage : Domain/*, IDefaultEmpty<Stage>*/ {
         private void init (object idStagePrev = null, object idStageNext = null,
             object idDepartament = null, object idSurface = null, object idPart = null)
 		{
@@ -14,13 +13,18 @@ namespace db.Domains
             IdSurface = idSurface;
 		}
 
+        public Stage(object id)
+            : base(id) {
+            init();
+        }
+
         public Stage(object id = null, object idStagePrev = null, object idStageNext = null,
             object idDepartament = null, object idSurface = null, object idPart = null) : base(id) {
             init(idStagePrev, idStageNext, idDepartament, idSurface, idPart);
         }
 
-        public Stage(object id = null, IStage stagePrev = null, IStage stageNext = null,
-            IDepartament departament = null, ISurface surface = null, IPart part = null)
+        public Stage(object id = null, Stage stagePrev = null, Stage stageNext = null,
+            Departament departament = null, Surface surface = null, Part part = null)
             : base(id) {
             //init();
             StageNext = stageNext;
@@ -72,29 +76,45 @@ namespace db.Domains
 			set;
         }
 
-        public IStage StageNext {
+        public Stage StageNext {
 			get;
 			set;
         }
 
-        public IStage StagePrev {
+        public Stage StagePrev {
 			get;
 			set;
         }
 
-        public ISurface Surface {
+        public Surface Surface {
 			get;
 			set;
         }
 
-        public IDepartament Departament {
+        public Departament Departament {
 			get;
 			set;
         }
 
-        public IPart Part {
+        public Part Part {
 			get;
 			set;
         }
+
+        #region IDefaultEmpty<Stage> Members
+
+        public static Stage Default {
+            get {
+                return new Stage(1, 1, 1, 1, 1, 1);
+            }
+        }
+
+        public static Stage Empty {
+            get {
+                return new Stage(null, null, null, null, null, null);
+            }
+        }
+
+        #endregion
     }
 }

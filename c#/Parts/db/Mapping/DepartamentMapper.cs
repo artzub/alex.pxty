@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Data;
-using db.Domains;
+using Db.Domains;
 
-namespace db.Mapping {
-    public class DepartamentMapper : Mapper<IDepartament> {
+namespace Db.Mapping {
+    public class DepartamentMapper : Mapper<Departament> {
 
-        private const string tableName = "Departament"; //TODO
+        private const string tableName = "Dep"; //TODO
 
-        public DepartamentMapper(db.DataAccess.Queries select)
+        public DepartamentMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 
@@ -15,14 +15,15 @@ namespace db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IDepartament CreateItemFromRow(System.Data.DataRow row) {
+        protected override Departament CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
 
             var cols = new ColumnsWrapper(row);
 
             var typeDep = new TypeDepMapper().FindById(cols.IdTypeDep);
-            return new Departament(cols.Id, cols.Num, typeDep);
+            var query = string.Format("select * from stage where id_dep = {0}", cols.Id);
+            return new Departament(cols.Id, cols.Num, typeDep, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainColumnsWrapper {
@@ -32,13 +33,13 @@ namespace db.Mapping {
 
             public long Num {
                 get {
-                    return Row.IsNull("NUM") ? 0 : Convert.ToInt64(Row["NUM"]);
+                    return 0; //Row.IsNull("NUM") ? 0 : Convert.ToInt64(Row["NUM"]);
                 }
             }
 
             public object IdTypeDep {
                 get {
-                    return Row["id_typedep"];
+                    return Row["id_type_dep"];
                 }
             }
         }

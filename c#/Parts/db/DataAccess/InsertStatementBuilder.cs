@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class InsertStatementBuilder : StatementBuilder {		
 
 		public InsertStatementBuilder(string tableName, string paramPrefix = "") :

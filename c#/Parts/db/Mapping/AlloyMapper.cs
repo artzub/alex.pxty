@@ -1,11 +1,11 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
-    public class AlloyMapper : Mapper<IAlloy> {
+namespace Db.Mapping {
+    public class AlloyMapper : Mapper<Alloy> {
 
         private const string tableName = "ALLOY";
 
-        public AlloyMapper(db.DataAccess.Queries select) 
+        public AlloyMapper(Db.DataAccess.Queries select) 
             : base(tableName, select: select) {
         }
 
@@ -13,11 +13,14 @@ namespace db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IAlloy CreateItemFromRow(System.Data.DataRow row) {
+        protected override Alloy CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);
-            return new Alloy(cols.Id, cols.Name);
+            var query = string.Format("select * from part where id_alloy = {0}", cols.Id);
+            return new Alloy(cols.Id, cols.Name, () => {
+                return new System.Collections.Generic.HashSet<Part>(new PartMapper(query).GetAll());
+            });
         }
     }
 }

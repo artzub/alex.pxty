@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace db.DataAccess {
+namespace Db.DataAccess {
 	public class UpdateStatementBuilder : StatementBuilder {
 		
 		private string where = string.Empty;
@@ -18,18 +18,7 @@ namespace db.DataAccess {
 
 		public override string ToString() {
 			StringBuilder builder = new StringBuilder();
-			builder.AppendFormat("UPDATE {0} SET {1} {2}", TableName, GetParameters(ParamPrefix), !System.String.IsNullOrWhiteSpace(where) ? "WHERE " + where : string.Empty);
-
-			return builder.ToString();
-		}
-
-		private string GetParameters(string prefix) {
-			StringBuilder builder = new StringBuilder();
-
-			foreach (Parameter parameter in Parameters) {
-				builder.AppendFormat("{0}={1}{0},", parameter.Name, prefix);
-			}
-			builder.Remove(builder.Length - 1, 1);
+			builder.AppendFormat("UPDATE {0} SET {1} {2}", TableName, GetParameters(","), !System.String.IsNullOrWhiteSpace(where) ? "WHERE " + where : string.Empty);
 
 			return builder.ToString();
 		}

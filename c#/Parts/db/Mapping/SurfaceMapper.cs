@@ -1,11 +1,11 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
-    public class SurfaceMapper : Mapper<ISurface> {
+namespace Db.Mapping {
+    public class SurfaceMapper : Mapper<Surface> {
 
         private const string tableName = "SURFACE";
 
-        public SurfaceMapper(db.DataAccess.Queries select)
+        public SurfaceMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 
@@ -13,11 +13,12 @@ namespace db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override ISurface CreateItemFromRow(System.Data.DataRow row) {
+        protected override Surface CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);
-            return new Surface(cols.Id, cols.Name);
+            var query = string.Format("select st.* from stage st where st.id_surface = {0}", cols.Id);
+            return new Surface(cols.Id, cols.Name, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
         }
     }
 }

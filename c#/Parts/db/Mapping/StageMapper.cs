@@ -1,11 +1,11 @@
-﻿using db.Domains;
+﻿using Db.Domains;
 
-namespace db.Mapping {
-    public class StageMapper : Mapper<IStage> {
+namespace Db.Mapping {
+    public class StageMapper : Mapper<Stage> {
 
         private const string tableName = "Stage"; //TODO
 
-        public StageMapper(db.DataAccess.Queries select)
+        public StageMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
         }
 
@@ -13,7 +13,7 @@ namespace db.Mapping {
             : base(tableName, sqlGetAll) {
         }
 
-        protected override IStage CreateItemFromRow(System.Data.DataRow row) {
+        protected override Stage CreateItemFromRow(System.Data.DataRow row) {
             if (row == null)
                 return null;
 
@@ -21,9 +21,13 @@ namespace db.Mapping {
             var part = new PartMapper().FindById(cols.IdPart);
             var surface = new SurfaceMapper().FindById(cols.IdSurface);
             var dep = new DepartamentMapper().FindById(cols.IdDepartament);
-            var stp = new StageMapper().FindById(cols.IdStagePrev);
-            var stn = new StageMapper().FindById(cols.IdStageNext);
-            return new Stage(cols.Id, stp, stn, dep, surface, part);
+
+            var st = new Stage(cols.Id, null, null, dep, surface, part);
+
+            st.StagePrev = cols.IdStagePrev.Equals(cols.Id) ? st : (cols.IdStagePrev.Equals(1) ? Stage.Default : (new StageMapper()).FindById(cols.IdStagePrev));
+            st.StageNext = cols.IdStageNext.Equals(cols.Id) ? st : (cols.IdStageNext.Equals(1) ? Stage.Default : (new StageMapper()).FindById(cols.IdStageNext));
+
+            return st;
         }
 
         private sealed class ColumnsWrapper : DomainColumnsWrapper {
@@ -32,13 +36,13 @@ namespace db.Mapping {
 
             public object IdStagePrev {
                 get {
-                    return Row["id_stag_prev"];
+                    return Row["id_prev"];
                 }
             }
 
             public object IdStageNext {
                 get {
-                    return Row["id_stag_next"];
+                    return Row["id_next"];
                 }
             }
 
@@ -50,7 +54,7 @@ namespace db.Mapping {
 
             public object IdDepartament {
                 get {
-                    return Row["id_departament"];
+                    return Row["id_dep"];
                 }
             }
 

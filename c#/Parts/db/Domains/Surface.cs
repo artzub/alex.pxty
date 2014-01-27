@@ -1,25 +1,49 @@
 using System;
+using System.Collections.Generic;
 
-namespace db.Domains
+namespace Db.Domains
 {
-    public class Surface : DomainNamed, ISurface
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="db.Surface"/> class.
-		/// </summary>
-		/// <param name='id'>
-		/// Identifier.
-		/// </param>
-		/// <param name='name'>
-		/// Name.
-		/// </param>
-		public Surface (object id = null, string name = null)
+    public class Surface : DomainNamed
+	{   
+        private void init(Func<ICollection<Stage>> lazyFactory = null) {
+            lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
+        }
+
+        public Surface(object id)
+            : base(id) {
+            init();
+        }
+
+		public Surface (object id = null, string name = null, Func<ICollection<Stage>> lazyFactory = null)
 			: base(id, name) {
+                init(lazyFactory);
 		}
 
-        public System.Collections.Generic.ICollection<IStage> Stages {
-			get;
-			set;
+        public void InitLazyFactory(Func<ICollection<Stage>> lazyFactory) {
+            init(lazyFactory);
+        }
+
+        private Lazy<ICollection<Stage>> lazy;
+
+        public ICollection<Stage> Stages {
+			get {
+                return lazy.Value;
+            }
+        }
+
+        private static Surface defValue;
+        public static Surface Default {
+            get {
+                if (defValue == null)
+                    defValue = new Surface(1, "(None)");
+                return defValue;
+            }
+        }
+
+        public static Surface Empty {
+            get {
+                return new Surface(null);
+            }
         }
     }
 }

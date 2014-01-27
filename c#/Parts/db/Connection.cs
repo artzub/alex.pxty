@@ -2,9 +2,9 @@ using System;
 using System.Data;
 using System.Data.OracleClient;
 using System.Collections.Generic;
-using db.Domains;
+using Db.Domains;
 
-namespace db
+namespace Db
 {
 	public class Connection
 	{
