@@ -1,24 +1,55 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="db/DataAccess/DatabaseGateway.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GUIWinForms/DbSpinEdit.cs">
     <Files>
-      <File FileName="Controller/Controllers/Controller.cs" Line="28" Column="1" />
-      <File FileName="GUIWinForms/EditRowController.cs" Line="55" Column="8" />
-      <File FileName="GUIWinForms/EditForm.cs" Line="41" Column="1" />
-      <File FileName="Controller/DataManager.cs" Line="221" Column="1" />
-      <File FileName="GUIWinForms/MainForm.cs" Line="45" Column="1" />
-      <File FileName="db/DataAccess/DatabaseGateway.cs" Line="106" Column="39" />
+      <File FileName="db/DataAccess/DatabaseGateway.cs" Line="1" Column="1" />
+      <File FileName="db/Domains/Alloy.cs" Line="1" Column="1" />
+      <File FileName="Controller/Controllers/Controller.cs" Line="1" Column="1" />
+      <File FileName="GUIWinForms/MainForm.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/PartMapper.cs" Line="1" Column="1" />
+      <File FileName="db/Domains/Part.cs" Line="1" Column="1" />
+      <File FileName="db/IDefaultEmpty.cs" Line="1" Column="1" />
+      <File FileName="GUIWinForms/DbSpinEdit.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Controller" expanded="True">
+            <Node name="Controllers" expanded="True" />
+            <Node name="Generic" expanded="True" />
+          </Node>
+          <Node name="db" expanded="True">
+            <Node name="DataAccess" expanded="True" />
+            <Node name="Domains" expanded="True" />
+            <Node name="Mapping" expanded="True" />
+          </Node>
+          <Node name="GUIWinForms" expanded="True">
+            <Node name="DbSpinEdit.cs" selected="True" />
+            <Node name="EditForm.cs" expanded="True" />
+            <Node name="MainForm.cs" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>e.InnerException</Value>
+          <Value>e.StackTrace</Value>
+          <Value>e.Message</Value>
+        </State>
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/DataManager.cs" line="222" column="1" />
-      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/DataManager.cs" line="221" column="1" />
-      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/Controllers/Controller.cs" line="17" column="1" />
-      <Breakpoint file="/home/alexey/prg/alex.pxty/temp/alex.pxty/c#/Parts/Controller/Controllers/Controller.cs" line="30" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="db/Mapping/PartMapper.cs" line="21" offsetX="438" offsetY="360" expression="cols" liveUpdate="False" />
+    <Watch file="Controller/Controllers/Controller.cs" line="34" offsetX="246" offsetY="594" expression="ttt" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

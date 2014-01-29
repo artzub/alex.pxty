@@ -1,8 +1,7 @@
 using Core;
 using Core.Messaging;
 using System;
-using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -270,12 +269,21 @@ namespace Winforms {
 				}
 				else {
 					listView1.Items.Add(this.numericUpDown1.Value.ToString());
-            		numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
+            		if (step == 0)
+            			numericUpDown1.Minimum = numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
+					else if (step > 0)
+						numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
+					else
+						numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
             		this.button4.Enabled = this.listView1.Items.Count > 0;
 					break;
 				}
 			case 3:
-				client.SendAdd(listView1.Items.Cast<ListViewItem>().Select(x => x.Text).ToList());
+				var lst = new List<string>();
+				foreach (ListViewItem item in listView1.Items) {
+					lst.Add(item.Text);
+				}
+				client.SendAdd(lst);
           		break;
 			case 4:
 				client.SendFix();
@@ -306,25 +314,30 @@ namespace Winforms {
 		}
 		private void HandleDoWork(object sender, DoWorkEventArgs e) {
             while (client != null) {
-				string str2 = client.Receive();
-        		if (!string.IsNullOrEmpty(str2))
-					bg.ReportProgress(0,str2);
+				try {
+					string str2 = client.Receive();
+	        		if (!string.IsNullOrEmpty(str2))
+						bg.ReportProgress(0,str2);
+				} catch (Exception ex) {
+					bg.ReportProgress(1,ex.Message);
+				}
 			}
 		}
 		private void HandleProgressChanged (object sender, ProgressChangedEventArgs e)
 		{
 			string str = e.UserState.ToString ();
 			this.AppendLog ((object)str);
-			if (str == "1") {
-				this.AppendLog ("Error: Seacher is not initialized");
-			} 
+			if (str == "1")
+				AppendLog ("Error: Seacher is not initialized");
+			else if (e.ProgressPercentage == 1)
+				AppendLog (e.UserState);
 			else {
 				switch (stage) {
 				case 1:
 					numericUpDown1.Enabled = true;
-					numericUpDown1.Maximum = step < 0 ? int.MinValue : int.MaxValue;
-					numericUpDown1.Minimum = step < 0 ? int.MaxValue : int.MinValue;
-					numericUpDown1.Increment = step;
+					numericUpDown1.Maximum = int.MaxValue;
+					numericUpDown1.Minimum = int.MinValue;
+					numericUpDown1.Increment = Math.Abs(step);
 					button3.Enabled = true;
 					numericUpDown1.Focus ();
 					break;

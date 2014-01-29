@@ -251,42 +251,52 @@ namespace Winforms {
 				stage = 3;
 			else if (sender == this.button5)
 				stage = 4;
-			switch (stage) {
-			case 1:
-				this.client.SendText(":0:" + this.step.ToString());
-				this.button2.Enabled = false;
-				break;
-			case 2:
-				if (this.listView1.Items.Count > 0 && (!Searcher.Validate(Convert.ToInt32(this.listView1.Items.Count <= 0 ? this.numericUpDown1.Value.ToString() : this.listView1.Items[0].Text), this.step, Convert.ToInt32(this.numericUpDown1.Value)) || this.listView1.Items[this.listView1.Items.Count - 1].Text == this.numericUpDown1.Value.ToString())) {
-					MessageBox.Show(string.Format("This value isn't correct. Correct is {0}", (object) (Convert.ToInt32(this.listView1.Items[this.listView1.Items.Count - 1].Text) + this.step)));
-					break;
-				}
-				else {
-					listView1.Items.Add(this.numericUpDown1.Value.ToString());
-            		numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
-            		this.button4.Enabled = this.listView1.Items.Count > 0;
-					break;
-				}
-			case 3:
-				string str = "";
-				IEnumerator enumerator = this.listView1.Items.GetEnumerator();
-				try {
-					while (enumerator.MoveNext()) {
-						ListViewItem listViewItem = (ListViewItem) enumerator.Current;
-              			str = str + listViewItem.Text + ",";
-					}
-				}
-				finally
-				{
-					IDisposable disposable;
-					if ((disposable = enumerator as IDisposable) != null)
-						disposable.Dispose();
-				}
-				client.SendText(string.Format(":1:{0}", (object) str));
-          		break;
-			case 4:
-				client.SendText(":2:");
-				break;
+
+			try {
+				switch (stage) {
+					case 1:
+						this.client.SendText(":0:" + this.step.ToString());
+						this.button2.Enabled = false;
+						break;
+					case 2:
+						if (this.listView1.Items.Count > 0 && (!Searcher.Validate(Convert.ToInt32(this.listView1.Items.Count <= 0 ? this.numericUpDown1.Value.ToString() : this.listView1.Items[0].Text), this.step, Convert.ToInt32(this.numericUpDown1.Value)) || this.listView1.Items[this.listView1.Items.Count - 1].Text == this.numericUpDown1.Value.ToString())) {
+							MessageBox.Show(string.Format("This value isn't correct. Correct is {0}", (object) (Convert.ToInt32(this.listView1.Items[this.listView1.Items.Count - 1].Text) + this.step)));
+							break;
+						}
+						else {
+							listView1.Items.Add(this.numericUpDown1.Value.ToString());
+			        		if (step == 0)
+		            			numericUpDown1.Minimum = numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
+							else if (step > 0)
+								numericUpDown1.Minimum = Convert.ToInt32(this.numericUpDown1.Value);
+							else
+								numericUpDown1.Maximum = Convert.ToInt32(this.numericUpDown1.Value);
+			        		this.button4.Enabled = this.listView1.Items.Count > 0;
+							break;
+						}
+					case 3:
+						string str = "";
+						IEnumerator enumerator = this.listView1.Items.GetEnumerator();
+						try {
+							while (enumerator.MoveNext()) {
+								ListViewItem listViewItem = (ListViewItem) enumerator.Current;
+			          			str = str + listViewItem.Text + ",";
+							}
+						}
+						finally
+						{
+							IDisposable disposable;
+							if ((disposable = enumerator as IDisposable) != null)
+								disposable.Dispose();
+						}
+						client.SendText(string.Format(":1:{0}", (object) str));
+			      		break;
+					case 4:
+						client.SendText(":2:");
+						break;
+				}	
+			} catch (Exception ex) {
+				AppendLog(ex.Message);
 			}
 		}
 		private void HandleValueChanged(object sender, EventArgs e) {
@@ -308,37 +318,47 @@ namespace Winforms {
 				this.textBox2.Text = "80";
       		if (!int.TryParse(this.textBox2.Text, out result))
 				return;
-			this.client = new Client(this.textBox1.Text, result);
-      		if (!client.Connect())
-				return;
-      		AppendLog(string.Format("Connected to {0}", this.client.SocketEndPoint));
-      		bg.RunWorkerAsync();
-			button1.Enabled = false;
-			numericUpDown2.Enabled = true;
-			numericUpDown2.Focus();
+			try {
+				this.client = new Client(this.textBox1.Text, result);
+	      		if (!client.Connect())
+					return;
+	      		AppendLog(string.Format("Connected to {0}", this.client.SocketEndPoint));
+	      		bg.RunWorkerAsync();
+				button1.Enabled = false;
+				numericUpDown2.Enabled = true;
+				numericUpDown2.Focus();	
+			} catch (Exception ex) {
+				AppendLog(ex.Message);
+			}
 		}
 		private void HandleDoWork(object sender, DoWorkEventArgs e) {
 //			string str1= string.Empty;
             while (client != null && this.client.Connected) {
-				string str2 = client.Receive();
-        		if (!string.IsNullOrEmpty(str2))
-					bg.ReportProgress(0,str2);
+				try {
+					string str2 = client.Receive();
+	        		if (!string.IsNullOrEmpty(str2))
+						bg.ReportProgress(0,str2);	
+				} catch (Exception ex) {
+					bg.ReportProgress(2, ex.Message);	
+				}
+
 			}
 		}
 		private void HandleProgressChanged (object sender, ProgressChangedEventArgs e)
 		{
 			string str = e.UserState.ToString ();
 			this.AppendLog ((object)str);
-			if (str == "1") {
-				this.AppendLog ("Error: Seacher is not initialized");
-			} 
+			if (str == "1")
+				AppendLog("Error: Seacher is not initialized");
+			else if (e.ProgressPercentage == 2)
+				AppendLog(e.UserState);
 			else {
 				switch (stage) {
 				case 1:
 					numericUpDown1.Enabled = true;
-					numericUpDown1.Maximum = step < 0 ? int.MinValue : int.MaxValue;
-					numericUpDown1.Minimum = step < 0 ? int.MaxValue : int.MinValue;
-					numericUpDown1.Increment = step;
+					numericUpDown1.Maximum = int.MaxValue;
+					numericUpDown1.Minimum = int.MinValue;
+					numericUpDown1.Increment = Math.Abs(step);
 					button3.Enabled = true;
 					numericUpDown1.Focus ();
 					break;

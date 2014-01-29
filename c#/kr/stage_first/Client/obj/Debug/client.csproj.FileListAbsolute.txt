@@ -1,6 +1,0 @@
-N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Client\bin\Debug\client.exe.config
-N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Client\bin\Debug\client.exe
-N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Client\bin\Debug\client.pdb
-N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Client\obj\Debug\client.exe
-N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Client\obj\Debug\client.pdb
-N:\Dropbox\projects\c#\alex.pxty\kr\stage_first\Client\obj\Debug\client.csprojResolveAssemblyReference.cache
