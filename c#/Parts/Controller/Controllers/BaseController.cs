@@ -34,6 +34,9 @@ namespace Controller {
 
         public abstract object GetItemById(object id);
 
+        public abstract object AddItem(object item);
+        public abstract void RemoveItem(object item);
+
         #endregion
     }
 }

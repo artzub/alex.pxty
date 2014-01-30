@@ -5,8 +5,8 @@ namespace Db.Domains
 {
     public class TypeDep : DomainNamed
     {
-        private void init(Func<ICollection<Departament>> lazyFactory = null) {
-            lazy = new Lazy<ICollection<Departament>>(lazyFactory ?? (() => new HashSet<Departament>()));
+        private void init(Func<IList<Departament>> lazyFactory = null) {
+            lazy = new Lazy<IList<Departament>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Departament>()));
         }
 
         public TypeDep(object id = null)
@@ -14,18 +14,18 @@ namespace Db.Domains
                 init();
         }
 
-        public TypeDep(object id = null, string name = null, Func<ICollection<Departament>> lazyFactory = null)
+        public TypeDep(object id = null, string name = null, Func<IList<Departament>> lazyFactory = null)
 			: base(id, name) {
                 init(lazyFactory);
 		}
 
-        public void InitLazyFactory(Func<ICollection<Departament>> lazyFactory) {
+        public void InitLazyFactory(Func<IList<Departament>> lazyFactory) {
             init(lazyFactory);
         }
 
-        private Lazy<ICollection<Departament>> lazy;
+        private Lazy<IList<Departament>> lazy;
 
-        public ICollection<Departament> Departaments {
+        public IList<Departament> Departaments {
             get {
                 return lazy.Value;
             }        

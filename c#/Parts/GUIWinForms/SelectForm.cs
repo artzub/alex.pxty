@@ -18,6 +18,15 @@ namespace GUIWinForms {
             dataGridMain.Columns.AddRange(list.ToArray());
         }
 
+        public Type CurrentType {
+            get {
+                Type type = null;
+                if (Current != null)
+                    type = Current.GetType();
+                return type;
+            }
+        }
+
         public object Current {
             get {
                 return bsMain.Current;
@@ -49,6 +58,54 @@ namespace GUIWinForms {
 
         private void dataGridMain_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
             Selected();
+        }
+
+        public event EventHandler<EventArgsEdit> OnEdit;
+        public event EventHandler<EventArgsEdit> OnAdd;
+        public event EventHandler<EventArgsEdit> OnDelete;
+
+        private void toolStripButton1_Click(object sender, EventArgs e) {
+            if (OnAdd != null) {
+                var ee = new EventArgsEdit() {
+                    Type = CurrentType
+                };
+                OnAdd(this, ee);
+                if (ee.EditValue != null) {
+                    Current = ee.EditValue;
+                }
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e) {
+            if (OnEdit != null) {
+                var ee = new EventArgsEdit() {
+                    EditValue = Current,
+                    Type = CurrentType
+                };
+                OnEdit(this, ee);
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e) {
+            if (OnDelete != null) {
+                var ee = new EventArgsEdit() {
+                    EditValue = Current,
+                    Type = CurrentType
+                };
+                OnDelete(this, ee);
+            }
+        }
+    }
+
+    public class EventArgsEdit : EventArgs {
+        public object EditValue {
+            get;
+            set;
+        }
+
+        public Type Type {
+            get;
+            set;
         }
     }
 }

@@ -5,11 +5,11 @@ namespace Db.Domains
 {
     public class Part : DomainNamed
     {
-		private void init (decimal cost = 0, object idAlloy = null, string blNumber = null, Func<ICollection<Stage>> lazyFactory = null)	{
+		private void init (decimal cost = 0, string blNumber = null, object idAlloy = null, Func<IList<Stage>> lazyFactory = null)	{
 			Cost = cost;
 			IdAlloy = idAlloy;
 			BLNumber = blNumber;
-            lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
+            lazy = new Lazy<IList<Stage>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Stage>()));
 		}
 
         public Part(object id)
@@ -17,14 +17,14 @@ namespace Db.Domains
             init();
         }
 
-		public Part (object id = null, string name = null, decimal cost = 0, string blNumber = null, object idAlloy = null, Func<ICollection<Stage>> lazyFactory = null)
+		public Part (object id = null, string name = null, decimal cost = 0, string blNumber = null, object idAlloy = null, Func<IList<Stage>> lazyFactory = null)
 			: base(id, name) {
-			init (cost, idAlloy, lazyFactory);
+			init (cost, blNumber, idAlloy, lazyFactory);
 		}
 
-		public Part(object id = null, string name = null, decimal cost = 0, string blNumber = null, Alloy alloy = null, Func<ICollection<Stage>> lazyFactory = null)
+		public Part(object id = null, string name = null, decimal cost = 0, string blNumber = null, Alloy alloy = null, Func<IList<Stage>> lazyFactory = null)
 			: base(id, name) {
-			init (cost, null, blNumber, lazyFactory);
+			init (cost, blNumber, null, lazyFactory);
 			Alloy = alloy;
 			if (Alloy != null)
 				IdAlloy = Alloy.Id;
@@ -50,9 +50,9 @@ namespace Db.Domains
 			set;
         }
 
-        private Lazy<ICollection<Stage>> lazy;
+        private Lazy<IList<Stage>> lazy;
 
-        public ICollection<Stage> Stages {
+        public IList<Stage> Stages {
 			get {
                 return lazy.Value;
             }

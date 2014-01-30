@@ -18,7 +18,7 @@ namespace Db.Mapping {
                 return null;
             var cols = new DomainNamedColumnsWrapper(row);
             var query = string.Format("select st.* from stage st where st.id_surface = {0}", cols.Id);
-            return new Surface(cols.Id, cols.Name, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
+            return new Surface(cols.Id, cols.Name, () => new System.ComponentModel.BindingList<Stage>(new StageMapper(query).GetAll()));
         }
     }
 }

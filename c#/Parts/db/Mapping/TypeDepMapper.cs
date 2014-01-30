@@ -18,7 +18,7 @@ namespace Db.Mapping {
             var cols = new DomainNamedColumnsWrapper(row);
             var query = string.Format("select d.* from dep d where d.id_type_dep = {0}", cols.Id);
             return new TypeDep(cols.Id, cols.Name, () => {
-                return new System.Collections.Generic.HashSet<Departament>(new DepartamentMapper(query).GetAll());
+                return new System.ComponentModel.BindingList<Departament>(new DepartamentMapper(query).GetAll());
             });
         }
     }

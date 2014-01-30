@@ -6,5 +6,7 @@
 		object Update(Db.IDomain item);
         object GetNew();
         object GetItemById(object id);
+        object AddItem(object item);
+        void RemoveItem(object item);
     }
 }

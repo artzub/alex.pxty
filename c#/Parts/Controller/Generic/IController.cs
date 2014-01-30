@@ -6,6 +6,11 @@ namespace Controller {
         object Update(T item);*/
         T GetNew(object id);
         T GetById(object id);
-        ICollection<T> GetData(Db.DataAccess.Queries select = null);
+        T AddItem(T item);
+        void RemoveItem(T item);
+        IList<T> GetData(Db.DataAccess.Queries select = null);
+        IList<T> Items {
+            get;
+        }
     }
 }

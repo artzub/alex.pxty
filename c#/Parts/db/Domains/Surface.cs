@@ -5,8 +5,8 @@ namespace Db.Domains
 {
     public class Surface : DomainNamed
 	{   
-        private void init(Func<ICollection<Stage>> lazyFactory = null) {
-            lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
+        private void init(Func<IList<Stage>> lazyFactory = null) {
+            lazy = new Lazy<IList<Stage>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Stage>()));
         }
 
         public Surface(object id)
@@ -14,18 +14,18 @@ namespace Db.Domains
             init();
         }
 
-		public Surface (object id = null, string name = null, Func<ICollection<Stage>> lazyFactory = null)
+		public Surface (object id = null, string name = null, Func<IList<Stage>> lazyFactory = null)
 			: base(id, name) {
                 init(lazyFactory);
 		}
 
-        public void InitLazyFactory(Func<ICollection<Stage>> lazyFactory) {
+        public void InitLazyFactory(Func<IList<Stage>> lazyFactory) {
             init(lazyFactory);
         }
 
-        private Lazy<ICollection<Stage>> lazy;
+        private Lazy<IList<Stage>> lazy;
 
-        public ICollection<Stage> Stages {
+        public IList<Stage> Stages {
 			get {
                 return lazy.Value;
             }

@@ -7,6 +7,7 @@ using Db.Domains;
 using Db.Mapping;
 using Db;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace Controller {
     public class DataManager {
@@ -18,7 +19,7 @@ namespace Controller {
         private PartController partController;
 
         private DataManager() {
-            var conn = "User ID=PARTS;" +
+            /*var conn = "User ID=PARTS;" +
                 "Password=Zelda;" +
                     "Data Source=(" +
                     "DESCRIPTION=(" +
@@ -28,7 +29,7 @@ namespace Controller {
             OracleConnection.Instance.Initialize(conn);
 
             OracleConnection.Instance.Open();
-            Provider.Initialize(OracleConnection.Instance);
+            Provider.Initialize(OracleConnection.Instance);*/
         }
 
         private static DataManager instance;
@@ -114,57 +115,39 @@ namespace Controller {
             return result;
         }
 
-        private HashSet<Alloy> alloies;
-        public ICollection<Alloy> Alloies {
+        public IList<Alloy> Alloies {
             get {
-                if (alloies == null)
-                    alloies = new HashSet<Alloy>(AlloyController.GetData());
-                return alloies;
+                return AlloyController.Items;
             }
         }
 
-        private HashSet<Surface> surfaces;
-        public ICollection<Surface> Surfaces {
+        public IList<Surface> Surfaces {
             get {
-                if (surfaces == null)
-                    surfaces = new HashSet<Surface>(SurfaceController.GetData());
-                return surfaces;
+                return SurfaceController.Items;
             }
         }
 
-        private HashSet<TypeDep> typeDeps;
-        public ICollection<TypeDep> TypeDeps {
+        public IList<TypeDep> TypeDeps {
             get {
-                if (typeDeps == null)
-                    typeDeps = new HashSet<TypeDep>(TypeDepController.GetData());
-                return typeDeps;
+                return TypeDepController.Items;
             }        
         }
 
-        private HashSet<Departament> departaments;
-        public ICollection<Departament> Departaments {
+        public IList<Departament> Departaments {
             get {
-                if (departaments == null)
-                    departaments = new HashSet<Departament>(DepartamentController.GetData());
-                return departaments;
+                return DepartamentController.Items;
             }
         }
 
-        private HashSet<Part> parts;
-        public ICollection<Part> Parts {
+        public IList<Part> Parts {
             get {
-                if (parts == null)
-                    parts = new HashSet<Part>(PartController.GetData());
-                return parts;
+                return PartController.Items;
             }
         }
 
-        private HashSet<Stage> stages;
-        public ICollection<Stage> Stages {
+        public IList<Stage> Stages {
             get {
-                if (stages == null)
-                    stages = new HashSet<Stage>(StageController.GetData());
-                return stages;
+                return StageController.Items;
             }
         }
 
@@ -218,23 +201,31 @@ namespace Controller {
         } 
 
         public object Save(IDomain item) {
-			var res = InvokeAction (item, "Save");
-			if (item == null || res == null || res.Equals (0)) 
-				return res;
-
-			var type = item.GetType ();
-			if (Types.Alloy.IsAssignableFrom (type))
-				Alloies.Add (AlloyController.GetById (res));
-
-            return res;
+            var res = InvokeAction (item, "Save");
+            if (item == null || res == null || res.ToString().Equals("0")) 
+                return res;
+            
+            var type = item.GetType();
+            var ctrl = GetContollerByType(type);
+            if (ctrl != null)
+                ctrl.AddItem(ctrl.GetItemById(res));
+            
+            return res; 
         }
 
         public object Update(IDomain item) {
-            return InvokeAction(item, "Update");
+            return Save(item);
         }
 
         public object Delete(IDomain item) {
-            return InvokeAction(item, "Delete");
+            var res = InvokeAction(item, "Delete");
+            if (item == null || res == null || res.ToString().Equals("0"))
+                return res;
+
+            var type = item.GetType();
+            var ctrl = GetContollerByType(type);
+            if (ctrl != null)
+                ctrl.RemoveItem(ctrl.GetItemById(res));
         }
 
         #region GetById

@@ -19,7 +19,7 @@ namespace Db.Mapping {
             var cols = new DomainNamedColumnsWrapper(row);
             var query = string.Format("select * from part where id_alloy = {0}", cols.Id);
             return new Alloy(cols.Id, cols.Name, () => {
-                return new System.Collections.Generic.HashSet<Part>(new PartMapper(query).GetAll());
+                return new System.ComponentModel.BindingList<Part>(new PartMapper(query).GetAll());
             });
         }
     }

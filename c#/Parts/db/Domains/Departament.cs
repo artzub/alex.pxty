@@ -5,10 +5,10 @@ namespace Db.Domains
 {
     public class Departament : Domain {
 
-        private void init(long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null) {
+        private void init(long num = 0, object idTypeDep = null, Func<IList<Stage>> lazyFactory = null) {
 			Num = num;
 			IdTypeDep = idTypeDep;
-            lazy = new Lazy<ICollection<Stage>>(lazyFactory ?? (() => new HashSet<Stage>()));
+            lazy = new Lazy<IList<Stage>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Stage>()));
 		}
 
         public Departament(object id = null)
@@ -16,12 +16,12 @@ namespace Db.Domains
             init();
         }
 
-        public Departament(object id = null, long num = 0, object idTypeDep = null, Func<ICollection<Stage>> lazyFactory = null)
+        public Departament(object id = null, long num = 0, object idTypeDep = null, Func<IList<Stage>> lazyFactory = null)
 			: base(id) {
             init(num, idTypeDep, lazyFactory);
 		}
 
-        public Departament(object id = null, long num = 0, TypeDep typeDep = null, Func<ICollection<Stage>> lazyFactory = null)
+        public Departament(object id = null, long num = 0, TypeDep typeDep = null, Func<IList<Stage>> lazyFactory = null)
 			: base(id) {
             init(num, null, lazyFactory);
 			TypeDep = typeDep;
@@ -48,9 +48,9 @@ namespace Db.Domains
 			set;
         }
 
-        private Lazy<ICollection<Stage>> lazy;
+        private Lazy<IList<Stage>> lazy;
 
-        public ICollection<Stage> Stages {
+        public IList<Stage> Stages {
 			get {
                 return lazy.Value;
             }

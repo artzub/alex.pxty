@@ -9,18 +9,18 @@ namespace Db.Domains
             : this(id, default(string), null) {
         }
 
-		public Alloy (object id = null, string name = default(string), Func<ICollection<Part>> lazyFactory = null) 
+		public Alloy (object id = null, string name = default(string), Func<IList<Part>> lazyFactory = null) 
 			: base(id, name) {
 			InitLazyFactory(lazyFactory);
 		}
 
-        public void InitLazyFactory(Func<ICollection<Part>> lazyFactory) {
-			lazy = new Lazy<ICollection<Part>>(lazyFactory ?? (() => new HashSet<Part>()));
+        public void InitLazyFactory(Func<IList<Part>> lazyFactory) {
+            lazy = new Lazy<IList<Part>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Part>()));
         }
 
-        private Lazy<ICollection<Part>> lazy;
+        private Lazy<IList<Part>> lazy;
 
-		public ICollection<Part> Parts {
+		public IList<Part> Parts {
 			get {
                 return lazy.Value;
             }

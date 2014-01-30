@@ -23,7 +23,7 @@ namespace Db.Mapping {
 
             var typeDep = new TypeDepMapper().FindById(cols.IdTypeDep);
             var query = string.Format("select * from stage where id_dep = {0}", cols.Id);
-            return new Departament(cols.Id, cols.Num, typeDep, () => new System.Collections.Generic.HashSet<Stage>(new StageMapper(query).GetAll()));
+            return new Departament(cols.Id, cols.Num, typeDep, () => new System.ComponentModel.BindingList<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainColumnsWrapper {

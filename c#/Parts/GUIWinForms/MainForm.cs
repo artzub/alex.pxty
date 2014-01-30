@@ -27,28 +27,8 @@ namespace GUIWinForms {
             curBs = partBindingSource;
         }
 
-        private void Edit(object obj = null, Type type = null) {
-			if (type == null && obj == null)
-				return;
-            
-            if (type == null)
-                type = obj.GetType();
-
-			if (obj == null)
-				obj = dm.GetNewItem(type);
-
-            using (var ef = new EditForm(obj)) {
-				if (ef.ShowDialog (this) == System.Windows.Forms.DialogResult.OK)
-					try {
-						dm.Save (ef.EditValue as IDomain);	
-					} catch (Exception ex) {
-						MessageBox.Show (ex.Message);
-					}
-            }
-        }
-
         private void editToolStripButton_Click(object sender, EventArgs e) {
-            Edit(curBs.Current, Types.Part);
+            EditRowController.Edit(curBs.Current, Types.Part);
         }
     }
 }

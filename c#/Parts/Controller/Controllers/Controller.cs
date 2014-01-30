@@ -7,7 +7,7 @@ using Db;
 using Db.DataAccess;
 
 namespace Controller {
-    public abstract class Controller<T> : BaseController, IController<T> where T : class {
+    public abstract class Controller<T> : BaseController, IController<T> where T : class, IDomain {
 
 
         public Controller() : base() {
@@ -28,11 +28,11 @@ namespace Controller {
 
         #region IController<T> Members
 
-		public override object Save(Db.IDomain item) {
+		public override object Save(IDomain item) {
             return ChangeRow((T)item, Mapper.TableName + "_CHANGE_ITEM");
         }
 
-		public override object Update(Db.IDomain item) {
+		public override object Update(IDomain item) {
             return ChangeRow((T)item, Mapper.TableName + "_CHANGE_ITEM");
         }
 
@@ -41,18 +41,21 @@ namespace Controller {
             return (T)ctor.Invoke(new object[] {id});
         }
 
-        public ICollection<T> GetData(Db.DataAccess.Queries select = null) {
+        public IList<T> GetData(Db.DataAccess.Queries select = null) {
             return ((IMapper<T>)Mapper).GetAll();
         }
 
-        #endregion
-
-        public override object GetNew() {
-            return GetNew(null);
+        private Dictionary<object, T> hash;
+        private System.ComponentModel.BindingList<T> items;
+        public IList<T> Items {
+            get {
+                if (items == null) {
+                    hash = GetData().ToDictionary<T, object>(x => x.Id);
+                    items = new System.ComponentModel.BindingList<T>(hash.Values.ToList());
+                }
+                return items;
+            }
         }
-
-        #region IController<T> Members
-
 
         public virtual T GetById(object id) {
             return ((IMapper<T>)Mapper).FindById(id);
@@ -62,6 +65,34 @@ namespace Controller {
             return GetById(id);
         }
 
+        public T AddItem(T item) {
+            if (item == null)
+                return item;
+            
+            T value;
+            if (hash.TryGetValue(item.Id, out value))
+                item = value;
+            else
+                hash[item.Id] = item;
+
+            return item;
+        }
+
+        public void RemoveItem(T item) {
+            if (item == null)
+                return;
+
+            hash.Remove(item.Id);
+        }
+
         #endregion
+
+        public override object GetNew() {
+            return GetNew(null);
+        }
+
+        public override object AddItem(object item) {
+            return AddItem((T)item);
+        }
     }
 }

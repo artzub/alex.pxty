@@ -14,5 +14,13 @@ namespace GUIWinForms {
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+
+        private static string GetExceptionMessage(this Exception ex, string msg) {
+            return ex.InnerException == null ? string.Format("{0}{1}{2}", msg, "\r\n", ex.Message) : ex.InnerException.GetExceptionMessage(msg);
+        }
+
+        public static void ShowError(this Exception ex, IWin32Window owner = null) {
+            MessageBox.Show(owner, ex.GetExceptionMessage(""), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
