@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define	MONO
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +20,10 @@ namespace Controller {
         private StageController stageController;
         private PartController partController;
 
+
         private DataManager() {
-            /*var conn = "User ID=PARTS;" +
+#if MONO
+            var conn = "User ID=PARTS;" +
                 "Password=Zelda;" +
                     "Data Source=(" +
                     "DESCRIPTION=(" +
@@ -28,8 +32,14 @@ namespace Controller {
                     "(SERVICE_NAME=XE)))";
             OracleConnection.Instance.Initialize(conn);
 
-            OracleConnection.Instance.Open();
-            Provider.Initialize(OracleConnection.Instance);*/
+			try {
+            	OracleConnection.Instance.Open();
+			}
+			catch(Exception e) {
+				throw e;
+			}
+			Provider.Initialize (OracleConnection.Instance);
+#endif
         }
 
         private static DataManager instance;
@@ -208,7 +218,7 @@ namespace Controller {
             var type = item.GetType();
             var ctrl = GetContollerByType(type);
             if (ctrl != null)
-                ctrl.AddItem(ctrl.GetItemById(res));
+                res = ctrl.AddItem(ctrl.GetItemById(res));
             
             return res; 
         }
@@ -226,6 +236,8 @@ namespace Controller {
             var ctrl = GetContollerByType(type);
             if (ctrl != null)
                 ctrl.RemoveItem(ctrl.GetItemById(res));
+
+			return res;
         }
 
         #region GetById

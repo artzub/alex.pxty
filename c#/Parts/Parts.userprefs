@@ -1,15 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GUIWinForms/DbSpinEdit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GUIWinForms/EditRowController.cs">
     <Files>
       <File FileName="db/DataAccess/DatabaseGateway.cs" Line="1" Column="1" />
       <File FileName="db/Domains/Alloy.cs" Line="1" Column="1" />
-      <File FileName="Controller/Controllers/Controller.cs" Line="1" Column="1" />
-      <File FileName="GUIWinForms/MainForm.cs" Line="1" Column="1" />
+      <File FileName="Controller/Controllers/Controller.cs" Line="76" Column="5" />
+      <File FileName="GUIWinForms/MainForm.cs" Line="135" Column="1" />
       <File FileName="db/Mapping/PartMapper.cs" Line="1" Column="1" />
       <File FileName="db/Domains/Part.cs" Line="1" Column="1" />
       <File FileName="db/IDefaultEmpty.cs" Line="1" Column="1" />
       <File FileName="GUIWinForms/DbSpinEdit.cs" Line="1" Column="1" />
+      <File FileName="GUIWinForms/EditRowController.cs" Line="274" Column="1" />
+      <File FileName="Controller/DataManager.cs" Line="221" Column="58" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,8 +26,8 @@
             <Node name="Mapping" expanded="True" />
           </Node>
           <Node name="GUIWinForms" expanded="True">
-            <Node name="DbSpinEdit.cs" selected="True" />
             <Node name="EditForm.cs" expanded="True" />
+            <Node name="EditRowController.cs" selected="True" />
             <Node name="MainForm.cs" expanded="True" />
           </Node>
         </State>

@@ -8,9 +8,7 @@ using Db.DataAccess;
 
 namespace Controller {
     public abstract class Controller<T> : BaseController, IController<T> where T : class, IDomain {
-
-
-        public Controller() : base() {
+		public Controller() : base() {
         }
 
         protected virtual object ChangeRow(T item, string procedureName) {
@@ -68,12 +66,14 @@ namespace Controller {
         public T AddItem(T item) {
             if (item == null)
                 return item;
-            
+
             T value;
-            if (hash.TryGetValue(item.Id, out value))
-                item = value;
-            else
-                hash[item.Id] = item;
+			if (hash.TryGetValue (item.Id, out value))
+				item = value;
+			else {
+				hash [item.Id] = item;
+				items.Add (item);
+			}
 
             return item;
         }
@@ -94,5 +94,9 @@ namespace Controller {
         public override object AddItem(object item) {
             return AddItem((T)item);
         }
+
+		public override void RemoveItem (object item) {
+			RemoveItem((T)item);
+		}
     }
 }

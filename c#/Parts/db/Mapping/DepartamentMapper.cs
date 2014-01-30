@@ -33,7 +33,7 @@ namespace Db.Mapping {
 
             public long Num {
                 get {
-                    return 0; //Row.IsNull("NUM") ? 0 : Convert.ToInt64(Row["NUM"]);
+                    return Row.IsNull("NUM") ? 0 : Convert.ToInt64(Row["NUM"]);
                 }
             }
 

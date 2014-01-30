@@ -2,7 +2,7 @@
 using Db.Mapping;
 
 namespace Controller {
-    public class AlloyController : Controller<Alloy> {
+	public class AlloyController : Controller<Alloy> {
         private AlloyMapper mapper;
 
         public AlloyController()

@@ -222,8 +222,7 @@ namespace GUIWinForms {
 
             using (var ef = new EditForm(obj)) {
                 if (ef.ShowDialog(owner) == System.Windows.Forms.DialogResult.OK) {
-                    result = ef.EditValue;
-                    Controller.DataManager.Instance.Save(result as IDomain);
+					result = Controller.DataManager.Instance.Save(ef.EditValue as IDomain);
                 }
             }
             return result;
@@ -250,7 +249,7 @@ namespace GUIWinForms {
             }
         }
 
-        static void sf_OnDelete(object sender, EventArgsEdit e) {
+		public static void sf_OnDelete(object sender, EventArgsEdit e) {
             try {
                 if (MessageBox.Show(
                     sender as IWin32Window,
@@ -270,7 +269,7 @@ namespace GUIWinForms {
             }
         }
 
-        static void sf_OnAdd(object sender, EventArgsEdit e) {
+        public static void sf_OnAdd(object sender, EventArgsEdit e) {
             try {
                 e.EditValue = Edit(e.EditValue, e.Type, sender as IWin32Window);
             }
