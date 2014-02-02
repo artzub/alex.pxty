@@ -21,40 +21,11 @@ namespace GUIWinForms {
 			bw.ProgressChanged += HandleProgressChanged;
 			bw.RunWorkerCompleted += HandleRunWorkerCompleted;
 
-			using (var fr = new Form()) {
-
-				var fl = new FlowLayoutPanel ();
-				fl.Dock = DockStyle.Fill;
-				fl.AutoSize = true;
-				fl.WrapContents = false;
-
-
-
-				fl.Controls.Add (new Label () {
-					Text = "Подключение к бд. Попытка: ",
-					AutoSize = true
-				});
-
-				st = new Label () {
-					Text = "",
-					AutoSize = true
-				};
-				st.SendToBack ();
-
-				fl.Controls.Add (st);
-
-				fr.Controls.Add (fl);
-
-				fr.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-				fr.AutoSize = true;
-
-
-
-				fr.StartPosition = FormStartPosition.CenterScreen;
-
-				fr.FormBorderStyle = FormBorderStyle.None;
+			using (fr = new SplashForm()) {				
 
 				fr.Show ();
+
+                fr.Label = "Подключение к бд";
 
 				bw.RunWorkerAsync ();
 				while(bw.IsBusy)
@@ -62,28 +33,38 @@ namespace GUIWinForms {
 
 			}
 
-			if (ex == null) 
+			if (error == null) 
 				Application.Run (new MainForm ());
 			else
-				ex.ShowError ();
+				error.ShowError ();
 		}
 
         static void HandleRunWorkerCompleted (object sender, RunWorkerCompletedEventArgs e)  {
 			//ex = e.Result as Exception;
         }
 
-		static Label st;
+		static SplashForm fr;
 
         static void HandleProgressChanged (object sender, ProgressChangedEventArgs e) {
-			if (st != null)
-				st.Text = string.Format ("{0}", e.ProgressPercentage);
-        }
+            switch (e.ProgressPercentage) {
+                case -2 : 
+                    fr.Max = Convert.ToInt32(e.UserState);
+                    break;
+                case -1 : 
+                    fr.Position = Convert.ToInt32(e.UserState);
+                    break;
+                default:
+                    fr.Inc();
+                    break;
+            }
+		}
 
-		static Exception ex;
+		static Exception error;
 
         static void HandleDoWork (object sender, DoWorkEventArgs e) {
 			var bw = sender as BackgroundWorker;
 			var i = 0;
+            bw.ReportProgress(-2, 10);
 			try {
 				while (true) {
 					try {
@@ -98,8 +79,8 @@ namespace GUIWinForms {
 						throw ex;
 					}
 				}
-			} catch (Exception ex1) {
-				ex = ex1;
+			} catch (Exception ex) {
+				error = ex;
 			}
         }
 

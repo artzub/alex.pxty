@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="Alloy" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Db.Domains.Alloy, Db, Version=1.0.5146.31471, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="Departament" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>Db.Domains.Departament, Db, Version=1.0.5146.31471, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

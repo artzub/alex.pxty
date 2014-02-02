@@ -39,7 +39,7 @@
             this.flp.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flp.Location = new System.Drawing.Point(0, 0);
             this.flp.Name = "flp";
-            this.flp.Size = new System.Drawing.Size(654, 159);
+            this.flp.Size = new System.Drawing.Size(238, 4);
             this.flp.TabIndex = 0;
             // 
             // flp1
@@ -49,16 +49,16 @@
             this.flp1.Controls.Add(this.button1);
             this.flp1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flp1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flp1.Location = new System.Drawing.Point(0, 159);
+            this.flp1.Location = new System.Drawing.Point(0, 4);
             this.flp1.Name = "flp1";
-            this.flp1.Size = new System.Drawing.Size(654, 30);
+            this.flp1.Size = new System.Drawing.Size(238, 30);
             this.flp1.TabIndex = 0;
             // 
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(577, 3);
+            this.button2.Location = new System.Drawing.Point(161, 3);
             this.button2.MaximumSize = new System.Drawing.Size(74, 26);
             this.button2.MinimumSize = new System.Drawing.Size(74, 26);
             this.button2.Name = "button2";
@@ -71,7 +71,7 @@
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(497, 3);
+            this.button1.Location = new System.Drawing.Point(81, 3);
             this.button1.MaximumSize = new System.Drawing.Size(74, 26);
             this.button1.MinimumSize = new System.Drawing.Size(74, 26);
             this.button1.Name = "button1";
@@ -88,7 +88,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(654, 189);
+            this.ClientSize = new System.Drawing.Size(238, 34);
             this.ControlBox = false;
             this.Controls.Add(this.flp);
             this.Controls.Add(this.flp1);

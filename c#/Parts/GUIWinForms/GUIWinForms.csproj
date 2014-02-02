@@ -116,6 +116,12 @@
     <Compile Include="SelectForm.Designer.cs">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ValidateEventArgs.cs" />
     <EmbeddedResource Include="DbButtonsEdit.resx">
       <DependentUpon>DbButtonsEdit.cs</DependentUpon>
@@ -151,7 +157,16 @@
     <EmbeddedResource Include="SelectForm.resx">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Db.Domains.Alloy.datasource" />
+    <None Include="Properties\DataSources\Db.Domains.Departament.datasource" />
+    <None Include="Properties\DataSources\Db.Domains.Part.datasource" />
+    <None Include="Properties\DataSources\Db.Domains.Stage.datasource" />
+    <None Include="Properties\DataSources\Db.Domains.Surface.datasource" />
+    <None Include="Properties\DataSources\Db.Domains.TypeDep.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,7 +176,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Properties\DataSources\db.Domains.Alloy.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controller\Controller.csproj">
@@ -213,6 +227,7 @@
   <ItemGroup>
     <None Include="Resources\cancel_16x16.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

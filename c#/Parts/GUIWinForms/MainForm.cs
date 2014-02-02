@@ -20,6 +20,17 @@ namespace GUIWinForms {
 			this.Shown += HandleShown;
         }
 
+        private void setEnterHandle(Control c) {
+            var dg = c as DataGridView;
+            if (dg != null) {
+                dg.Enter += HandleEnter;
+            }
+            else {
+                foreach (var cc in c.Controls)
+                    setEnterHandle(cc as Control);
+            }
+        }
+                
         void HandleShown (object sender, EventArgs e) {
 			dm = DataManager.Instance;
 
@@ -27,36 +38,35 @@ namespace GUIWinForms {
 			surfaceBindingSource.PositionChanged += HandlePositionChanged;
 			stageBindingSource.PositionChanged += HandlePositionChanged;
 			alloyBindingSource.PositionChanged += HandlePositionChanged;
-			departamentBindingSource.PositionChanged += HandlePositionChanged;
-
-			surfaceBindingSource.DataSource = dm.Surfaces;
-
-			partBindingSource.DataSource = dm.Parts;
-			/*stageBindingSource.DataSource = partBindingSource;
-			stageBindingSource.DataMember = "Stages";
-*/
-			alloyBindingSource.DataSource = dm.Alloies;
-			departamentBindingSource.DataSource = dm.Departaments;
+			departamentBindingSource.PositionChanged += HandlePositionChanged;			
 
 			curBs = partBindingSource;
 			curDgv = partDataGridView;
 
-			partDataGridView.Enter += HandleEnter;
-			dataGridView1.Enter += HandleEnter;
+            setEnterHandle(this);
+
+			/*partDataGridView.Enter += HandleEnter;
+			stageDataGridView.Enter += HandleEnter;
 			departamentDataGridView.Enter += HandleEnter;
 			alloyDataGridView.Enter += HandleEnter;
 			surfaceDataGridView.Enter += HandleEnter;
 
-			stageDataGridView.Enter += HandleEnter;
-			partDataGridView1.Enter += HandleEnter;
+			partStagesDataGridView.Enter += HandleEnter;
+			partsDataGridView1.Enter += HandleEnter;
 			dataGridView2.Enter += HandleEnter;
-			dataGridView3.Enter += HandleEnter;
+			dataGridView3.Enter += HandleEnter;*/
 
 			partDataGridView.Tag = Types.Part;
-			dataGridView1.Tag = Types.Stage;
+			stageDataGridView.Tag = Types.Stage;
 			departamentDataGridView.Tag = Types.Departament;
 			alloyDataGridView.Tag = Types.Alloy;
 			surfaceDataGridView.Tag = Types.Surface;
+
+            addAlloyToolStripMenuItem.Tag = Types.Alloy;
+            addSurfaceToolStripMenuItem.Tag = Types.Surface;
+            addPartToolStripMenuItem.Tag = Types.Part;
+            addDepToolStripMenuItem.Tag = Types.Departament;
+            addSurfaceToolStripMenuItem.Tag = Types.Stage;
 
 			tabControl1.SelectedIndexChanged += HandleTabIndexChanged;
 
@@ -66,11 +76,15 @@ namespace GUIWinForms {
 			tabControl1.SelectTab(tabPage1);
 			//HandleTabIndexChanged (tabControl1, null);
 			//HandleEnter (partDataGridView, null);
-        	
+
+            partBindingSource.DataSource = dm.Parts;
+            stageBindingSource.DataSource = dm.Stages;
+            departamentBindingSource.DataSource = dm.Departaments;
+            surfaceBindingSource.DataSource = dm.Surfaces;
+            alloyBindingSource.DataSource = dm.Alloies;
         }
 
-        void HandlePositionChanged (object sender, EventArgs e)
-        {
+        void HandlePositionChanged (object sender, EventArgs e) {
 			ChangeButton(curDgv);
         }
 
@@ -82,8 +96,8 @@ namespace GUIWinForms {
 						partDataGridView.Focus();
 					break;
 				case 1:	
-					if (dataGridView1.CanFocus)
-						dataGridView1.Focus();
+					if (stageDataGridView.CanFocus)
+						stageDataGridView.Focus();
 					break;
 				case 2:	
 					if (departamentDataGridView.CanFocus)
@@ -153,5 +167,45 @@ namespace GUIWinForms {
 				Type = curDgv.Tag as Type
 			});
 		}
+
+        private void addItemToolStripMenuItem_Click(object sender, EventArgs e) {
+            var item = sender as ToolStripMenuItem;
+            if (item == null)
+                return;
+
+            var curType = item.Tag as Type;
+            if (curType == null)
+                return;
+
+            var tcb = curBs;
+            var tcdgv = curDgv;
+            try {
+                if (Types.Alloy.IsAssignableFrom(curType)) {
+                    curBs = alloyBindingSource;
+                    curDgv = alloyDataGridView;
+                }
+                else if (Types.Surface.IsAssignableFrom(curType)) {
+                    curBs = surfaceBindingSource;
+                    curDgv = surfaceDataGridView;
+                }
+                else if (Types.Part.IsAssignableFrom(curType)) {
+                    curBs = partBindingSource;
+                    curDgv = partDataGridView;
+                }
+                else if (Types.Departament.IsAssignableFrom(curType)) {
+                    curBs = departamentBindingSource;
+                    curDgv = departamentDataGridView;
+                }
+                else if (Types.Stage.IsAssignableFrom(curType)) {
+                    curBs = stageBindingSource;
+                    curDgv = stageDataGridView;
+                }
+            }
+            finally {
+                curBs = tcb;
+                curDgv = tcdgv;
+            }
+
+        }
     }
 }
