@@ -22,6 +22,12 @@ namespace GUIWinForms {
 
         public void Init(IList<DbEdit> list) {
             flp.Controls.AddRange(list.ToArray());
+
+			AutoSize = false;
+
+			Height = flp1.Height + flp.Height + 28;
+			Width += (Math.Max (Math.Max (flp.Width, flp1.Width), Width) - Width); 
+			//AutoSize = true;
         }
 
         public object EditValue {

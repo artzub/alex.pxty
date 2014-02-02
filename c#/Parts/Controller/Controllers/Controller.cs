@@ -68,6 +68,7 @@ namespace Controller {
                 return item;
 
             T value;
+
 			if (hash.TryGetValue (item.Id, out value))
 				item = value;
 			else {
@@ -82,7 +83,13 @@ namespace Controller {
             if (item == null)
                 return;
 
-            hash.Remove(item.Id);
+			T value;
+
+			if (hash.TryGetValue (item.Id, out value)) {
+				hash.Remove(item.Id);
+				items.Remove (value);
+			}
+            
         }
 
         #endregion

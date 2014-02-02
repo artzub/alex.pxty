@@ -29,7 +29,7 @@ namespace Db.DataAccess {
 
 		public override string ToString() {
 			StringBuilder builder = new StringBuilder();
-			builder.AppendFormat("Delete from {0} {1}", TableName, !System.String.IsNullOrWhiteSpace(WHERE) ? "WHERE " + where : string.Empty);
+			builder.AppendFormat("Delete from {0} {1}", TableName, (!System.String.IsNullOrWhiteSpace(WHERE) ? "WHERE " + where : string.Empty));
 
 			return builder.ToString();
 		}

@@ -21,29 +21,58 @@ namespace GUIWinForms {
 			bw.ProgressChanged += HandleProgressChanged;
 			bw.RunWorkerCompleted += HandleRunWorkerCompleted;
 
-			using (fr = new SplashForm()) {				
+			while (true) {
+				using (fr = new SplashForm()) {				
 
-				fr.Show ();
+					fr.Show ();
 
-                fr.Label = "Подключение к бд";
+					fr.Label = "Подключение к бд";
 
-				bw.RunWorkerAsync ();
-				while(bw.IsBusy)
-					Application.DoEvents();
+					bw.RunWorkerAsync ();
+					while (bw.IsBusy)
+						Application.DoEvents ();
 
+				}
+
+				if (error == null) {
+					Application.Run (new MainForm ());
+					break;
+				}
+				else {
+					error.ShowError ();
+					if (error.Message.StartsWith ("ORA-01017")) {
+						using(var ef = new EditForm()) {
+							var ed = new DbTextEdit () {
+								Width = 300,
+								EditValue = oraSetting.Pass
+							};
+							ed.OnApplyValue += (object sender, ValidateEventArgs e) => {
+								oraSetting.Pass = string.Format("{0}", e.EditValue);
+							};
+							ed.OnValidatingValue += EditRowController.be_OnValidatingValue;
+
+							ef.Init (new List<DbEdit> () {
+								ed
+							});
+							if (ef.ShowDialog() == DialogResult.Cancel)
+								break;
+						}
+					}
+					else
+						break;
+				}
 			}
-
-			if (error == null) 
-				Application.Run (new MainForm ());
-			else
-				error.ShowError ();
 		}
+		
 
         static void HandleRunWorkerCompleted (object sender, RunWorkerCompletedEventArgs e)  {
 			//ex = e.Result as Exception;
         }
 
 		static SplashForm fr;
+		static Controller.ConnectionOraSetting oraSetting = new Controller.ConnectionOraSetting() {
+			Pass = "ffff"
+		};
 
         static void HandleProgressChanged (object sender, ProgressChangedEventArgs e) {
             switch (e.ProgressPercentage) {
@@ -64,14 +93,15 @@ namespace GUIWinForms {
         static void HandleDoWork (object sender, DoWorkEventArgs e) {
 			var bw = sender as BackgroundWorker;
 			var i = 0;
-            bw.ReportProgress(-2, 10);
+			var c = 10;
+            bw.ReportProgress(-2, c);
 			try {
 				while (true) {
 					try {
-						Controller.DataManager.Instance.Equals(0);	
+						Controller.DataManager.Instance.Config(oraSetting);	
 						break;
 					} catch (Exception ex) {
-						if (++i < 11) {
+						if (++i < c && !ex.Message.StartsWith("ORA-01017")) {
 							bw.ReportProgress(i);
 							System.Threading.Thread.Sleep(1000);
 							continue;

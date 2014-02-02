@@ -1,6 +1,7 @@
 ﻿using Db.Mapping;
 using Db.Domains;
 using Db.DataAccess;
+using System;
 
 namespace Controller {
     public class StageController : Controller<Stage> {
@@ -23,10 +24,10 @@ namespace Controller {
             builder.AddParameter("new_id_surface", item.IdSurface ?? item.Surface.Id);
             builder.AddParameter("new_id_stagenext", item.IdStageNext ?? (item.StageNext ?? Stage.Default).Id);
             builder.AddParameter("new_id_stageprev", item.IdStagePrev ?? (item.StagePrev ?? Stage.Default).Id);
-            builder.AddParameter("old_id", item.Id);
-            builder.AddParameter("new_ID", null, 32, System.Data.ParameterDirection.InputOutput);
+			builder.AddParameter("old_id", Convert.ToInt64(item.Id));
+			builder.AddParameter("new_ID", Convert.ToInt64(0), 32, System.Data.ParameterDirection.InputOutput);
 
-            return new DatabaseGateway().StoredProcedureExcecut(builder, "new_ID");
+            return Provider.DatabaseGateway.StoredProcedureExcecut(builder, "new_ID");
         }
     }
 }

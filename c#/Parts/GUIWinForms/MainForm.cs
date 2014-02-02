@@ -34,12 +34,6 @@ namespace GUIWinForms {
         void HandleShown (object sender, EventArgs e) {
 			dm = DataManager.Instance;
 
-			partBindingSource.PositionChanged += HandlePositionChanged;
-			surfaceBindingSource.PositionChanged += HandlePositionChanged;
-			stageBindingSource.PositionChanged += HandlePositionChanged;
-			alloyBindingSource.PositionChanged += HandlePositionChanged;
-			departamentBindingSource.PositionChanged += HandlePositionChanged;			
-
 			curBs = partBindingSource;
 			curDgv = partDataGridView;
 
@@ -66,22 +60,34 @@ namespace GUIWinForms {
             addSurfaceToolStripMenuItem.Tag = Types.Surface;
             addPartToolStripMenuItem.Tag = Types.Part;
             addDepToolStripMenuItem.Tag = Types.Departament;
-            addSurfaceToolStripMenuItem.Tag = Types.Stage;
+            addStageToolStripMenuItem.Tag = Types.Stage;
 
 			tabControl1.SelectedIndexChanged += HandleTabIndexChanged;
 
 			addToolStripButton.Click += editToolStripButton_Click;
 
 			deleteToolStripButton.Click += HandleClick;
-			tabControl1.SelectTab(tabPage1);
-			//HandleTabIndexChanged (tabControl1, null);
-			//HandleEnter (partDataGridView, null);
 
-            partBindingSource.DataSource = dm.Parts;
-            stageBindingSource.DataSource = dm.Stages;
-            departamentBindingSource.DataSource = dm.Departaments;
-            surfaceBindingSource.DataSource = dm.Surfaces;
-            alloyBindingSource.DataSource = dm.Alloies;
+			//var tt = dm.Parts[0].Stages;
+			try {
+				partBindingSource.DataSource = dm.Parts;
+				stageBindingSource.DataSource = dm.Stages;
+				departamentBindingSource.DataSource = dm.Departaments;
+				surfaceBindingSource.DataSource = dm.Surfaces;
+				alloyBindingSource.DataSource = dm.Alloies;	
+			} catch (Exception ex) {
+				ex.ShowError (this);
+			}
+
+			partBindingSource.PositionChanged += HandlePositionChanged;
+			surfaceBindingSource.PositionChanged += HandlePositionChanged;
+			stageBindingSource.PositionChanged += HandlePositionChanged;
+			alloyBindingSource.PositionChanged += HandlePositionChanged;
+			departamentBindingSource.PositionChanged += HandlePositionChanged;
+
+
+			HandleTabIndexChanged (tabControl1, null);
+			//HandleEnter (partDataGridView, null);
         }
 
         void HandlePositionChanged (object sender, EventArgs e) {
@@ -158,14 +164,26 @@ namespace GUIWinForms {
 				Type = curDgv.Tag as Type
 			};
 			EditRowController.sf_OnAdd (this, ev);
-			Current = ev.EditValue;
+			if (ev.EditValue != null)
+				Current = ev.EditValue;
         }
 
 		void HandleClick (object sender, EventArgs e) {
-			EditRowController.sf_OnDelete(this, new EventArgsEdit () {
-				EditValue = curBs.Current,
+
+			var del = curBs.Current;
+
+			var i = curBs.List.IndexOf (del);
+
+			curBs.CurrencyManager.Position = i - 1;
+
+			var ev = new EventArgsEdit () {
+				EditValue = del,
 				Type = curDgv.Tag as Type
-			});
+			};
+
+			EditRowController.sf_OnDelete(this, ev);
+			if (ev.EditValue != null)
+				curBs.CurrencyManager.Position = i;
 		}
 
         private void addItemToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -200,6 +218,7 @@ namespace GUIWinForms {
                     curBs = stageBindingSource;
                     curDgv = stageDataGridView;
                 }
+				editToolStripButton_Click(sender, e);
             }
             finally {
                 curBs = tcb;

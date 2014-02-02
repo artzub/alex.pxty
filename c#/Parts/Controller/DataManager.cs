@@ -1,4 +1,4 @@
-﻿//#define	MONO
+﻿#define	MONO
 
 using System;
 using System.Collections.Generic;
@@ -22,25 +22,28 @@ namespace Controller {
 
 
         private DataManager() {
-#if MONO
-            var conn = "User ID=PARTS;" +
-                "Password=Zelda;" +
-                    "Data Source=(" +
-                    "DESCRIPTION=(" +
-                    "ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" +
-                    "(CONNECT_DATA=(SERVER=DEDICATED)" +
-                    "(SERVICE_NAME=XE)))";
-            OracleConnection.Instance.Initialize(conn);
+        }
+
+		public void Config(ConnectionOraSetting oraSetting) {
+			#if MONO
+			var conn = "User ID=PARTS;" +
+				"Password=Zeld;" +
+					"Data Source=(" +
+					"DESCRIPTION=(" +
+					"ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" +
+					"(CONNECT_DATA=(SERVER=DEDICATED)" +
+					"(SERVICE_NAME=XE)))";
+			OracleConnection.Instance.Initialize(conn);
 
 			try {
-            	OracleConnection.Instance.Open();
+				OracleConnection.Instance.Open();
 			}
 			catch(Exception e) {
 				throw e;
 			}
 			Provider.Initialize (OracleConnection.Instance);
-#endif
-        }
+			#endif
+		}
 
         private static DataManager instance;
         public static DataManager Instance {
@@ -229,13 +232,13 @@ namespace Controller {
 
         public object Delete(IDomain item) {
             var res = InvokeAction(item, "Delete");
-            if (item == null || res == null || res.ToString().Equals("0"))
+            if (item == null || res == null || Convert.ToInt32(res) == 0)
                 return res;
 
             var type = item.GetType();
             var ctrl = GetContollerByType(type);
             if (ctrl != null)
-                ctrl.RemoveItem(ctrl.GetItemById(res));
+                ctrl.RemoveItem(item);
 
 			return res;
         }

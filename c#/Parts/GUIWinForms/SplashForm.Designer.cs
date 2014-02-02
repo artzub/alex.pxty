@@ -44,10 +44,10 @@
             // 
             // lb
             // 
-            this.lb.AutoSize = true;
+            //this.lb.AutoSize = true;
+			this.lb.Dock = System.Windows.Forms.DockStyle.Top;
             this.lb.Location = new System.Drawing.Point(3, 0);
             this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(0, 13);
             this.lb.TabIndex = 0;
             // 
             // pb

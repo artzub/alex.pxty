@@ -52,6 +52,7 @@
     <Compile Include="Controllers\StageController.cs" />
     <Compile Include="Controllers\SurfaceController.cs" />
     <Compile Include="Controllers\TypeDepController.cs" />
+    <Compile Include="ConnectionOraSetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\db\db.csproj">

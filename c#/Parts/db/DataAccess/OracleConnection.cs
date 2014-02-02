@@ -45,9 +45,8 @@ namespace Db.DataAccess {
             try {
                 dbconn = new DatabaseConnection(new System.Data.OracleClient.OracleConnection(connectionString));
             }
-            catch (Exception) {
-
-                throw;
+            catch (Exception ex) {
+                throw ex;
             }
         }
 

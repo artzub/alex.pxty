@@ -17,7 +17,7 @@ namespace Controller {
         public object Delete(Db.IDomain item) {
             if (item == null)
                 return null;
-            var builder = new DeleteStatementBuilder(Mapper.TableName, ":p");
+            var builder = new DeleteStatementBuilder(Mapper.TableName, ":");
             builder.AddParameter("ID", item.Id);
             return Provider.DatabaseGateway.DeleteRow(builder);
         }

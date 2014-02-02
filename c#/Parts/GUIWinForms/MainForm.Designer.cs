@@ -264,8 +264,8 @@
             // 
             // stagesBindingSource
             // 
-            this.stagesBindingSource.DataMember = "Stages";
-            this.stagesBindingSource.DataSource = this.partBindingSource;
+            //this.stagesBindingSource.DataMember = "Stages";
+            //this.stagesBindingSource.DataSource = this.partBindingSource;
             // 
             // tabPage2
             // 
@@ -362,6 +362,12 @@
             // departamentBindingSource
             // 
             this.departamentBindingSource.DataSource = typeof(Db.Domains.Departament);
+			// 
+			// stagesPartBindingSource2
+			// TODO ttt
+			//this.stagesPartBindingSource2.DataMember = "Stages";
+			//this.stagesPartBindingSource2.DataSource = this.departamentBindingSource;
+
             // 
             // depStagePartDataGridView
             // 
@@ -377,8 +383,8 @@
             this.BLNumberDGVTBC,
             this.NameDGVTBC,
             this.CostDGVTBC});
-            this.depStagePartDataGridView.DataMember = "Part";
-            this.depStagePartDataGridView.DataSource = this.stagesPartBindingSource2;
+            //this.depStagePartDataGridView.DataMember = "Part";
+            //this.depStagePartDataGridView.DataSource = this.stagesPartBindingSource2;
             this.depStagePartDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.depStagePartDataGridView.Location = new System.Drawing.Point(0, 0);
             this.depStagePartDataGridView.Name = "depStagePartDataGridView";
@@ -386,12 +392,7 @@
             this.depStagePartDataGridView.RowHeadersVisible = false;
             this.depStagePartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.depStagePartDataGridView.Size = new System.Drawing.Size(396, 461);
-            this.depStagePartDataGridView.TabIndex = 1;
-            // 
-            // stagesPartBindingSource2
-            // 
-            this.stagesPartBindingSource2.DataMember = "Stages";
-            this.stagesPartBindingSource2.DataSource = this.departamentBindingSource;
+            this.depStagePartDataGridView.TabIndex = 1;            
             // 
             // tabPage4
             // 
@@ -501,8 +502,8 @@
             // 
             // stagesBindingSource1
             // 
-            this.stagesBindingSource1.DataMember = "Stages";
-            this.stagesBindingSource1.DataSource = this.surfaceBindingSource;
+            //this.stagesBindingSource1.DataMember = "Stages";
+            //this.stagesBindingSource1.DataSource = this.surfaceBindingSource;
             // 
             // surfaceBindingSource
             // 
@@ -776,8 +777,8 @@
             // 
             // partsBindingSource
             // 
-            this.partsBindingSource.DataMember = "Parts";
-            this.partsBindingSource.DataSource = this.alloyBindingSource;
+            //this.partsBindingSource.DataMember = "Parts";
+            //this.partsBindingSource.DataSource = this.alloyBindingSource;
             // 
             // idDataGridViewTextBoxColumn6
             // 
@@ -1033,11 +1034,11 @@
         private System.Windows.Forms.BindingSource partsBindingSource;
         private System.Windows.Forms.BindingSource stageBindingSource;
         private System.Windows.Forms.DataGridView depStagePartDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bLNumberDataGridViewTextBoxColumn1;
+        /*private System.Windows.Forms.DataGridViewTextBoxColumn bLNumberDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn alloyDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
+        */private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;

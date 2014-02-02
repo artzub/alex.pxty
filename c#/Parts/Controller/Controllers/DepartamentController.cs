@@ -1,6 +1,7 @@
 ﻿using Db.Mapping;
 using Db.Domains;
 using Db.DataAccess;
+using System;
 
 namespace Controller {
     public class DepartamentController : Controller<Departament> {
@@ -18,12 +19,12 @@ namespace Controller {
                 return null;
 
             var builder = new StoredProsedureStatementBuilder(procedureName);
-            builder.AddParameter("new_id_typedep", item.IdTypeDep ?? item.TypeDep.Id);
+            builder.AddParameter("new_id_type_dep", item.IdTypeDep ?? item.TypeDep.Id);
             builder.AddParameter("new_num", item.Num);
-            builder.AddParameter("old_id", item.Id);
-            builder.AddParameter("new_ID", null, 32, System.Data.ParameterDirection.InputOutput);
+			builder.AddParameter("old_id", Convert.ToInt64(item.Id ?? 0));
+			builder.AddParameter("new_ID", Convert.ToInt64(0), 32, System.Data.ParameterDirection.InputOutput);
 
-            return new DatabaseGateway().StoredProcedureExcecut(builder, "new_ID");
+            return Provider.DatabaseGateway.StoredProcedureExcecut(builder, "new_ID");
         }
     }
 }

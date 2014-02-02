@@ -11,6 +11,13 @@ namespace GUIWinForms {
     public partial class DbSpinEdit : DbEdit {
         public DbSpinEdit() {
             InitializeComponent();
+
+			numericUpDown1.ValueChanged += HandleValueChanged;
+        }
+
+        void HandleValueChanged (object sender, EventArgs e)
+        {
+			EditValue = numericUpDown1.Value;
         }
 
         protected override string getLabel() {

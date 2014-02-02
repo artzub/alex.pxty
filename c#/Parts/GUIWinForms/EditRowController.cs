@@ -49,10 +49,11 @@ namespace GUIWinForms {
                     list.Add(se);
 
                     var be = new DbButtonsEdit() {
-                        Dock = System.Windows.Forms.DockStyle.Top,
+                        //Dock = System.Windows.Forms.DockStyle.Top,
                         Label = "Цех:",
                         EditValue = item.TypeDep ?? TypeDep.Default,
-                        Tag = Types.TypeDep
+                        Tag = Types.TypeDep,
+						Width = 300
                     };
                     be.AddButton();
 
@@ -99,6 +100,19 @@ namespace GUIWinForms {
                 };
 
                 list.Add(se);
+
+				var te = new DbTextEdit() {
+					Label = "БЛ номер:",
+					EditValue = item.BLNumber,
+					Width = 300
+				};
+				// используем замыкание переменной.
+				te.OnApplyValue += (object sender, ValidateEventArgs e) => {
+					item.BLNumber = string.Format("{0}", e.Value);
+				};
+				te.OnValidatingValue += new EventHandler<ValidateEventArgs>(te_OnValidatingValue);
+
+				list.Add(te);
             }
             else if (Types.Stage.IsAssignableFrom(type)) {
                 var item = obj as Stage;
@@ -223,6 +237,8 @@ namespace GUIWinForms {
             using (var ef = new EditForm(obj)) {
                 if (ef.ShowDialog(owner) == System.Windows.Forms.DialogResult.OK) {
 					result = Controller.DataManager.Instance.Save(ef.EditValue as IDomain);
+					if (result == null)
+						new Exception ("Запись не найдена в бд!").ShowError (owner);
                 }
             }
             return result;
@@ -260,8 +276,9 @@ namespace GUIWinForms {
                     MessageBoxDefaultButton.Button1
                 ) == DialogResult.Yes) {
                     var res = Controller.DataManager.Instance.Delete(e.EditValue as IDomain);
-                    if (res == null || !res.ToString().Equals("1"))
+                    if (res == null || res.ToString().Equals("0"))
                         throw new Exception("Запись не удалена!");
+					e.EditValue = null;
                 }
             }
             catch (Exception ex) {
@@ -278,7 +295,7 @@ namespace GUIWinForms {
             }
         }
 
-        private static void be_OnValidatingValue(object sender, ValidateEventArgs e) {
+        public static void be_OnValidatingValue(object sender, ValidateEventArgs e) {
             e.Cancel = e.EditValue == null;
             if (e.Cancel)
                 e.Message = "Значение не может быть пустым!";
