@@ -22,6 +22,15 @@ namespace GUIWinForms {
             }
         }
 
+		public char PasswordChar {
+			get {
+				return textBox1.PasswordChar;
+			}
+			set {
+				textBox1.PasswordChar = value;
+			}
+		}
+
         protected override string getLabel() {
             return label.Text;
         }

@@ -48,6 +48,15 @@ namespace Db.Domains
 			set;
         }
 
+		private static Departament defValue;
+		public static Departament Default {
+			get {
+				if (defValue == null)
+					defValue = new Departament (1, 0, TypeDep.Default);
+				return defValue;
+			}
+		}
+
         private Lazy<IList<Stage>> lazy;
 
         public IList<Stage> Stages {
@@ -55,5 +64,9 @@ namespace Db.Domains
                 return lazy.Value;
             }
         }
+
+		public override string ToString () {
+			return string.Format ("{0} {1}", Num, TypeDep);
+		}
     }
 }

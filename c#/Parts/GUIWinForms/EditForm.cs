@@ -23,10 +23,12 @@ namespace GUIWinForms {
         public void Init(IList<DbEdit> list) {
             flp.Controls.AddRange(list.ToArray());
 
+            var w = list.Max(x => x.Width) + 10;
+            var h = list.Sum(x => x.Height);
 			AutoSize = false;
 
-			Height = flp1.Height + flp.Height + 28;
-			Width += (Math.Max (Math.Max (flp.Width, flp1.Width), Width) - Width); 
+			Height = flp1.Height + h + 68;
+			Width += (Math.Max (Math.Max (w, flp1.Width), Width) - Width); 
 			//AutoSize = true;
         }
 

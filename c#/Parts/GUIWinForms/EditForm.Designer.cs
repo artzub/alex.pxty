@@ -31,16 +31,14 @@
             this.SuspendLayout();
             // 
             // flp
-            //             
-			this.flp.AutoSize = true;
-			this.flp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            // 
+            this.flp.AutoSize = true;
             this.flp.BackColor = System.Drawing.SystemColors.Control;
-            //this.flp.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flp.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom;
+            this.flp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flp.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flp.Location = new System.Drawing.Point(0, 0);
             this.flp.Name = "flp";
-            this.flp.Size = new System.Drawing.Size(238, 50);
+            this.flp.Size = new System.Drawing.Size(238, 4);
             this.flp.TabIndex = 0;
             // 
             // flp1
@@ -49,7 +47,6 @@
             this.flp1.Controls.Add(this.button2);
             this.flp1.Controls.Add(this.button1);
             this.flp1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			//this.flp1.Anchor = System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom;
             this.flp1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flp1.Location = new System.Drawing.Point(0, 4);
             this.flp1.Name = "flp1";
@@ -88,7 +85,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(238, 34);
             this.ControlBox = false;

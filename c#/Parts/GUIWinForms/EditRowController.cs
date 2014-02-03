@@ -131,6 +131,20 @@ namespace GUIWinForms {
                 be.ButtonClick += new EventHandler<EventArgsButtonsClick>(be_ButtonClick);
                 list.Add(be);
 
+				be = new DbButtonsEdit() {
+					Width = 300,
+					Label = "Цех:",
+					EditValue = item.Departament ?? Departament.Default,
+					Tag = Types.Departament
+				};                
+				be.AddButton();
+				be.OnApplyValue += (object sender, ValidateEventArgs e) => {
+					item.Departament = e.EditValue as Departament;
+				};
+				be.OnValidatingValue += new EventHandler<ValidateEventArgs>(be_OnValidatingValue);
+				be.ButtonClick += new EventHandler<EventArgsButtonsClick>(be_ButtonClick);
+				list.Add(be);
+
                 be = new DbButtonsEdit() {
 					Width = 300,
                     Label = "Поверхность:",
@@ -209,6 +223,10 @@ namespace GUIWinForms {
                 });
             }
             else if (Types.Part.IsAssignableFrom(type)) {
+				list.Add(new DataGridViewTextBoxColumn() {
+					DataPropertyName = "BLNumber",
+					HeaderText = "БЛ номер"
+				});
                 list.Add(new DataGridViewTextBoxColumn() {
 					DataPropertyName = "Alloy",
                     HeaderText = "Сплав"
@@ -218,6 +236,24 @@ namespace GUIWinForms {
 					HeaderText = "Цена"
 				});
             }
+			else if (Types.Stage.IsAssignableFrom(type)) {
+				list.Add(new DataGridViewTextBoxColumn() {
+					DataPropertyName = "Id",
+					HeaderText = "Номер"
+				});
+				list.Add(new DataGridViewTextBoxColumn() {
+					DataPropertyName = "Departament",
+					HeaderText = "Цех"
+				});
+				list.Add(new DataGridViewTextBoxColumn() {
+					DataPropertyName = "Part",
+					HeaderText = "Деталь"
+				});
+				list.Add(new DataGridViewTextBoxColumn() {
+					DataPropertyName = "Surface",
+					HeaderText = "Поверхноть"
+				});
+			}
 
             return list;
         }

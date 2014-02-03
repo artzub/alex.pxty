@@ -74,7 +74,7 @@ namespace GUIWinForms {
 				stageBindingSource.DataSource = dm.Stages;
 				departamentBindingSource.DataSource = dm.Departaments;
 				surfaceBindingSource.DataSource = dm.Surfaces;
-				alloyBindingSource.DataSource = dm.Alloies;	
+				alloyBindingSource.DataSource = dm.Alloies;
 			} catch (Exception ex) {
 				ex.ShowError (this);
 			}

@@ -20,10 +20,11 @@ namespace Controller {
                 return null;
 
             var builder = new StoredProsedureStatementBuilder(procedureName);
+			builder.AddParameter("new_id_dep", item.IdDepartament ?? item.Departament.Id);
             builder.AddParameter("new_id_part", item.IdPart ?? item.Part.Id);
             builder.AddParameter("new_id_surface", item.IdSurface ?? item.Surface.Id);
-            builder.AddParameter("new_id_stagenext", item.IdStageNext ?? (item.StageNext ?? Stage.Default).Id);
-            builder.AddParameter("new_id_stageprev", item.IdStagePrev ?? (item.StagePrev ?? Stage.Default).Id);
+            builder.AddParameter("new_id_next", item.IdStageNext ?? (item.StageNext ?? Stage.Default).Id);
+            builder.AddParameter("new_id_prev", item.IdStagePrev ?? (item.StagePrev ?? Stage.Default).Id);
 			builder.AddParameter("old_id", Convert.ToInt64(item.Id));
 			builder.AddParameter("new_ID", Convert.ToInt64(0), 32, System.Data.ParameterDirection.InputOutput);
 

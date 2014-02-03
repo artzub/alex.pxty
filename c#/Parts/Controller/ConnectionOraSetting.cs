@@ -5,7 +5,6 @@ namespace Controller
 	        get; 
             set;
         }
-
 		public string Pass {
 			get;
 			set;
@@ -21,18 +20,23 @@ namespace Controller
 	        set;
 	    }
 
-	    public string S {
-	        get;
-	        set;
-	    }
-
 	    public string Service {
 	        get;
 	        set;
 	    }
 
 	    public override string ToString() {
-	        return string.Format(
+			return /*"User ID=" + User + ";" +
+								"Password=" + Pass + ";" +
+										"Data Source=(" +
+										"DESCRIPTION=(" +
+										"ADDRESS=(PROTOCOL=TCP)(HOST="+ Host +")(PORT="+ Port +"))" +
+										"(CONNECT_DATA=(SERVER=DEDICATED)" +
+										"(SERVICE_NAME=" + Service + ")))";*/
+
+
+
+				string.Format(
                 "User ID={0};"
 	            + "Password={1};"
 	            + "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)"

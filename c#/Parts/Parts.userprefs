@@ -1,33 +1,41 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/DataManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Controllers/StageController.cs">
     <Files>
-      <File FileName="Controller/Controllers/BaseController.cs" Line="20" Column="1" />
-      <File FileName="GUIWinForms/MainForm.cs" Line="194" Column="32" />
-      <File FileName="Controller/DataManager.cs" Line="29" Column="1" />
-      <File FileName="Controller/IController.cs" Line="1" Column="1" />
-      <File FileName="Controller/Controllers/Controller.cs" Line="13" Column="3" />
-      <File FileName="GUIWinForms/EditRowController.cs" Line="298" Column="15" />
-      <File FileName="GUIWinForms/MainForm.Designer.cs" Line="1" Column="1" />
-      <File FileName="db/DataAccess/DatabaseGateway.cs" Line="31" Column="12" />
-      <File FileName="Controller/Controllers/PartController.cs" Line="25" Column="32" />
-      <File FileName="GUIWinForms/EditForm.cs" Line="29" Column="63" />
-      <File FileName="GUIWinForms/Program.cs" Line="57" Column="26" />
-      <File FileName="Controller/ConnectionOraSetting.cs" Line="10" Column="3" />
+      <File FileName="GUIWinForms/Program.cs" Line="86" Column="25" />
+      <File FileName="GUIWinForms/Properties/Settings.Designer.cs" Line="76" Column="73" />
+      <File FileName="GUIWinForms/DbEdit.cs" Line="66" Column="1" />
+      <File FileName="GUIWinForms/EditForm.cs" Line="29" Column="1" />
+      <File FileName="Controller/ConnectionOraSetting.cs" Line="51" Column="12" />
+      <File FileName="Controller/DataManager.cs" Line="30" Column="1" />
+      <File FileName="GUIWinForms/MainForm.cs" Line="73" Column="44" />
+      <File FileName="db/DataAccess/OracleConnection.cs" Line="44" Column="1" />
+      <File FileName="GUIWinForms/DbSpinEdit.cs" Line="31" Column="29" />
+      <File FileName="GUIWinForms/EditRowController.cs" Line="137" Column="57" />
+      <File FileName="db/Domains/Departament.cs" Line="51" Column="18" />
+      <File FileName="db/Domains/Part.cs" Line="59" Column="10" />
+      <File FileName="db/Domains/Stage.cs" Line="120" Column="39" />
+      <File FileName="GUIWinForms/DbTextEdit.cs" Line="30" Column="26" />
+      <File FileName="Controller/Controllers/StageController.cs" Line="22" Column="1" />
+      <File FileName="db/Domains/Surface.cs" Line="38" Column="57" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Controller" expanded="True">
-            <Node name="Controllers" expanded="True" />
+            <Node name="Controllers" expanded="True">
+              <Node name="StageController.cs" selected="True" />
+            </Node>
             <Node name="Generic" expanded="True" />
-            <Node name="DataManager.cs" selected="True" />
           </Node>
           <Node name="db" expanded="True">
             <Node name="DataAccess" expanded="True" />
             <Node name="Domains" expanded="True" />
           </Node>
           <Node name="GUIWinForms" expanded="True">
+            <Node name="Properties" expanded="True">
+              <Node name="Settings.settings" expanded="True" />
+            </Node>
             <Node name="EditForm.cs" expanded="True" />
             <Node name="MainForm.cs" expanded="True" />
             <Node name="SplashForm.cs" expanded="True" />
