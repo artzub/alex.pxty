@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\AlloyController.cs" />
-    <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Controllers\DepartamentController.cs" />
     <Compile Include="Generic\IController.cs" />
     <Compile Include="DataManager.cs" />

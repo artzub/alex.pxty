@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Db.Mapping;
 using Db;
 using Db.DataAccess;
 
 namespace Controller {
     public abstract class Controller<T> : BaseController, IController<T> where T : class, IDomain {
-		public Controller() : base() {
-        }
 
         protected virtual object ChangeRow(T item, string procedureName) {
             var cur = item as DomainNamed;
@@ -21,7 +18,7 @@ namespace Controller {
 			builder.AddParameter("old_id", Convert.ToInt64(cur.Id ?? 0));
 			builder.AddParameter("new_ID", Convert.ToInt64(0), 32, System.Data.ParameterDirection.InputOutput);
 
-			return Provider.DatabaseGateway.StoredProcedureExcecut(builder, "new_ID");;
+			return Provider.DatabaseGateway.StoredProcedureExcecut(builder, "new_ID");
         }
 
         #region IController<T> Members
@@ -35,11 +32,11 @@ namespace Controller {
         }
 
         public T GetNew(object id) {
-            var ctor = typeof(T).GetConstructor(new Type[] { typeof(object) });
-            return (T)ctor.Invoke(new object[] {id});
+            var ctor = typeof(T).GetConstructor(new[] { typeof(object) });
+            return ctor == null ? null : (T)ctor.Invoke(new [] {id});
         }
 
-        public IList<T> GetData(Db.DataAccess.Queries select = null) {
+        public IList<T> GetData(Queries select = null) {
             return ((IMapper<T>)Mapper).GetAll();
         }
 
@@ -48,7 +45,7 @@ namespace Controller {
         public IList<T> Items {
             get {
                 if (items == null) {
-                    hash = GetData().ToDictionary<T, object>(x => x.Id);
+                    hash = GetData().ToDictionary(x => x.Id);
                     items = new System.ComponentModel.BindingList<T>(hash.Values.ToList());
                 }
                 return items;
@@ -65,7 +62,7 @@ namespace Controller {
 
         public T AddItem(T item) {
             if (item == null)
-                return item;
+                return null;
 
             T value;
 

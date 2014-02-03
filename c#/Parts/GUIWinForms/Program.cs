@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.Configuration;
+using Controller;
 
 namespace GUIWinForms {
     static class Program {
@@ -22,57 +25,156 @@ namespace GUIWinForms {
 			bw.RunWorkerCompleted += HandleRunWorkerCompleted;
 
 			while (true) {
-				using (fr = new SplashForm()) {				
+                try {
+                    using (fr = new SplashForm()) {
+                        LoadOraSetting();
 
-					fr.Show ();
+                        fr.Show();
 
-					fr.Label = "Подключение к бд";
+                        fr.Label = "Подключение к бд";
 
-					bw.RunWorkerAsync ();
-					while (bw.IsBusy)
-						Application.DoEvents ();
+                        bw.RunWorkerAsync();
+                        while (bw.IsBusy)
+                            Application.DoEvents();
+                    }
+                    if (error == null)
+                        break;
+                    throw error;
+                }
+                catch (Exception ex) {
+                    ex.ShowError();
+                    if (EditOraSettings())
+                        break;
+                }
 
-				}
-
-				if (error == null) {
-					Application.Run (new MainForm ());
-					break;
-				}
-				else {
-					error.ShowError ();
-					if (error.Message.StartsWith ("ORA-01017")) {
-						using(var ef = new EditForm()) {
-							var ed = new DbTextEdit () {
-								Width = 300,
-								EditValue = oraSetting.Pass
-							};
-							ed.OnApplyValue += (object sender, ValidateEventArgs e) => {
-								oraSetting.Pass = string.Format("{0}", e.EditValue);
-							};
-							ed.OnValidatingValue += EditRowController.be_OnValidatingValue;
-
-							ef.Init (new List<DbEdit> () {
-								ed
-							});
-							if (ef.ShowDialog() == DialogResult.Cancel)
-								break;
-						}
-					}
-					else
-						break;
-				}
+			    try {
+                    if (error == null)
+                        SaveOraSetting();
+                        Application.Run(new MainForm());
+			    }
+			    catch (Exception ex) {
+                    ex.ShowError();
+			    }
 			}
 		}
-		
+
+        private static bool EditOraSettings() {
+            using (var ef = new EditForm()) {
+                var list = new List<DbEdit>();
+                var ed = new DbTextEdit() {
+                    Width = 300,
+                    EditValue = oraSetting.User
+                };
+                ed.OnApplyValue += (object sender, ValidateEventArgs e) => {
+                    oraSetting.User = string.Format("{0}", e.EditValue);
+                };
+                ed.OnValidatingValue += EditRowController.be_OnValidatingValue;
+                list.Add(ed);
+
+                ed = new DbTextEdit() {
+                    Width = 300,
+                    EditValue = oraSetting.Pass
+                };
+                ed.OnApplyValue += (object sender, ValidateEventArgs e) => {
+                    oraSetting.Pass = string.Format("{0}", e.EditValue);
+                };
+                ed.OnValidatingValue += EditRowController.be_OnValidatingValue;
+                list.Add(ed);
+
+                ed = new DbTextEdit() {
+                    Width = 300,
+                    EditValue = oraSetting.Service
+                };
+                ed.OnApplyValue += (object sender, ValidateEventArgs e) => {
+                    oraSetting.Service = string.Format("{0}", e.EditValue);
+                };
+                ed.OnValidatingValue += EditRowController.be_OnValidatingValue;
+                list.Add(ed);
+
+                ed = new DbTextEdit() {
+                    Width = 300,
+                    EditValue = oraSetting.Host
+                };
+                ed.OnApplyValue += (object sender, ValidateEventArgs e) => {
+                    oraSetting.Host = string.Format("{0}", e.EditValue);
+                };
+                ed.OnValidatingValue += EditRowController.be_OnValidatingValue;
+                list.Add(ed);
+
+                var se = new DbSpinEdit() {
+                    Width = 300,
+                    Minimum = 1,
+                    Maximum = Int16.MaxValue,
+                    EditValue = string.IsNullOrWhiteSpace(oraSetting.Port) ? 1521 : Convert.ToInt32(oraSetting.Port)
+                };
+                se.OnApplyValue += (object sender, ValidateEventArgs e) => {
+                    oraSetting.Port = string.Format("{0}", e.EditValue);
+                };
+                se.OnValidatingValue += EditRowController.be_OnValidatingValue;
+                list.Add(se);
+
+                ef.Init(list);
+                if (ef.ShowDialog() == DialogResult.Cancel) {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         static void HandleRunWorkerCompleted (object sender, RunWorkerCompletedEventArgs e)  {
 			//ex = e.Result as Exception;
         }
 
 		static SplashForm fr;
-		static Controller.ConnectionOraSetting oraSetting = new Controller.ConnectionOraSetting() {
-			Pass = "ffff"
-		};
+		static ConnectionOraSetting oraSetting;
+
+        static void LoadOraSetting() {
+            var config = 
+				ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+				var section = (AppSettingsSection)config.GetSection("oraSetting");
+
+                oraSetting = new ConnectionOraSetting();
+
+				if (section != null) {
+					oraSetting.Host = section.Settings["Host"].Value;
+                    oraSetting.Port = section.Settings["Port"].Value;
+					oraSetting.Service = section.Settings["ServiceName"].Value;
+                    oraSetting.User = section.Settings["User"].Value;
+                    if (section.Settings["Password"] == null || string.IsNullOrWhiteSpace(section.Settings["Password"].Value))
+                        throw new Exception("Пароль пуст");
+				    oraSetting.Pass = section.Settings["Password"].Value;
+				}
+        }
+
+        static void SaveOraSetting() {
+            var config =
+                ConfigurationManager.OpenExeConfiguration(
+                    ConfigurationUserLevel.None);
+            var section = (AppSettingsSection)config.GetSection("oraSetting");
+
+            if (section != null) {
+                config.Sections.Remove("oraSetting");
+            }
+            else {
+                section = new AppSettingsSection();
+            }
+
+            section.Settings.Clear();
+            section.Settings.Add("Host", oraSetting.Host);
+            section.Settings.Add("Port", oraSetting.Port);
+            section.Settings.Add("Service", oraSetting.Service);
+            section.Settings.Add("User", oraSetting.User);
+            section.Settings.Add("Password", oraSetting.Pass);
+            section.SectionInformation.AllowDefinition = ConfigurationAllowDefinition.Everywhere;
+            section.SectionInformation.AllowExeDefinition = ConfigurationAllowExeDefinition.MachineToApplication;
+            section.SectionInformation.ForceSave = true;
+            section.SectionInformation.RestartOnExternalChanges = true;
+            config.Sections.Add("oraSetting", section);
+
+            config.Save(ConfigurationSaveMode.Modified);
+
+            ConfigurationManager.RefreshSection("oraSetting");
+        }
 
         static void HandleProgressChanged (object sender, ProgressChangedEventArgs e) {
             switch (e.ProgressPercentage) {

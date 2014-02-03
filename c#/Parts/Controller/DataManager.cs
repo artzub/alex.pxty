@@ -26,16 +26,8 @@ namespace Controller {
 
 		public void Config(ConnectionOraSetting oraSetting) {
 			#if MONO
-			var conn = "User ID=PARTS;" +
-				"Password=Zeld;" +
-					"Data Source=(" +
-					"DESCRIPTION=(" +
-					"ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" +
-					"(CONNECT_DATA=(SERVER=DEDICATED)" +
-					"(SERVICE_NAME=XE)))";
-			OracleConnection.Instance.Initialize(conn);
-
 			try {
+                OracleConnection.Instance.Initialize(oraSetting.ToString());
 				OracleConnection.Instance.Open();
 			}
 			catch(Exception e) {
