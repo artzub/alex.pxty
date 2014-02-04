@@ -30,38 +30,39 @@
             this.partDataGridView = new System.Windows.Forms.DataGridView();
             this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partStagesDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surfaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sufaceStagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.stageDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stagePrevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stageNextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departamentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surfaceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.departamentDataGridView = new System.Windows.Forms.DataGridView();
+            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDepDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.depStagePartDataGridView = new System.Windows.Forms.DataGridView();
-            this.stagesPartBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.alloyDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alloyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departamentDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surfaceDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stagesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.surfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alloyPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.surfaceDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partStagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -82,26 +83,27 @@
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BLNumberDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDepDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depStagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.IdDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SurfaceDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartBlNumDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartNameDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartAlloyDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartCostDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SSIdDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SSDepDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SSPartDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PSIdDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PSIdPrevDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PSIdNextDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PSDepDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PSSufDGVTBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bLNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alloyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stagePrevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stageNextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departamentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surfaceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -111,7 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.partDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partStagesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stagesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sufaceStagesBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stageDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stageBindingSource)).BeginInit();
@@ -123,7 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.departamentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departamentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depStagePartDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stagesPartBindingSource2)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -132,18 +133,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.alloyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alloyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stagesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alloyPartsBindingSource)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.surfaceDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partStagesBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depStagesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -228,10 +230,12 @@
             this.partStagesDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.partStagesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partStagesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.surfaceDataGridViewTextBoxColumn,
-            this.departamentDataGridViewTextBoxColumn});
-            this.partStagesDataGridView.DataSource = this.stagesBindingSource;
+            this.PSIdDGVTBC,
+            this.PSIdPrevDGVTBC,
+            this.PSIdNextDGVTBC,
+            this.PSDepDGVTBC,
+            this.PSSufDGVTBC});
+            this.partStagesDataGridView.DataSource = this.partStagesBindingSource;
             this.partStagesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.partStagesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.partStagesDataGridView.Name = "partStagesDataGridView";
@@ -240,32 +244,6 @@
             this.partStagesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partStagesDataGridView.Size = new System.Drawing.Size(393, 461);
             this.partStagesDataGridView.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Номер";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // surfaceDataGridViewTextBoxColumn
-            // 
-            this.surfaceDataGridViewTextBoxColumn.DataPropertyName = "Surface";
-            this.surfaceDataGridViewTextBoxColumn.HeaderText = "Поверхность";
-            this.surfaceDataGridViewTextBoxColumn.Name = "surfaceDataGridViewTextBoxColumn";
-            this.surfaceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departamentDataGridViewTextBoxColumn
-            // 
-            this.departamentDataGridViewTextBoxColumn.DataPropertyName = "Departament";
-            this.departamentDataGridViewTextBoxColumn.HeaderText = "Цех";
-            this.departamentDataGridViewTextBoxColumn.Name = "departamentDataGridViewTextBoxColumn";
-            this.departamentDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stagesBindingSource
-            // 
-            //this.stagesBindingSource.DataMember = "Stages";
-            //this.stagesBindingSource.DataSource = this.partBindingSource;
             // 
             // tabPage2
             // 
@@ -303,6 +281,48 @@
             this.stageDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.stageDataGridView.Size = new System.Drawing.Size(1137, 461);
             this.stageDataGridView.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Номер";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // stagePrevDataGridViewTextBoxColumn
+            // 
+            this.stagePrevDataGridViewTextBoxColumn.DataPropertyName = "StagePrev";
+            this.stagePrevDataGridViewTextBoxColumn.HeaderText = "Предыдущий";
+            this.stagePrevDataGridViewTextBoxColumn.Name = "stagePrevDataGridViewTextBoxColumn";
+            this.stagePrevDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stageNextDataGridViewTextBoxColumn
+            // 
+            this.stageNextDataGridViewTextBoxColumn.DataPropertyName = "StageNext";
+            this.stageNextDataGridViewTextBoxColumn.HeaderText = "Следующий";
+            this.stageNextDataGridViewTextBoxColumn.Name = "stageNextDataGridViewTextBoxColumn";
+            this.stageNextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departamentDataGridViewTextBoxColumn1
+            // 
+            this.departamentDataGridViewTextBoxColumn1.DataPropertyName = "Departament";
+            this.departamentDataGridViewTextBoxColumn1.HeaderText = "Цех";
+            this.departamentDataGridViewTextBoxColumn1.Name = "departamentDataGridViewTextBoxColumn1";
+            this.departamentDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // partDataGridViewTextBoxColumn1
+            // 
+            this.partDataGridViewTextBoxColumn1.DataPropertyName = "Part";
+            this.partDataGridViewTextBoxColumn1.HeaderText = "Деталь";
+            this.partDataGridViewTextBoxColumn1.Name = "partDataGridViewTextBoxColumn1";
+            this.partDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // surfaceDataGridViewTextBoxColumn1
+            // 
+            this.surfaceDataGridViewTextBoxColumn1.DataPropertyName = "Surface";
+            this.surfaceDataGridViewTextBoxColumn1.HeaderText = "Поверхность";
+            this.surfaceDataGridViewTextBoxColumn1.Name = "surfaceDataGridViewTextBoxColumn1";
+            this.surfaceDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // stageBindingSource
             // 
@@ -359,15 +379,23 @@
             this.departamentDataGridView.Size = new System.Drawing.Size(737, 461);
             this.departamentDataGridView.TabIndex = 0;
             // 
+            // numDataGridViewTextBoxColumn
+            // 
+            this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
+            this.numDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
+            this.numDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDepDataGridViewTextBoxColumn
+            // 
+            this.typeDepDataGridViewTextBoxColumn.DataPropertyName = "TypeDep";
+            this.typeDepDataGridViewTextBoxColumn.HeaderText = "Цех";
+            this.typeDepDataGridViewTextBoxColumn.Name = "typeDepDataGridViewTextBoxColumn";
+            this.typeDepDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // departamentBindingSource
             // 
             this.departamentBindingSource.DataSource = typeof(Db.Domains.Departament);
-			// 
-			// stagesPartBindingSource2
-			// TODO ttt
-			//this.stagesPartBindingSource2.DataMember = "Stages";
-			//this.stagesPartBindingSource2.DataSource = this.departamentBindingSource;
-
             // 
             // depStagePartDataGridView
             // 
@@ -380,11 +408,10 @@
             this.depStagePartDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.depStagePartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.depStagePartDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BLNumberDGVTBC,
-            this.NameDGVTBC,
-            this.CostDGVTBC});
-            //this.depStagePartDataGridView.DataMember = "Part";
-            //this.depStagePartDataGridView.DataSource = this.stagesPartBindingSource2;
+            this.IdDGVTBC,
+            this.PartDGVTBC,
+            this.SurfaceDGVTBC});
+            this.depStagePartDataGridView.DataSource = this.depStagesBindingSource;
             this.depStagePartDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.depStagePartDataGridView.Location = new System.Drawing.Point(0, 0);
             this.depStagePartDataGridView.Name = "depStagePartDataGridView";
@@ -392,7 +419,7 @@
             this.depStagePartDataGridView.RowHeadersVisible = false;
             this.depStagePartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.depStagePartDataGridView.Size = new System.Drawing.Size(396, 461);
-            this.depStagePartDataGridView.TabIndex = 1;            
+            this.depStagePartDataGridView.TabIndex = 1;
             // 
             // tabPage4
             // 
@@ -444,6 +471,20 @@
             this.alloyDataGridView.Size = new System.Drawing.Size(705, 461);
             this.alloyDataGridView.TabIndex = 0;
             // 
+            // idDataGridViewTextBoxColumn5
+            // 
+            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn5.HeaderText = "Номер";
+            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
+            this.idDataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // alloyBindingSource
             // 
             this.alloyBindingSource.DataSource = typeof(Db.Domains.Alloy);
@@ -458,11 +499,11 @@
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.departamentDataGridViewTextBoxColumn3,
-            this.partDataGridViewTextBoxColumn,
-            this.surfaceDataGridViewTextBoxColumn3});
-            this.dataGridView2.DataSource = this.stagesBindingSource1;
+            this.PartBlNumDGVTBC,
+            this.PartNameDGVTBC,
+            this.PartAlloyDGVTBC,
+            this.PartCostDGVTBC});
+            this.dataGridView2.DataSource = this.alloyPartsBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
@@ -471,43 +512,6 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(428, 461);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departamentDataGridViewTextBoxColumn3
-            // 
-            this.departamentDataGridViewTextBoxColumn3.DataPropertyName = "Departament";
-            this.departamentDataGridViewTextBoxColumn3.HeaderText = "Цех";
-            this.departamentDataGridViewTextBoxColumn3.Name = "departamentDataGridViewTextBoxColumn3";
-            this.departamentDataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // partDataGridViewTextBoxColumn
-            // 
-            this.partDataGridViewTextBoxColumn.DataPropertyName = "Part";
-            this.partDataGridViewTextBoxColumn.HeaderText = "Деталь";
-            this.partDataGridViewTextBoxColumn.Name = "partDataGridViewTextBoxColumn";
-            this.partDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // surfaceDataGridViewTextBoxColumn3
-            // 
-            this.surfaceDataGridViewTextBoxColumn3.DataPropertyName = "Surface";
-            this.surfaceDataGridViewTextBoxColumn3.HeaderText = "Поверхность";
-            this.surfaceDataGridViewTextBoxColumn3.Name = "surfaceDataGridViewTextBoxColumn3";
-            this.surfaceDataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // stagesBindingSource1
-            // 
-            //this.stagesBindingSource1.DataMember = "Stages";
-            //this.stagesBindingSource1.DataSource = this.surfaceBindingSource;
-            // 
-            // surfaceBindingSource
-            // 
-            this.surfaceBindingSource.DataSource = typeof(Db.Domains.Surface);
             // 
             // tabPage5
             // 
@@ -559,6 +563,24 @@
             this.surfaceDataGridView.Size = new System.Drawing.Size(747, 461);
             this.surfaceDataGridView.TabIndex = 0;
             // 
+            // idDataGridViewTextBoxColumn6
+            // 
+            this.idDataGridViewTextBoxColumn6.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn6.HeaderText = "Номер";
+            this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
+            this.idDataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Наименование";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // surfaceBindingSource
+            // 
+            this.surfaceBindingSource.DataSource = typeof(Db.Domains.Surface);
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -569,11 +591,10 @@
             this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView3.DataSource = this.stagesBindingSource;
+            this.SSIdDGVTBC,
+            this.SSDepDGVTBC,
+            this.SSPartDGVTBC});
+            this.dataGridView3.DataSource = this.sufaceStagesBindingSource;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Name = "dataGridView3";
@@ -582,34 +603,6 @@
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView3.Size = new System.Drawing.Size(386, 461);
             this.dataGridView3.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Номер";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Departament";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Цех";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Part";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Деталь";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Surface";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Поверхность";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -635,13 +628,14 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Выод";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // редактированиеToolStripMenuItem
             // 
@@ -663,41 +657,41 @@
             this.addStageToolStripMenuItem});
             this.addToolStripMenuItem.Image = global::GUIWinForms.Properties.Resources.add_16x16;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addToolStripMenuItem.Text = "Добавить";
             // 
             // addAlloyToolStripMenuItem
             // 
             this.addAlloyToolStripMenuItem.Name = "addAlloyToolStripMenuItem";
-            this.addAlloyToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addAlloyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addAlloyToolStripMenuItem.Text = "Сплав";
             this.addAlloyToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // addSurfaceToolStripMenuItem
             // 
             this.addSurfaceToolStripMenuItem.Name = "addSurfaceToolStripMenuItem";
-            this.addSurfaceToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addSurfaceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addSurfaceToolStripMenuItem.Text = "Поверхность";
             this.addSurfaceToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // addDepToolStripMenuItem
             // 
             this.addDepToolStripMenuItem.Name = "addDepToolStripMenuItem";
-            this.addDepToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addDepToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addDepToolStripMenuItem.Text = "Цех";
             this.addDepToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // addPartToolStripMenuItem
             // 
             this.addPartToolStripMenuItem.Name = "addPartToolStripMenuItem";
-            this.addPartToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addPartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addPartToolStripMenuItem.Text = "Деталь";
             this.addPartToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // addStageToolStripMenuItem
             // 
             this.addStageToolStripMenuItem.Name = "addStageToolStripMenuItem";
-            this.addStageToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addStageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addStageToolStripMenuItem.Text = "Маршрут";
             this.addStageToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
@@ -705,14 +699,14 @@
             // 
             this.editToolStripMenuItem.Image = global::GUIWinForms.Properties.Resources.edit_16x16;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editToolStripMenuItem.Text = "Изменить";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::GUIWinForms.Properties.Resources.delete_16x16;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "Удалить";
             // 
             // helpToolStripMenuItem
@@ -726,12 +720,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "О программе";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
             this.addToolStripButton,
             this.editToolStripButton,
             this.deleteToolStripButton,
@@ -749,7 +745,7 @@
             this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addToolStripButton.Name = "addToolStripButton";
             this.addToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.addToolStripButton.Text = "toolStripButton1";
+            this.addToolStripButton.Text = "Добавить";
             // 
             // editToolStripButton
             // 
@@ -758,7 +754,7 @@
             this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.editToolStripButton.Name = "editToolStripButton";
             this.editToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.editToolStripButton.Text = "toolStripButton2";
+            this.editToolStripButton.Text = "Изменить";
             this.editToolStripButton.Click += new System.EventHandler(this.editToolStripButton_Click);
             // 
             // deleteToolStripButton
@@ -768,85 +764,127 @@
             this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteToolStripButton.Name = "deleteToolStripButton";
             this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.deleteToolStripButton.Text = "toolStripButton3";
+            this.deleteToolStripButton.Text = "Удалить";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // partsBindingSource
+            // toolStripLabel1
             // 
-            //this.partsBindingSource.DataMember = "Parts";
-            //this.partsBindingSource.DataSource = this.alloyBindingSource;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(0, 22);
             // 
-            // idDataGridViewTextBoxColumn6
+            // IdDGVTBC
             // 
-            this.idDataGridViewTextBoxColumn6.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn6.HeaderText = "Номер";
-            this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
-            this.idDataGridViewTextBoxColumn6.ReadOnly = true;
+            this.IdDGVTBC.DataPropertyName = "Id";
+            this.IdDGVTBC.HeaderText = "Номер";
+            this.IdDGVTBC.Name = "IdDGVTBC";
+            this.IdDGVTBC.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn1
+            // PartDGVTBC
             // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Наименование";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.PartDGVTBC.DataPropertyName = "Part";
+            this.PartDGVTBC.HeaderText = "Деталь";
+            this.PartDGVTBC.Name = "PartDGVTBC";
+            this.PartDGVTBC.ReadOnly = true;
             // 
-            // idDataGridViewTextBoxColumn5
+            // SurfaceDGVTBC
             // 
-            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn5.HeaderText = "Номер";
-            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
-            this.idDataGridViewTextBoxColumn5.ReadOnly = true;
+            this.SurfaceDGVTBC.DataPropertyName = "Surface";
+            this.SurfaceDGVTBC.HeaderText = "Поверхность";
+            this.SurfaceDGVTBC.Name = "SurfaceDGVTBC";
+            this.SurfaceDGVTBC.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // PartBlNumDGVTBC
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.PartBlNumDGVTBC.DataPropertyName = "BLNumber";
+            this.PartBlNumDGVTBC.HeaderText = "БЛ Номер";
+            this.PartBlNumDGVTBC.Name = "PartBlNumDGVTBC";
+            this.PartBlNumDGVTBC.ReadOnly = true;
             // 
-            // BLNumberDGVTBC
+            // PartNameDGVTBC
             // 
-            this.BLNumberDGVTBC.DataPropertyName = "BLNumber";
-            this.BLNumberDGVTBC.HeaderText = "BL Номер";
-            this.BLNumberDGVTBC.Name = "BLNumberDGVTBC";
-            this.BLNumberDGVTBC.ReadOnly = true;
+            this.PartNameDGVTBC.DataPropertyName = "Name";
+            this.PartNameDGVTBC.HeaderText = "Наименование";
+            this.PartNameDGVTBC.Name = "PartNameDGVTBC";
+            this.PartNameDGVTBC.ReadOnly = true;
             // 
-            // NameDGVTBC
+            // PartAlloyDGVTBC
             // 
-            this.NameDGVTBC.DataPropertyName = "Name";
-            this.NameDGVTBC.HeaderText = "Наименование";
-            this.NameDGVTBC.Name = "NameDGVTBC";
-            this.NameDGVTBC.ReadOnly = true;
+            this.PartAlloyDGVTBC.DataPropertyName = "Alloy";
+            this.PartAlloyDGVTBC.HeaderText = "Сплав";
+            this.PartAlloyDGVTBC.Name = "PartAlloyDGVTBC";
+            this.PartAlloyDGVTBC.ReadOnly = true;
             // 
-            // CostDGVTBC
+            // PartCostDGVTBC
             // 
-            this.CostDGVTBC.DataPropertyName = "Cost";
-            this.CostDGVTBC.HeaderText = "Стоимость";
-            this.CostDGVTBC.Name = "CostDGVTBC";
-            this.CostDGVTBC.ReadOnly = true;
+            this.PartCostDGVTBC.DataPropertyName = "Cost";
+            this.PartCostDGVTBC.HeaderText = "Стоимость";
+            this.PartCostDGVTBC.Name = "PartCostDGVTBC";
+            this.PartCostDGVTBC.ReadOnly = true;
             // 
-            // numDataGridViewTextBoxColumn
+            // SSIdDGVTBC
             // 
-            this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
-            this.numDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
-            this.numDataGridViewTextBoxColumn.ReadOnly = true;
+            this.SSIdDGVTBC.DataPropertyName = "Id";
+            this.SSIdDGVTBC.HeaderText = "Номер";
+            this.SSIdDGVTBC.Name = "SSIdDGVTBC";
+            this.SSIdDGVTBC.ReadOnly = true;
             // 
-            // typeDepDataGridViewTextBoxColumn
+            // SSDepDGVTBC
             // 
-            this.typeDepDataGridViewTextBoxColumn.DataPropertyName = "TypeDep";
-            this.typeDepDataGridViewTextBoxColumn.HeaderText = "Цех";
-            this.typeDepDataGridViewTextBoxColumn.Name = "typeDepDataGridViewTextBoxColumn";
-            this.typeDepDataGridViewTextBoxColumn.ReadOnly = true;
+            this.SSDepDGVTBC.DataPropertyName = "Departament";
+            this.SSDepDGVTBC.HeaderText = "Цех";
+            this.SSDepDGVTBC.Name = "SSDepDGVTBC";
+            this.SSDepDGVTBC.ReadOnly = true;
+            // 
+            // SSPartDGVTBC
+            // 
+            this.SSPartDGVTBC.DataPropertyName = "Part";
+            this.SSPartDGVTBC.HeaderText = "Деталь";
+            this.SSPartDGVTBC.Name = "SSPartDGVTBC";
+            this.SSPartDGVTBC.ReadOnly = true;
+            // 
+            // PSIdDGVTBC
+            // 
+            this.PSIdDGVTBC.DataPropertyName = "Id";
+            this.PSIdDGVTBC.HeaderText = "Номер";
+            this.PSIdDGVTBC.Name = "PSIdDGVTBC";
+            this.PSIdDGVTBC.ReadOnly = true;
+            // 
+            // PSIdPrevDGVTBC
+            // 
+            this.PSIdPrevDGVTBC.DataPropertyName = "StagePrev.Id";
+            this.PSIdPrevDGVTBC.HeaderText = "Пред.";
+            this.PSIdPrevDGVTBC.Name = "PSIdPrevDGVTBC";
+            this.PSIdPrevDGVTBC.ReadOnly = true;
+            // 
+            // PSIdNextDGVTBC
+            // 
+            this.PSIdNextDGVTBC.DataPropertyName = "StageNext.Id";
+            this.PSIdNextDGVTBC.HeaderText = "След.";
+            this.PSIdNextDGVTBC.Name = "PSIdNextDGVTBC";
+            this.PSIdNextDGVTBC.ReadOnly = true;
+            // 
+            // PSDepDGVTBC
+            // 
+            this.PSDepDGVTBC.DataPropertyName = "Departament";
+            this.PSDepDGVTBC.HeaderText = "Цех";
+            this.PSDepDGVTBC.Name = "PSDepDGVTBC";
+            this.PSDepDGVTBC.ReadOnly = true;
+            // 
+            // PSSufDGVTBC
+            // 
+            this.PSSufDGVTBC.DataPropertyName = "Surface";
+            this.PSSufDGVTBC.HeaderText = "Поверхность";
+            this.PSSufDGVTBC.Name = "PSSufDGVTBC";
+            this.PSSufDGVTBC.ReadOnly = true;
             // 
             // bLNumberDataGridViewTextBoxColumn
             // 
             this.bLNumberDataGridViewTextBoxColumn.DataPropertyName = "BLNumber";
-            this.bLNumberDataGridViewTextBoxColumn.HeaderText = "BL Номер";
+            this.bLNumberDataGridViewTextBoxColumn.HeaderText = "БЛ Номер";
             this.bLNumberDataGridViewTextBoxColumn.Name = "bLNumberDataGridViewTextBoxColumn";
             this.bLNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -871,48 +909,6 @@
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
             this.costDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // idDataGridViewTextBoxColumn2
-            // 
-            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "Номер";
-            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
-            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // stagePrevDataGridViewTextBoxColumn
-            // 
-            this.stagePrevDataGridViewTextBoxColumn.DataPropertyName = "StagePrev";
-            this.stagePrevDataGridViewTextBoxColumn.HeaderText = "Предыдущий";
-            this.stagePrevDataGridViewTextBoxColumn.Name = "stagePrevDataGridViewTextBoxColumn";
-            this.stagePrevDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stageNextDataGridViewTextBoxColumn
-            // 
-            this.stageNextDataGridViewTextBoxColumn.DataPropertyName = "StageNext";
-            this.stageNextDataGridViewTextBoxColumn.HeaderText = "Следующий";
-            this.stageNextDataGridViewTextBoxColumn.Name = "stageNextDataGridViewTextBoxColumn";
-            this.stageNextDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departamentDataGridViewTextBoxColumn1
-            // 
-            this.departamentDataGridViewTextBoxColumn1.DataPropertyName = "Departament";
-            this.departamentDataGridViewTextBoxColumn1.HeaderText = "Цех";
-            this.departamentDataGridViewTextBoxColumn1.Name = "departamentDataGridViewTextBoxColumn1";
-            this.departamentDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // partDataGridViewTextBoxColumn1
-            // 
-            this.partDataGridViewTextBoxColumn1.DataPropertyName = "Part";
-            this.partDataGridViewTextBoxColumn1.HeaderText = "Деталь";
-            this.partDataGridViewTextBoxColumn1.Name = "partDataGridViewTextBoxColumn1";
-            this.partDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // surfaceDataGridViewTextBoxColumn1
-            // 
-            this.surfaceDataGridViewTextBoxColumn1.DataPropertyName = "Surface";
-            this.surfaceDataGridViewTextBoxColumn1.HeaderText = "Поверхность";
-            this.surfaceDataGridViewTextBoxColumn1.Name = "surfaceDataGridViewTextBoxColumn1";
-            this.surfaceDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -933,7 +929,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.partDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partStagesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stagesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sufaceStagesBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stageDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stageBindingSource)).EndInit();
@@ -945,7 +941,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.departamentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departamentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depStagePartDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stagesPartBindingSource2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -954,20 +949,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.alloyDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alloyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stagesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alloyPartsBindingSource)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.surfaceDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partStagesBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depStagesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1016,22 +1012,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn surfaceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departamentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource stagesBindingSource;
+        private System.Windows.Forms.BindingSource sufaceStagesBindingSource;
         private System.Windows.Forms.BindingSource departamentBindingSource;
-        private System.Windows.Forms.BindingSource stagesPartBindingSource2;
+        private System.Windows.Forms.BindingSource partStagesBindingSource;
         private System.Windows.Forms.BindingSource alloyBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departamentDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn partDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn surfaceDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.BindingSource stagesBindingSource1;
+        private System.Windows.Forms.BindingSource alloyPartsBindingSource;
         private System.Windows.Forms.BindingSource surfaceBindingSource;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.BindingSource partsBindingSource;
+        private System.Windows.Forms.BindingSource depStagesBindingSource;
         private System.Windows.Forms.BindingSource stageBindingSource;
         private System.Windows.Forms.DataGridView depStagePartDataGridView;
         /*private System.Windows.Forms.DataGridViewTextBoxColumn bLNumberDataGridViewTextBoxColumn1;
@@ -1044,19 +1040,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDepDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BLNumberDGVTBC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameDGVTBC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostDGVTBC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bLNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alloyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn stagePrevDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stageNextDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departamentDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn partDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn surfaceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SurfaceDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartBlNumDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartNameDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartAlloyDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartCostDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SSIdDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SSDepDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SSPartDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PSIdDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PSIdPrevDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PSIdNextDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PSDepDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PSSufDGVTBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bLNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alloyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
     }
 }
 

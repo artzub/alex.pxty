@@ -32,25 +32,33 @@ namespace Db.Domains
             Departament = departament;
             Surface = surface;
             Part = part;
+            InitIds();
+        }
+
+        private void InitIds() {
 
             //TODO: по хорошему этот код должен быть прописан в свойствах.
-            if (StageNext != null)
+            if (StageNext != null) {
                 IdStageNext = StageNext.Id;
+            }
 
-            if (StagePrev != null)
+            if (StagePrev != null) {
                 IdStagePrev = StagePrev.Id;
+            }
 
-            if (Departament != null)
+            if (Departament != null) {
                 IdDepartament = Departament.Id;
+            }
 
-            if (Surface != null)
+            if (Surface != null) {
                 IdSurface = Surface.Id;
+            }
 
-            if (Part != null)
+            if (Part != null) {
                 IdPart = Part.Id;
-
+            }
         }
-        
+
         public object IdStagePrev {
 			get;
 			set;
@@ -99,6 +107,25 @@ namespace Db.Domains
         public Part Part {
 			get;
 			set;
+        }
+
+        public override void Update(IDomain obj) {
+            var item = obj as Stage;
+
+            if (item == null)
+                return;
+
+            base.Update(obj);
+
+            init(item.IdStagePrev, item.IdStageNext, item.IdDepartament, item.IdSurface, item.IdPart);
+
+            StageNext = item.StageNext;
+            StagePrev = item.StagePrev;
+            Part = item.Part;
+            Surface = item.Surface;
+            Departament = item.Departament;
+
+            InitIds();
         }
 
         #region IDefaultEmpty<Stage> Members

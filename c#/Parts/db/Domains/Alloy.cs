@@ -6,7 +6,7 @@ namespace Db.Domains
 	public class Alloy : DomainNamed
 	{
         public Alloy(object id)
-            : this(id, default(string), null) {
+            : this(id, string.Empty) {
         }
 
 		public Alloy (object id = null, string name = default(string), Func<IList<Part>> lazyFactory = null) 
@@ -18,7 +18,16 @@ namespace Db.Domains
             lazy = new Lazy<IList<Part>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Part>()));
         }
 
-        private Lazy<IList<Part>> lazy;
+	    public override void Update(IDomain obj) {
+	        var item = obj as Alloy;
+            if (item == null)
+                return;
+
+	        base.Update(obj);
+	        lazy = item.lazy;
+	    }
+
+	    private Lazy<IList<Part>> lazy;
 
 		public IList<Part> Parts {
 			get {
@@ -29,9 +38,7 @@ namespace Db.Domains
         private static Alloy defValue;
         public static Alloy Default {
             get {
-                if (defValue == null)
-                    defValue = new Alloy(1, "(None)");
-                return defValue;
+                return defValue ?? (defValue = new Alloy(1, "(None)"));
             }
         }
 

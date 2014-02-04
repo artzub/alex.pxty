@@ -5,22 +5,23 @@ namespace Db.Domains
 {
     public class Surface : DomainNamed
 	{   
-        private void init(Func<IList<Stage>> lazyFactory = null) {
-            lazy = new Lazy<IList<Stage>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Stage>()));
-        }
-
         public Surface(object id)
-            : base(id) {
-            init();
+            : this(id, string.Empty) {
         }
 
-		public Surface (object id = null, string name = null, Func<IList<Stage>> lazyFactory = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Surface"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="lazyFactory">The lazy factory. <seealso cref="Lazy{T}"/></param>
+        public Surface(object id = null, string name = null, Func<IList<Stage>> lazyFactory = null)
 			: base(id, name) {
-                init(lazyFactory);
+                InitLazyFactory(lazyFactory);
 		}
 
         public void InitLazyFactory(Func<IList<Stage>> lazyFactory) {
-            init(lazyFactory);
+            lazy = new Lazy<IList<Stage>>(lazyFactory ?? (() => new System.ComponentModel.BindingList<Stage>()));
         }
 
         private Lazy<IList<Stage>> lazy;
@@ -31,12 +32,19 @@ namespace Db.Domains
             }
         }
 
+        public override void Update(IDomain obj) {
+            var item = obj as Surface;
+            if (item == null)
+                return;
+
+            base.Update(obj);
+            lazy = item.lazy;
+        }
+
         private static Surface defValue;
         public static Surface Default {
             get {
-                if (defValue == null)
-                    defValue = new Surface(1, "(None)");
-                return defValue;
+                return defValue ?? (defValue = new Surface(1, "(None)"));
             }
         }
 

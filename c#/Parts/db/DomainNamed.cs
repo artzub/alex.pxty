@@ -1,5 +1,3 @@
-using System;
-
 namespace Db
 {
 	public class DomainNamed : Domain, INamed 
@@ -9,12 +7,19 @@ namespace Db
 			Name = name;
 		}
 
-		public string Name {
+        public string Name {
 			get;
 			set;
 		}
 
-		public override string ToString () {
+	    public override void Update(IDomain obj) {
+	        var newItem = obj as DomainNamed;
+            if (newItem == null)
+                return;
+	        Name = newItem.Name;
+	    }
+
+	    public override string ToString () {
 			return Name;
 		}
 	}

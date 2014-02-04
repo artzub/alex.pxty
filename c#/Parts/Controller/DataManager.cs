@@ -1,15 +1,8 @@
-﻿#define	MONO
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Db.DataAccess;
 using Db.Domains;
-using Db.Mapping;
 using Db;
-using System.Reflection;
-using System.ComponentModel;
 
 namespace Controller {
     public class DataManager {
@@ -25,24 +18,15 @@ namespace Controller {
         }
 
 		public void Config(ConnectionOraSetting oraSetting) {
-			#if MONO
-			try {
-                OracleConnection.Instance.Initialize(oraSetting.ToString());
-				OracleConnection.Instance.Open();
-			}
-			catch(Exception e) {
-				throw e;
-			}
-			Provider.Initialize (OracleConnection.Instance);
-			#endif
+		    OracleConnection.Instance.Initialize(oraSetting.ToString());
+		    OracleConnection.Instance.Open();
+		    Provider.Initialize(OracleConnection.Instance);
 		}
 
         private static DataManager instance;
         public static DataManager Instance {
             get {
-                if (instance == null)
-                    instance = new DataManager();
-                return instance;
+                return instance ?? (instance = new DataManager());
             }
         }
         
@@ -56,41 +40,31 @@ namespace Controller {
 
         public TypeDepController TypeDepController {
             get {
-                if (typeDepController == null)
-                    typeDepController = new TypeDepController();
-                return typeDepController;
+                return typeDepController ?? (typeDepController = new TypeDepController());
             }
         }
 
         public DepartamentController DepartamentController {
             get {
-                if (departamentController == null)
-                    departamentController = new DepartamentController();
-                return departamentController;
+                return departamentController ?? (departamentController = new DepartamentController());
             }
         }
 
         public SurfaceController SurfaceController {
             get {
-                if (surfaceController == null)
-                    surfaceController = new SurfaceController();
-                return surfaceController;
+                return surfaceController ?? (surfaceController = new SurfaceController());
             }
         }
 
         public StageController StageController {
             get {
-                if (stageController == null)
-                    stageController = new StageController();
-                return stageController;
+                return stageController ?? (stageController = new StageController());
             }
         }
 
         public PartController PartController {
             get {
-                if (partController == null)
-                    partController = new PartController();
-                return partController;
+                return partController ?? (partController = new PartController());
             }
         }
 
@@ -100,7 +74,7 @@ namespace Controller {
             object result = null;
 			//return result;
             if (Types.Alloy.IsAssignableFrom(type)) {
-                result = Alloies;
+                result = Alloys;
             }
             else if (Types.Surface.IsAssignableFrom(type)) {
                 result = Surfaces;
@@ -120,7 +94,7 @@ namespace Controller {
             return result;
         }
 
-        public IList<Alloy> Alloies {
+        public IList<Alloy> Alloys {
             get {
                 return AlloyController.Items;
             }
@@ -162,12 +136,12 @@ namespace Controller {
 
         private object InvokeAction(IDomain item, string action) {
             if (item == null)
-                return item;
+                return null;
 
             var type = item.GetType();
             object result = null;
 
-            IController ctrl = GetContollerByType(type);
+            IController ctrl = GetControllerByType(type);
 
             if (ctrl != null) {
 
@@ -181,7 +155,7 @@ namespace Controller {
             return result;
         }
 
-        private IController GetContollerByType(Type type) {
+        private IController GetControllerByType(Type type) {
             IController ctrl = null;
 
             if (Types.Alloy.IsAssignableFrom(type)) {
@@ -206,12 +180,12 @@ namespace Controller {
         } 
 
         public object Save(IDomain item) {
-            var res = InvokeAction (item, "Save");
+            var res = InvokeAction(item, "Save");
             if (item == null || res == null || res.ToString().Equals("0")) 
                 return res;
             
             var type = item.GetType();
-            var ctrl = GetContollerByType(type);
+            var ctrl = GetControllerByType(type);
             if (ctrl != null)
                 res = ctrl.AddItem(ctrl.GetItemById(res));
             
@@ -228,7 +202,7 @@ namespace Controller {
                 return res;
 
             var type = item.GetType();
-            var ctrl = GetContollerByType(type);
+            var ctrl = GetControllerByType(type);
             if (ctrl != null)
                 ctrl.RemoveItem(item);
 
@@ -238,7 +212,7 @@ namespace Controller {
         #region GetById
 
         public IDomain GetById(Type type, object id) {
-            var ctor = GetContollerByType(type);
+            var ctor = GetControllerByType(type);
             return (IDomain)ctor.GetItemById(id);
         }
 
@@ -275,7 +249,7 @@ namespace Controller {
             if (type == null)
                 return null;
 
-            var ctrl = GetContollerByType(type);
+            var ctrl = GetControllerByType(type);
 
             return ctrl.GetNew();
         }

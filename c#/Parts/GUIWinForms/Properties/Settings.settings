@@ -15,7 +15,7 @@
       <Value Profile="(Default)">parts</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Zeld</Value>
+      <Value Profile="(Default)">Zelda</Value>
     </Setting>
   </Settings>
 </SettingsFile>

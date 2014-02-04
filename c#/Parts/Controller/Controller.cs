@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Db.Mapping;
 using Db;
@@ -40,16 +41,21 @@ namespace Controller {
             return ((IMapper<T>)Mapper).GetAll();
         }
 
-        private Dictionary<object, T> hash;
-        private System.ComponentModel.BindingList<T> items;
+        private BindingList<T> items;
         public IList<T> Items {
             get {
                 if (items == null) {
-                    hash = GetData().ToDictionary(x => x.Id);
-                    items = new System.ComponentModel.BindingList<T>(hash.Values.ToList());
+                    items = new BindingList<T>(GetData()) {
+                        AllowRemove = false
+                    };
+                    items.AddingNew += ItemsOnAddingNew;
                 }
                 return items;
             }
+        }
+
+        private void ItemsOnAddingNew(object sender, AddingNewEventArgs addingNewEventArgs) {
+            addingNewEventArgs.NewObject = GetNew(null);
         }
 
         public virtual T GetById(object id) {
@@ -64,15 +70,29 @@ namespace Controller {
             if (item == null)
                 return null;
 
-            T value;
+            return UpdateItems(item);
+        }
 
-			if (hash.TryGetValue (item.Id, out value))
-				item = value;
-			else {
-				hash [item.Id] = item;
-				items.Add (item);
-			}
+        protected virtual T UpdateItems(T item) {
+            items.RaiseListChangedEvents = false;
+            try {
+                items.Clear();
+                foreach (var newItem in GetData()) {
+                    var i = items.IndexOf(newItem);
+                    if (i > -1) {
+                        items[i].Update(newItem);
+                    }
+                    else {
+                        items.Add(newItem);
+                    }
+                }
 
+                item = items.SingleOrDefault(x => x.CompareTo(item) == 0);
+            }
+            finally {
+                items.RaiseListChangedEvents = true;
+                items.ResetBindings();
+            }
             return item;
         }
 
@@ -80,13 +100,8 @@ namespace Controller {
             if (item == null)
                 return;
 
-			T value;
-
-			if (hash.TryGetValue (item.Id, out value)) {
-				hash.Remove(item.Id);
-				items.Remove (value);
-			}
-            
+            item = UpdateItems(item);
+			items.Remove(item);
         }
 
         #endregion

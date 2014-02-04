@@ -58,7 +58,24 @@ namespace Db.Domains
             }
         }
 
-		public override string ToString () {
+        public override void Update(IDomain obj) {
+            var item = obj as Part;
+            if (item == null)
+                return;
+
+            base.Update(obj);
+
+            Alloy = item.Alloy;
+            if (Alloy != null)
+                IdAlloy = Alloy.Id;
+
+            BLNumber = item.BLNumber;
+            Cost = item.Cost;
+
+            lazy = item.lazy;
+        }
+
+        public override string ToString () {
 			return string.Format ("{0} {1} {2}", BLNumber, Name, Alloy);
 		}
     }

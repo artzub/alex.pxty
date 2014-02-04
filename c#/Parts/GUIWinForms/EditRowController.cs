@@ -1,13 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Db;
 using Db.Domains;
 using System.Windows.Forms;
 
 namespace GUIWinForms {
     public static class EditRowController {
+
+        public static string GetNameByType(Type type) {
+            if (type == null
+                || !Types.Domain.IsAssignableFrom(type))
+                return string.Empty;
+            var result = "Доменный объект";
+
+            if (Types.Alloy.IsAssignableFrom(type))
+                result = "Сплав";
+            else if (Types.Surface.IsAssignableFrom(type))
+                result = "Поверхность";
+            else if (Types.TypeDep.IsAssignableFrom(type))
+                result = "Тип цеха";
+            else if (Types.Part.IsAssignableFrom(type))
+                result = "Деталь";
+            else if (Types.Departament.IsAssignableFrom(type))
+                result = "Цех";
+            else if (Types.Stage.IsAssignableFrom(type))
+                result = "Маршрут";
+
+            return result;
+        }
+
         public static IList<DbEdit> GetRowEditors(object obj) {
 
             var list = new List<DbEdit>();
@@ -263,14 +284,18 @@ namespace GUIWinForms {
                 return null;
 
             object result = null;
+            var caption = "Редактирование: ";
 
             if (type == null)
                 type = obj.GetType();
 
-            if (obj == null)
+            if (obj == null) {
+                caption = "Добавление: ";
                 obj = Controller.DataManager.Instance.GetNewItem(type);
+            }
 
             using (var ef = new EditForm(obj)) {
+                ef.Text = caption + GetNameByType(type);
                 if (ef.ShowDialog(owner) == System.Windows.Forms.DialogResult.OK) {
 					result = Controller.DataManager.Instance.Save(ef.EditValue as IDomain);
 					if (result == null)
@@ -287,7 +312,10 @@ namespace GUIWinForms {
                     return;
 
                 var curType = de.Tag as Type;
+                if (curType == null)
+                    return;
 
+                sf.Text = GetNameByType(curType);
                 sf.InitColumns(GetDataColumns(curType));
                 sf.DataSource = Controller.DataManager.Instance.GetAllByType(curType);
                 sf.Current = de.EditValue;

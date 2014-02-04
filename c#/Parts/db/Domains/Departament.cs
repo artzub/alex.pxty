@@ -51,9 +51,7 @@ namespace Db.Domains
 		private static Departament defValue;
 		public static Departament Default {
 			get {
-				if (defValue == null)
-					defValue = new Departament (1, 0, TypeDep.Default);
-				return defValue;
+                return defValue ?? (defValue = new Departament(1, 0, TypeDep.Default));
 			}
 		}
 
@@ -65,7 +63,24 @@ namespace Db.Domains
             }
         }
 
-		public override string ToString () {
+        public override void Update(IDomain obj) {
+            var item = obj as Departament;
+            if (item == null)
+                return;
+
+            base.Update(obj);
+
+            IdTypeDep = item.IdTypeDep;
+            TypeDep = item.TypeDep;
+            if (TypeDep != null)
+                IdTypeDep = TypeDep.Id;
+
+            Num = item.Num;
+
+            lazy = item.lazy;
+        }
+
+        public override string ToString () {
 			return string.Format ("{0} {1}", Num, TypeDep);
 		}
     }

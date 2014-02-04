@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Controller;
 using Db;
+using Db.Domains;
 
 namespace GUIWinForms {
     public partial class MainForm : Form {
@@ -17,17 +12,17 @@ namespace GUIWinForms {
 
         public MainForm() {
             InitializeComponent();
-			this.Shown += HandleShown;
+			Shown += HandleShown;
         }
 
-        private void setEnterHandle(Control c) {
+        private void SetEnterHandle(Control c) {
             var dg = c as DataGridView;
             if (dg != null) {
                 dg.Enter += HandleEnter;
             }
             else {
                 foreach (var cc in c.Controls)
-                    setEnterHandle(cc as Control);
+                    SetEnterHandle(cc as Control);
             }
         }
                 
@@ -37,18 +32,7 @@ namespace GUIWinForms {
 			curBs = partBindingSource;
 			curDgv = partDataGridView;
 
-            setEnterHandle(this);
-
-			/*partDataGridView.Enter += HandleEnter;
-			stageDataGridView.Enter += HandleEnter;
-			departamentDataGridView.Enter += HandleEnter;
-			alloyDataGridView.Enter += HandleEnter;
-			surfaceDataGridView.Enter += HandleEnter;
-
-			partStagesDataGridView.Enter += HandleEnter;
-			partsDataGridView1.Enter += HandleEnter;
-			dataGridView2.Enter += HandleEnter;
-			dataGridView3.Enter += HandleEnter;*/
+            SetEnterHandle(this);
 
 			partDataGridView.Tag = Types.Part;
 			stageDataGridView.Tag = Types.Stage;
@@ -74,7 +58,7 @@ namespace GUIWinForms {
 				stageBindingSource.DataSource = dm.Stages;
 				departamentBindingSource.DataSource = dm.Departaments;
 				surfaceBindingSource.DataSource = dm.Surfaces;
-				alloyBindingSource.DataSource = dm.Alloies;
+				alloyBindingSource.DataSource = dm.Alloys;
 			} catch (Exception ex) {
 				ex.ShowError (this);
 			}
@@ -92,33 +76,80 @@ namespace GUIWinForms {
 
         void HandlePositionChanged (object sender, EventArgs e) {
 			ChangeButton(curDgv);
+
+            var type = curDgv.Tag as Type;
+
+            if(type == null)
+                return;
+
+            try {
+                if (Types.Alloy.IsAssignableFrom(type)) {
+                    try {
+                        var item = (curBs.Current as Alloy);
+                        if (item == null)
+                            return;
+
+                        alloyPartsBindingSource.DataSource = item.Parts;
+                    }
+                    finally {
+                    }
+                }
+                else if (Types.Surface.IsAssignableFrom(type)) {
+                    try {
+                        var item = (curBs.Current as Surface);
+                        if (item == null)
+                            return;
+
+                        sufaceStagesBindingSource.DataSource = item.Stages;
+                    }
+                    finally {
+                    }
+                }
+                else if (Types.Departament.IsAssignableFrom(type)) {
+                    try {
+                        var item = (curBs.Current as Surface);
+                        if (item == null)
+                            return;
+
+                        sufaceStagesBindingSource.DataSource = item.Stages;
+                    }
+                    finally {
+                    }
+                }
+            }
+            catch (Exception ex) {
+                ex.ShowError(this);
+            }
         }
 
 		void HandleTabIndexChanged (object sender, EventArgs e) {
 			var tc = sender as TabControl;
-			switch (tc.SelectedIndex) {
-				case 0:	
-					if (partDataGridView.CanFocus)
-						partDataGridView.Focus();
-					break;
-				case 1:	
-					if (stageDataGridView.CanFocus)
-						stageDataGridView.Focus();
-					break;
-				case 2:	
-					if (departamentDataGridView.CanFocus)
-						departamentDataGridView.Focus();
-					break;
-				case 3:	
-					if (alloyDataGridView.CanFocus)
-						alloyDataGridView.Focus();
-					break;
-				case 4:	
-					if (surfaceDataGridView.CanFocus)
-						surfaceDataGridView.Focus();
-					break;
-			}        	
-        }
+		    if (tc == null)
+		        return;
+
+		    switch (tc.SelectedIndex) {
+		        case 0:
+		            if (partDataGridView.CanFocus)
+		                partDataGridView.Focus();
+		            break;
+		        case 1:
+		            if (stageDataGridView.CanFocus)
+		                stageDataGridView.Focus();
+		            break;
+		        case 2:
+		            if (departamentDataGridView.CanFocus)
+		                departamentDataGridView.Focus();
+		            break;
+		        case 3:
+		            if (alloyDataGridView.CanFocus)
+		                alloyDataGridView.Focus();
+		            break;
+		        case 4:
+		            if (surfaceDataGridView.CanFocus)
+		                surfaceDataGridView.Focus();
+		            break;
+		    }
+		}
 
         void HandleEnter (object sender, EventArgs e) {
 			curDgv = sender as DataGridView;
@@ -127,13 +158,13 @@ namespace GUIWinForms {
         }
 
 		void ChangeButton(DataGridView gv) {
-			var add = false;
-			var edit = false;
-			var del = false;
+		    var edit = false;
+            var del = false;
 
-			add = curBs != null && gv != null && gv.Tag is Type;
+			var add = curBs != null && gv != null && gv.Tag is Type;
 			if (add) {
-				edit = curBs.Current != null && !(curBs.Current as IDomain).Id.Equals((decimal)1);
+			    var item = curBs.Current as IDomain;
+				edit = item != null && Convert.ToInt64(item.Id) > 1;
 				del = edit;
 			}
 
@@ -148,9 +179,9 @@ namespace GUIWinForms {
 		}
 
 		object Current {
-			get {
+			/*get {
 				return curBs.Current;
-			}
+			}*/
 			set {
 				var index = curBs.IndexOf(value);
 				if (index > -1)
@@ -159,7 +190,7 @@ namespace GUIWinForms {
 		}
 
         private void editToolStripButton_Click(object sender, EventArgs e) {
-			var ev = new EventArgsEdit () {
+			var ev = new EventArgsEdit() {
 				EditValue = editToolStripButton == sender ? curBs.Current : null,
 				Type = curDgv.Tag as Type
 			};
@@ -172,11 +203,11 @@ namespace GUIWinForms {
 
 			var del = curBs.Current;
 
-			var i = curBs.List.IndexOf (del);
+			var i = curBs.List.IndexOf(del);
 
 			curBs.CurrencyManager.Position = i - 1;
 
-			var ev = new EventArgsEdit () {
+			var ev = new EventArgsEdit() {
 				EditValue = del,
 				Type = curDgv.Tag as Type
 			};
@@ -225,6 +256,19 @@ namespace GUIWinForms {
                 curDgv = tcdgv;
             }
 
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show(this,
+                "© 2013 - 2014 alex.pxty",
+                "About",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
         }
     }
 }
