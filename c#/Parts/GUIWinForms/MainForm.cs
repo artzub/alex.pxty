@@ -13,6 +13,7 @@ namespace GUIWinForms {
         public MainForm() {
             InitializeComponent();
 			Shown += HandleShown;
+			StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void SetEnterHandle(Control c) {
@@ -89,9 +90,13 @@ namespace GUIWinForms {
                         if (item == null)
                             return;
 
-                        alloyPartsBindingSource.DataSource = item.Parts;
+                        //alloyPartsBindingSource.DataSource = item.Parts;
+
+						dataGridView2.DataSource = item.Parts;
+
                     }
-                    finally {
+                    catch(Exception ex) {
+						throw ex;
                     }
                 }
                 else if (Types.Surface.IsAssignableFrom(type)) {
@@ -100,22 +105,34 @@ namespace GUIWinForms {
                         if (item == null)
                             return;
 
-                        sufaceStagesBindingSource.DataSource = item.Stages;
+                        //sufaceStagesBindingSource.DataSource = item.Stages;
+						dataGridView3.DataSource = item.Stages;
                     }
                     finally {
                     }
                 }
                 else if (Types.Departament.IsAssignableFrom(type)) {
                     try {
-                        var item = (curBs.Current as Surface);
+                        var item = (curBs.Current as Departament);
                         if (item == null)
                             return;
 
-                        sufaceStagesBindingSource.DataSource = item.Stages;
+					depStagePartDataGridView.DataSource = item.Stages;
                     }
                     finally {
                     }
                 }
+				else if (Types.Part.IsAssignableFrom(type)) {
+					try {
+						var item = (curBs.Current as Part);
+						if (item == null)
+							return;
+
+						partStagesDataGridView.DataSource = item.Stages;
+					}
+					finally {
+					}
+				}
             }
             catch (Exception ex) {
                 ex.ShowError(this);
@@ -154,7 +171,8 @@ namespace GUIWinForms {
         void HandleEnter (object sender, EventArgs e) {
 			curDgv = sender as DataGridView;
 			curBs = curDgv.DataSource as BindingSource;
-			ChangeButton(curDgv);
+			HandlePositionChanged (sender, e);
+			//ChangeButton(curDgv);
         }
 
 		void ChangeButton(DataGridView gv) {

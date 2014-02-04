@@ -15,16 +15,17 @@ namespace Controller {
 
         protected override object ChangeRow(Stage item, string procedureName) {
             if (item == null 
-                || (item.Part == null && item.IdPart == null)
-                || (item.Surface == null && item.IdSurface == null))
+			    || (item.Departament == null && item.Departament.Id == null)
+                || (item.Part == null && item.Part.Id == null)
+			    || (item.Surface == null && item.Surface.Id == null))
                 return null;
 
             var builder = new StoredProsedureStatementBuilder(procedureName);
-			builder.AddParameter("new_id_dep", item.IdDepartament ?? item.Departament.Id);
-            builder.AddParameter("new_id_part", item.IdPart ?? item.Part.Id);
-            builder.AddParameter("new_id_surface", item.IdSurface ?? item.Surface.Id);
-            builder.AddParameter("new_id_next", item.IdStageNext ?? (item.StageNext ?? Stage.Default).Id);
-            builder.AddParameter("new_id_prev", item.IdStagePrev ?? (item.StagePrev ?? Stage.Default).Id);
+			builder.AddParameter("new_id_dep", item.Departament.Id);
+            builder.AddParameter("new_id_part", item.Part.Id);
+            builder.AddParameter("new_id_surface", item.Surface.Id);
+            builder.AddParameter("new_id_next", (item.StageNext ?? Stage.Default).Id);
+            builder.AddParameter("new_id_prev", (item.StagePrev ?? Stage.Default).Id);
 			builder.AddParameter("old_id", Convert.ToInt64(item.Id));
 			builder.AddParameter("new_ID", Convert.ToInt64(0), 32, System.Data.ParameterDirection.InputOutput);
 

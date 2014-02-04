@@ -34,6 +34,9 @@ namespace Db.DataAccess {
 		}
 
 		public static string SqlGetById(string tableName, object Id) {
+			if (Id == null || string.IsNullOrWhiteSpace (Id.ToString ()))
+				return null;
+
 			if (Id is decimal || Id is int || Id is double || Id is long)
 				return string.Format("SELECT * FROM {0} WHERE ID={1}", tableName, Id);
 

@@ -36,7 +36,7 @@ namespace Db.Mapping {
 
             public decimal Cost {
                 get {
-                    return Row.IsNull("Cost") ? 0 : Convert.ToDecimal(Row["COST"]);
+                    return Row.IsNull("Cost") ? 0 : Convert.ToDecimal(Row["Cost"]);
                 }
             }
 

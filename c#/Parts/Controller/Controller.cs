@@ -45,9 +45,7 @@ namespace Controller {
         public IList<T> Items {
             get {
                 if (items == null) {
-                    items = new BindingList<T>(GetData()) {
-                        AllowRemove = false
-                    };
+                    items = new BindingList<T>(GetData());
                     items.AddingNew += ItemsOnAddingNew;
                 }
                 return items;
@@ -75,8 +73,7 @@ namespace Controller {
 
         protected virtual T UpdateItems(T item) {
             items.RaiseListChangedEvents = false;
-            try {
-                items.Clear();
+            try {                
                 foreach (var newItem in GetData()) {
                     var i = items.IndexOf(newItem);
                     if (i > -1) {

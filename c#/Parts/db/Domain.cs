@@ -27,7 +27,7 @@ namespace Db
         public virtual int CompareTo(IDomain other) {
             var result = other == null || other.Id == null ? 1 : -1;
             if (result < 0 && this.Id != null) {
-                var x = Convert.ToInt64(this.Id) - Convert.ToInt64(this.Id);
+                var x = Convert.ToInt64(this.Id) - Convert.ToInt64(other.Id);
                 result = x > 0 ? 1 : x == 0 ? 0 : result;
             }
             return result;
@@ -37,7 +37,12 @@ namespace Db
 
         #region IEquatable<IDomain> Members
 
-        public virtual bool Equals(IDomain other) {
+		public override bool Equals (object obj)
+		{
+			return Equals(obj as IDomain);
+		}
+
+		public virtual bool Equals(IDomain other) {
             return CompareTo(other) == 0;
         }
 

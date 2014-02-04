@@ -76,6 +76,7 @@
     <Compile Include="Mapping\SurfaceMapper.cs" />
     <Compile Include="Mapping\TypeDepMapper.cs" />
     <Compile Include="Types.cs" />
+    <Compile Include="StagesHash.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Mapping\Mapping.cd" />

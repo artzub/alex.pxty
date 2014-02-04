@@ -1,4 +1,6 @@
-﻿using Db.Domains;
+﻿using Db;
+using Db.Domains;
+using System;
 
 namespace Db.Mapping {
     public class StageMapper : Mapper<Stage> {
@@ -17,15 +19,22 @@ namespace Db.Mapping {
             if (row == null)
                 return null;
 
-            var cols = new ColumnsWrapper(row);
-            var part = new PartMapper().FindById(cols.IdPart);
+			var cols = new ColumnsWrapper(row);
+			var st = Hashes.GetStageById(cols.Id);
+
+			if (st != null)
+				return st;
+            
+			var part = new PartMapper().FindById(cols.IdPart);
             var surface = new SurfaceMapper().FindById(cols.IdSurface);
-            var dep = new DepartamentMapper().FindById(cols.IdDepartament);
+			var dep = new DepartamentMapper().FindById(cols.IdDepartament);
 
-            var st = new Stage(cols.Id, null, null, dep, surface, part);
+			st = new Stage(cols.Id, null, null, dep, surface, part);
 
-            st.StagePrev = cols.IdStagePrev.Equals(cols.Id) ? st : (cols.IdStagePrev.Equals(1) ? Stage.Default : (new StageMapper()).FindById(cols.IdStagePrev));
-            st.StageNext = cols.IdStageNext.Equals(cols.Id) ? st : (cols.IdStageNext.Equals(1) ? Stage.Default : (new StageMapper()).FindById(cols.IdStageNext));
+			Hashes.StagesHash[st.Id] = st;
+
+			st.StagePrev = Hashes.GetStageById(cols.IdStagePrev) ?? new StageMapper().FindById(cols.IdStagePrev ?? 1);
+			st.StageNext = Hashes.GetStageById(cols.IdStageNext) ?? new StageMapper().FindById(cols.IdStageNext ?? 1);
 
             return st;
         }

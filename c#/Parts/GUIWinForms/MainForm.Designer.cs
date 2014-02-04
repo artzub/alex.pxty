@@ -591,7 +591,7 @@
             this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SSIdDGVTBC,
+            //this.SSIdDGVTBC,
             this.SSDepDGVTBC,
             this.SSPartDGVTBC});
             this.dataGridView3.DataSource = this.sufaceStagesBindingSource;
@@ -634,7 +634,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Выод";
+            this.exitToolStripMenuItem.Text = "Выход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // редактированиеToolStripMenuItem
@@ -855,14 +855,14 @@
             // 
             // PSIdPrevDGVTBC
             // 
-            this.PSIdPrevDGVTBC.DataPropertyName = "StagePrev.Id";
+            this.PSIdPrevDGVTBC.DataPropertyName = "StagePrev";
             this.PSIdPrevDGVTBC.HeaderText = "Пред.";
             this.PSIdPrevDGVTBC.Name = "PSIdPrevDGVTBC";
             this.PSIdPrevDGVTBC.ReadOnly = true;
             // 
             // PSIdNextDGVTBC
             // 
-            this.PSIdNextDGVTBC.DataPropertyName = "StageNext.Id";
+            this.PSIdNextDGVTBC.DataPropertyName = "StageNext";
             this.PSIdNextDGVTBC.HeaderText = "След.";
             this.PSIdNextDGVTBC.Name = "PSIdNextDGVTBC";
             this.PSIdNextDGVTBC.ReadOnly = true;

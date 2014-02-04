@@ -1,36 +1,35 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/Controllers/StageController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="db/Mapping/DepartamentMapper.cs">
     <Files>
-      <File FileName="GUIWinForms/Program.cs" Line="86" Column="25" />
-      <File FileName="GUIWinForms/Properties/Settings.Designer.cs" Line="76" Column="73" />
-      <File FileName="GUIWinForms/DbEdit.cs" Line="66" Column="1" />
-      <File FileName="GUIWinForms/EditForm.cs" Line="29" Column="1" />
-      <File FileName="Controller/ConnectionOraSetting.cs" Line="51" Column="12" />
-      <File FileName="Controller/DataManager.cs" Line="30" Column="1" />
-      <File FileName="GUIWinForms/MainForm.cs" Line="73" Column="44" />
-      <File FileName="db/DataAccess/OracleConnection.cs" Line="44" Column="1" />
-      <File FileName="GUIWinForms/DbSpinEdit.cs" Line="31" Column="29" />
-      <File FileName="GUIWinForms/EditRowController.cs" Line="137" Column="57" />
-      <File FileName="db/Domains/Departament.cs" Line="51" Column="18" />
-      <File FileName="db/Domains/Part.cs" Line="59" Column="10" />
-      <File FileName="db/Domains/Stage.cs" Line="120" Column="39" />
-      <File FileName="GUIWinForms/DbTextEdit.cs" Line="30" Column="26" />
-      <File FileName="Controller/Controllers/StageController.cs" Line="22" Column="1" />
-      <File FileName="db/Domains/Surface.cs" Line="38" Column="57" />
+      <File FileName="Controller/Controller.cs" Line="87" Column="33" />
+      <File FileName="db/Domain.cs" Line="25" Column="45" />
+      <File FileName="GUIWinForms/EditRowController.cs" Line="349" Column="1" />
+      <File FileName="GUIWinForms/MainForm.cs" Line="120" Column="1" />
+      <File FileName="db/Domains/Departament.cs" Line="62" Column="1" />
+      <File FileName="db/Mapping/StageMapper.cs" Line="15" Column="1" />
+      <File FileName="db/Mapping/Mapper.cs" Line="74" Column="25" />
+      <File FileName="db/DataAccess/Queries.cs" Line="37" Column="1" />
+      <File FileName="GUIWinForms/Program.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/PartMapper.cs" Line="39" Column="1" />
+      <File FileName="db/Mapping/DepartamentMapper.cs" Line="16" Column="10" />
+      <File FileName="db/Mapping/SurfaceMapper.cs" Line="4" Column="36" />
+      <File FileName="db/Mapping/DomainColumnsWrapper.cs" Line="9" Column="54" />
+      <File FileName="db/Mapping/BaseColumnsWrapper.cs" Line="5" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Controller" expanded="True">
-            <Node name="Controllers" expanded="True">
-              <Node name="StageController.cs" selected="True" />
-            </Node>
+            <Node name="Controllers" expanded="True" />
             <Node name="Generic" expanded="True" />
           </Node>
           <Node name="db" expanded="True">
             <Node name="DataAccess" expanded="True" />
             <Node name="Domains" expanded="True" />
+            <Node name="Mapping" expanded="True">
+              <Node name="DepartamentMapper.cs" selected="True" />
+            </Node>
           </Node>
           <Node name="GUIWinForms" expanded="True">
             <Node name="Properties" expanded="True">
@@ -47,11 +46,10 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>e.InnerException</Value>
-          <Value>e.StackTrace</Value>
-          <Value>e.Message</Value>
-          <Value>dm.Parts.Count</Value>
-          <Value>dm.Departaments.Count;</Value>
+          <Value>Row.IsNull("Cost")</Value>
+          <Value>Row["Cost"]</Value>
+          <Value>Row["NUM"]</Value>
+          <Value>Row.IsNull("NUM")</Value>
         </State>
       </Pad>
       <Pad Id="ConnectionManagerPad">
@@ -60,10 +58,15 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/Parts/db/Mapping/PartMapper.cs" line="41" column="1" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/Parts/GUIWinForms/MainForm.cs" line="120" column="1" />
+      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/Parts/db/Mapping/DepartamentMapper.cs" line="27" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="db/Mapping/PartMapper.cs" line="21" offsetX="438" offsetY="360" expression="cols" liveUpdate="False" />
     <Watch file="GUIWinForms/MainForm.cs" line="71" offsetX="382" offsetY="1260" expression="dm.Parts" liveUpdate="False" />
+    <Watch file="GUIWinForms/EditRowController.cs" line="348" offsetX="334" offsetY="6246" expression="ex" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

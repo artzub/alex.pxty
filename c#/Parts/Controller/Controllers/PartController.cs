@@ -15,12 +15,12 @@ namespace Controller {
 
         protected override object ChangeRow(Part item, string procedureName) {
             if (item == null 
-                || (item.Alloy == null && item.IdAlloy == null)
+			    || (item.Alloy == null && item.Alloy.Id == null)
                 || (string.IsNullOrWhiteSpace(item.Name)))
                 return null;
 
             var builder = new StoredProsedureStatementBuilder(procedureName);
-            builder.AddParameter("new_id_alloy", Convert.ToInt64(item.IdAlloy ?? item.Alloy.Id));
+            builder.AddParameter("new_id_alloy", Convert.ToInt64(item.Alloy.Id));
             builder.AddParameter("new_name", item.Name);
 			builder.AddParameter("new_blnum", item.BLNumber);
             builder.AddParameter("new_cost", item.Cost);
