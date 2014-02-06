@@ -19,9 +19,14 @@ namespace Db.Mapping {
             if (row == null)
                 return null;
             var cols = new ColumnsWrapper(row);
-            var alloy = new AlloyMapper().FindById(cols.IdAlloy);
+            var alloy = Hashes.AlloyHash[cols.IdAlloy] ?? new AlloyMapper().FindById(cols.IdAlloy);
             var query = string.Format("select * from stage where id_part = {0}", cols.Id);
-            return new Part(cols.Id, cols.Name, cols.Cost, cols.BLNumber, alloy, () => new System.ComponentModel.BindingList<Stage>(new StageMapper(query).GetAll()));
+            return Hashes.PartHash[cols.Id] = new Part(cols.Id,
+                cols.Name,
+                cols.Cost,
+                cols.BLNumber,
+                alloy,
+                () => new System.ComponentModel.BindingList<Stage>(new StageMapper(query).GetAll()));
         }
 
         private sealed class ColumnsWrapper : DomainNamedColumnsWrapper {

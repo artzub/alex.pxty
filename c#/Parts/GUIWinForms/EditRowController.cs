@@ -60,6 +60,7 @@ namespace GUIWinForms {
                         Label = "Номер:",
                         Value = item.Num,
                         Minimum = 0,
+                        Maximum = int.MaxValue,
                         EditValue = item.Num,
                         Width = 300 
                     };
@@ -112,6 +113,7 @@ namespace GUIWinForms {
                     Label = "Цена:",
                     Value = item.Cost,
                     Minimum = 0,
+                    Maximum = decimal.MaxValue,
                     DecimalPlaces = 2,
                     EditValue = item.Cost
                 };
@@ -125,6 +127,7 @@ namespace GUIWinForms {
 				var te = new DbTextEdit() {
 					Label = "БЛ номер:",
 					EditValue = item.BLNumber,
+                    MaxLength = 6,
 					Width = 300
 				};
 				// используем замыкание переменной.

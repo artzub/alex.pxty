@@ -76,7 +76,7 @@ namespace Controller {
             try {                
                 foreach (var newItem in GetData()) {
                     var i = items.IndexOf(newItem);
-                    if (i > -1) {
+                    if (i > -1 && i < items.Count) {
                         items[i].Update(newItem);
                     }
                     else {

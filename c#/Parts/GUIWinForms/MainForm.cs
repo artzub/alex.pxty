@@ -202,7 +202,7 @@ namespace GUIWinForms {
 			}*/
 			set {
 				var index = curBs.IndexOf(value);
-				if (index > -1)
+				if (index > -1 && index < curBs.Count) 
 					curBs.Position = index;
 			}
 		}
@@ -223,7 +223,7 @@ namespace GUIWinForms {
 
 			var i = curBs.List.IndexOf(del);
 
-			curBs.CurrencyManager.Position = i - 1;
+            curBs.CurrencyManager.Position = i > 1 ? i - 1 : 0;
 
 			var ev = new EventArgsEdit() {
 				EditValue = del,

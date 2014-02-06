@@ -8,6 +8,10 @@ using Controller;
 
 namespace GUIWinForms {
     static class Program {
+        // TODO 1 Ошибка No digits found.
+        // TODO 5 При добавление маршрута входим в рекурсию. А ведь дожен быть начальный и конечный цех
+
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -259,11 +263,21 @@ namespace GUIWinForms {
         }
 
         private static string GetExceptionMessage(this Exception ex, string msg) {
-            return ex.InnerException == null ? string.Format("{0}{1}{2}", msg, "\r\n", ex.Message) : ex.InnerException.GetExceptionMessage(msg);
+            return ex.InnerException == null 
+                ? string.Format("{0}\r\n{1}\r\n{2}", msg, ex.Message, ex.StackTrace) 
+                : ex.InnerException.GetExceptionMessage(msg);
         }
 
         public static void ShowError(this Exception ex, IWin32Window owner = null) {
-            MessageBox.Show(owner, ex.GetExceptionMessage(""), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            var msg = "";
+            if (ex.Message.StartsWith("ORA-"))
+                switch (ex.Message.Substring(4, 12)) {
+                    case "123456":
+                        break;
+                }
+
+            MessageBox.Show(owner, ex.GetExceptionMessage(msg), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

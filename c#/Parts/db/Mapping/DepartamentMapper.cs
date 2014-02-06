@@ -5,7 +5,7 @@ using Db.Domains;
 namespace Db.Mapping {
     public class DepartamentMapper : Mapper<Departament> {
 
-        private const string tableName = "Dep"; //TODO
+        private const string tableName = "Dep";
 
         public DepartamentMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
@@ -21,11 +21,13 @@ namespace Db.Mapping {
 
             var cols = new ColumnsWrapper(row);
 
-            var typeDep = new TypeDepMapper().FindById(cols.IdTypeDep);
-            var query = string.Format("select * from stage where id_dep = {0}", cols.Id);
-			return new Departament(cols.Id, cols.Num, typeDep, () => {
-				return new System.ComponentModel.BindingList<Stage>(new StageMapper(query).GetAll());
-			});
+            var typeDep = Hashes.TypeDepHash[cols.IdTypeDep] ?? new TypeDepMapper().FindById(cols.IdTypeDep);
+            var query = string.Format("select * from stage where id_dep = {0}",
+                cols.Id);
+            return Hashes.DepartamentHash[cols.Id] = new Departament(cols.Id,
+                cols.Num,
+                typeDep,
+                () => new System.ComponentModel.BindingList<Stage>(new StageMapper(query).GetAll()));
 
         }
 

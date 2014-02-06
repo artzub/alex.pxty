@@ -57,6 +57,12 @@ namespace Db.Domains
 
         private Lazy<IList<Stage>> lazy;
 
+        public bool LazyValueCreated {
+            get {
+                return lazy.IsValueCreated;
+            }
+        }
+
         public IList<Stage> Stages {
 			get {
                 return lazy.Value;

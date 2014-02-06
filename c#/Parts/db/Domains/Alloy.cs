@@ -29,6 +29,12 @@ namespace Db.Domains
 
 	    private Lazy<IList<Part>> lazy;
 
+        public bool LazyValueCreated {
+	        get {
+	            return lazy.IsValueCreated;
+	        }
+	    }
+
 		public IList<Part> Parts {
 			get {
                 return lazy.Value;

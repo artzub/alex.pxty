@@ -31,6 +31,15 @@ namespace GUIWinForms {
 			}
 		}
 
+        public int MaxLength {
+            get {
+                return textBox1.MaxLength;
+            }
+            set {
+                textBox1.MaxLength = value;
+            }
+        }
+
         protected override string getLabel() {
             return label.Text;
         }

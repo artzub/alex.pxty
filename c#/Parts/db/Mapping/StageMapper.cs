@@ -5,7 +5,7 @@ using System;
 namespace Db.Mapping {
     public class StageMapper : Mapper<Stage> {
 
-        private const string tableName = "Stage"; //TODO
+        private const string tableName = "Stage";
 
         public StageMapper(Db.DataAccess.Queries select)
             : base(tableName, select: select) {
@@ -25,9 +25,9 @@ namespace Db.Mapping {
 			if (st != null)
 				return st;
             
-			var part = new PartMapper().FindById(cols.IdPart);
-            var surface = new SurfaceMapper().FindById(cols.IdSurface);
-			var dep = new DepartamentMapper().FindById(cols.IdDepartament);
+			var part = Hashes.PartHash[cols.IdPart] ?? new PartMapper().FindById(cols.IdPart);
+            var surface = Hashes.SurfaceHash[cols.IdSurface] ?? new SurfaceMapper().FindById(cols.IdSurface);
+			var dep = Hashes.DepartamentHash[cols.IdDepartament] ?? new DepartamentMapper().FindById(cols.IdDepartament);
 
 			st = new Stage(cols.Id, null, null, dep, surface, part);
 

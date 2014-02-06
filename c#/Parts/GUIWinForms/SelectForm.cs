@@ -33,7 +33,7 @@ namespace GUIWinForms {
             }
             set {
                 var index = bsMain.IndexOf(value);
-                if (index > -1)
+                if (index > -1 && index < bsMain.Count)
                     bsMain.Position = index;
             }
         }

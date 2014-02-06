@@ -20,6 +20,12 @@ namespace Db.Domains
 
         private Lazy<IList<Departament>> lazy;
 
+        public bool LazyValueCreated {
+            get {
+                return lazy.IsValueCreated;
+            }
+        }
+
         public IList<Departament> Departaments {
             get {
                 return lazy.Value;

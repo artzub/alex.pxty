@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Odbc;
 using Db.DataAccess;
 
 namespace Db.Mapping {
@@ -20,7 +22,7 @@ namespace Db.Mapping {
 				return sqlGetAll;
 			}
 			set {
-				if (value != "" && value != null)
+				if (!string.IsNullOrEmpty(value))
 					sqlGetAll = value;
 			}
 		}
@@ -93,7 +95,7 @@ namespace Db.Mapping {
 		}
 
 		/// <summary>
-		/// Виртуальный метод создающий элемент из записи
+		/// Абстрактный метод создающий элемент из записи
 		/// </summary>
 		/// <param name="row"></param>
 		/// <returns></returns>
@@ -106,5 +108,19 @@ namespace Db.Mapping {
 		public object FindItemById(string id) {
 			return FindById(id);
 		}
+
+	    public virtual int DeleteById(object id) {
+	        if (id == null)
+	            return 0;
+            var builder = new DeleteStatementBuilder(TableName, ":");
+            builder.AddParameter("ID", id);
+            var res = Provider.DatabaseGateway.DeleteRow(builder);
+            return res;
+	    }
+
+	    protected virtual void AfterDelete(object id, int count) {
+            if (count > 0)
+                Hashes.Remove<T>(id);
+	    }
 	}
 }

@@ -19,5 +19,7 @@ namespace Db.Mapping {
 		/// <param name="id">идентификатор</param>
 		/// <returns>запись типа <see cref="object"/></returns>
 		object FindItemById(string id);
+
+	    int DeleteById(object id);
 	}
 }
