@@ -1,21 +1,27 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="db/Mapping/DepartamentMapper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="db/Domain.cs">
     <Files>
-      <File FileName="Controller/Controller.cs" Line="87" Column="33" />
-      <File FileName="db/Domain.cs" Line="25" Column="45" />
-      <File FileName="GUIWinForms/EditRowController.cs" Line="349" Column="1" />
+      <File FileName="Controller/Controller.cs" Line="1" Column="1" />
+      <File FileName="db/Domain.cs" Line="13" Column="8" />
+      <File FileName="GUIWinForms/EditRowController.cs" Line="1" Column="1" />
       <File FileName="GUIWinForms/MainForm.cs" Line="120" Column="1" />
-      <File FileName="db/Domains/Departament.cs" Line="62" Column="1" />
-      <File FileName="db/Mapping/StageMapper.cs" Line="15" Column="1" />
-      <File FileName="db/Mapping/Mapper.cs" Line="74" Column="25" />
-      <File FileName="db/DataAccess/Queries.cs" Line="37" Column="1" />
+      <File FileName="db/Domains/Departament.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/StageMapper.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/Mapper.cs" Line="1" Column="1" />
+      <File FileName="db/DataAccess/Queries.cs" Line="1" Column="1" />
       <File FileName="GUIWinForms/Program.cs" Line="1" Column="1" />
-      <File FileName="db/Mapping/PartMapper.cs" Line="39" Column="1" />
-      <File FileName="db/Mapping/DepartamentMapper.cs" Line="16" Column="10" />
-      <File FileName="db/Mapping/SurfaceMapper.cs" Line="4" Column="36" />
-      <File FileName="db/Mapping/DomainColumnsWrapper.cs" Line="9" Column="54" />
-      <File FileName="db/Mapping/BaseColumnsWrapper.cs" Line="5" Column="9" />
+      <File FileName="db/Mapping/PartMapper.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/DepartamentMapper.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/SurfaceMapper.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/DomainColumnsWrapper.cs" Line="1" Column="1" />
+      <File FileName="db/Mapping/BaseColumnsWrapper.cs" Line="1" Column="1" />
+      <File FileName="GUIWinForms/MainForm.Designer.cs" Line="999" Column="34" />
+      <File FileName="GUIWinForms/app.config" Line="1" Column="1" />
+      <File FileName="GUIWinForms/DbButtonsEdit.cs" Line="1" Column="1" />
+      <File FileName="GUIWinForms/DbComboBox.cs" Line="1" Column="1" />
+      <File FileName="GUIWinForms/DbEdit.cs" Line="1" Column="1" />
+      <File FileName="db/DataAccess/OracleConnection.cs" Line="9" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,9 +33,8 @@
           <Node name="db" expanded="True">
             <Node name="DataAccess" expanded="True" />
             <Node name="Domains" expanded="True" />
-            <Node name="Mapping" expanded="True">
-              <Node name="DepartamentMapper.cs" selected="True" />
-            </Node>
+            <Node name="Mapping" expanded="True" />
+            <Node name="Domain.cs" selected="True" />
           </Node>
           <Node name="GUIWinForms" expanded="True">
             <Node name="Properties" expanded="True">
@@ -60,8 +65,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/alexey/prg/alex.pxty/c#/Parts/db/Mapping/PartMapper.cs" line="41" column="1" />
-      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/Parts/GUIWinForms/MainForm.cs" line="120" column="1" />
-      <Breakpoint file="/home/alexey/prg/alex.pxty/c#/Parts/db/Mapping/DepartamentMapper.cs" line="27" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

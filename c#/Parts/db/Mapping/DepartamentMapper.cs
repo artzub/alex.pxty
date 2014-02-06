@@ -21,7 +21,7 @@ namespace Db.Mapping {
 
             var cols = new ColumnsWrapper(row);
 
-            var typeDep = Hashes.TypeDepHash[cols.IdTypeDep] ?? new TypeDepMapper().FindById(cols.IdTypeDep);
+            var typeDep = Hashes.GetTypeDepById(cols.IdTypeDep) ?? new TypeDepMapper().FindById(cols.IdTypeDep);
             var query = string.Format("select * from stage where id_dep = {0}",
                 cols.Id);
             return Hashes.DepartamentHash[cols.Id] = new Departament(cols.Id,

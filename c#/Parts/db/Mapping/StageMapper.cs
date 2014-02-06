@@ -25,9 +25,9 @@ namespace Db.Mapping {
 			if (st != null)
 				return st;
             
-			var part = Hashes.PartHash[cols.IdPart] ?? new PartMapper().FindById(cols.IdPart);
-            var surface = Hashes.SurfaceHash[cols.IdSurface] ?? new SurfaceMapper().FindById(cols.IdSurface);
-			var dep = Hashes.DepartamentHash[cols.IdDepartament] ?? new DepartamentMapper().FindById(cols.IdDepartament);
+			var part = Hashes.GetPartById(cols.IdPart) ?? new PartMapper().FindById(cols.IdPart);
+            var surface = Hashes.GetSurfaceById(cols.IdSurface) ?? new SurfaceMapper().FindById(cols.IdSurface);
+			var dep = Hashes.GetDepartamentById(cols.IdDepartament) ?? new DepartamentMapper().FindById(cols.IdDepartament);
 
 			st = new Stage(cols.Id, null, null, dep, surface, part);
 

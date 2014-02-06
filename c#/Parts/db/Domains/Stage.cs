@@ -145,7 +145,7 @@ namespace Db.Domains
         #endregion
 
 		public override string ToString () {
-			return string.Format ("{0} ({1}) ({2})", Id, Departament, Part);
+			return string.Format ("{0} ({1})", Id, Departament, Part);
 		}
     }
 }

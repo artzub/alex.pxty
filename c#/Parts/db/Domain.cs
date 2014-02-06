@@ -42,6 +42,11 @@ namespace Db
 			return Equals(obj as IDomain);
 		}
 
+		public override int GetHashCode ()
+		{
+			return Convert.ToInt32(Id);
+		}
+
 		public virtual bool Equals(IDomain other) {
             return CompareTo(other) == 0;
         }

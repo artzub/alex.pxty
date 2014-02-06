@@ -35,11 +35,13 @@ namespace GUIWinForms {
 
             SetEnterHandle(this);
 
-			partDataGridView.Tag = Types.Part;
-			stageDataGridView.Tag = Types.Stage;
-			departamentDataGridView.Tag = Types.Departament;
 			alloyDataGridView.Tag = Types.Alloy;
 			surfaceDataGridView.Tag = Types.Surface;
+			partDataGridView.Tag = Types.Part;
+			departamentDataGridView.Tag = Types.Departament;
+			stageDataGridView.Tag = Types.Stage;
+
+
 
             addAlloyToolStripMenuItem.Tag = Types.Alloy;
             addSurfaceToolStripMenuItem.Tag = Types.Surface;

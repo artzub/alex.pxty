@@ -6,7 +6,7 @@ using System;
 namespace Db.DataAccess {
 	public class OracleConnection : IDatabaseConnection {
 		private DatabaseConnection dbconn;
-		private string SettingSectionName = "DatabaseConnection";
+		private string SettingSectionName;// = "DatabaseConnection";
 
 		public void Close() {			
 			dbconn.Close();

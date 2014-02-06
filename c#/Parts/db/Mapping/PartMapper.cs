@@ -19,7 +19,7 @@ namespace Db.Mapping {
             if (row == null)
                 return null;
             var cols = new ColumnsWrapper(row);
-            var alloy = Hashes.AlloyHash[cols.IdAlloy] ?? new AlloyMapper().FindById(cols.IdAlloy);
+			var alloy = Hashes.GetAlloyById(cols.IdAlloy) ?? new AlloyMapper().FindById(cols.IdAlloy);
             var query = string.Format("select * from stage where id_part = {0}", cols.Id);
             return Hashes.PartHash[cols.Id] = new Part(cols.Id,
                 cols.Name,

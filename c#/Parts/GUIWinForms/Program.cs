@@ -246,10 +246,11 @@ namespace GUIWinForms {
 			try {
 				while (true) {
 					try {
+						//oraSetting.Pass="jjjj";
 						Controller.DataManager.Instance.Config(oraSetting);	
 						break;
 					} catch (Exception ex) {
-						if (++i < c && !ex.Message.StartsWith("ORA-01017")) {
+						if (++i < c && !(ex.Message.StartsWith("ORA-01017") || ex.Message.StartsWith("ORA-28000"))) {
 							bw.ReportProgress(i);
 							System.Threading.Thread.Sleep(1000);
 							continue;
@@ -270,14 +271,18 @@ namespace GUIWinForms {
 
         public static void ShowError(this Exception ex, IWin32Window owner = null) {
 
-            var msg = "";
-            if (ex.Message.StartsWith("ORA-"))
-                switch (ex.Message.Substring(4, 12)) {
-                    case "123456":
+			var msg = ex.GetExceptionMessage("").Trim();
+            if (msg.StartsWith("ORA-"))
+                switch (msg.Substring(4, 5)) {
+                    case "02292":
+						msg = "Существуют дочернии записи!"; 
                         break;
+					case "28000":
+						msg = "Учетная запись заблокированна. Обратитесь к администратору."; 
+						break;
                 }
 
-            MessageBox.Show(owner, ex.GetExceptionMessage(msg), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(owner, msg, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
