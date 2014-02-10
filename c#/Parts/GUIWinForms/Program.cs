@@ -250,7 +250,9 @@ namespace GUIWinForms {
 						Controller.DataManager.Instance.Config(oraSetting);	
 						break;
 					} catch (Exception ex) {
-						if (++i < c && !(ex.Message.StartsWith("ORA-01017") || ex.Message.StartsWith("ORA-28000"))) {
+						if (++i < c && !(ex.Message.StartsWith("ORA-01017") || 
+						                 ex.Message.StartsWith("ORA-28000") || 
+						                 ex.Message.StartsWith("libclntsh.so"))) {
 							bw.ReportProgress(i);
 							System.Threading.Thread.Sleep(1000);
 							continue;
@@ -265,7 +267,7 @@ namespace GUIWinForms {
 
         private static string GetExceptionMessage(this Exception ex, string msg) {
             return ex.InnerException == null 
-                ? string.Format("{0}\r\n{1}\r\n{2}", msg, ex.Message, ex.StackTrace) 
+                ? string.Format("{0}\r\n{1}\r\n", msg, ex.Message/*, ex.StackTrace*/) 
                 : ex.InnerException.GetExceptionMessage(msg);
         }
 
@@ -281,6 +283,12 @@ namespace GUIWinForms {
 						msg = "Учетная запись заблокированна. Обратитесь к администратору."; 
 						break;
                 }
+			if (msg.StartsWith ("libclntsh")) {
+				msg = "Не найдена нативная библиотека" +
+					" Oracle";
+				MessageBox.Show(owner, msg, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Environment.Exit(0);
+			} 
 
             MessageBox.Show(owner, msg, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
