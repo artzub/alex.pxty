@@ -26,9 +26,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfConsoleService", "WcfConsoleService\WcfConsoleService.csproj", "{EE041AAF-AC67-41A7-A5D0-9B8A30662F27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClientGuiWinForms", "WcfClientGuiWinForms\WcfClientGuiWinForms.csproj", "{38B2DD0B-9E7A-41BE-A545-EBF13E7BFA43}"
-	ProjectSection(ProjectDependencies) = postProject
-		{BB906918-29CD-40CD-B4BA-4AD341D87BD3} = {BB906918-29CD-40CD-B4BA-4AD341D87BD3}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceVs2010", "WcfServiceVs2010\WcfServiceVs2010.csproj", "{BB906918-29CD-40CD-B4BA-4AD341D87BD3}"
 EndProject
@@ -96,7 +93,7 @@ Global
 		{FDCFD879-94A5-4215-AA7B-C148F66D2199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = WcfClientGuiWinForms\WcfClientGuiWinForms.csproj
+		StartupItem = WcfServiceVs2010\WcfServiceVs2010.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
