@@ -1,8 +1,13 @@
 *bin/
 *obj/
+*build/
+*dist/
+*nbproject/
 *.user
 *.suo
 *.cache
 *.pl~
 *.exe
 *.dll
+*.java~
+*.form~

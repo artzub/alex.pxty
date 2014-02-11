@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 11, 2014 9:30:18 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="h.entity.Part" table="PART" schema="PARTS">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="alloy" class="h.entity.Alloy" fetch="select">
+            <column name="ID_ALLOY" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="256" not-null="true" />
+        </property>
+        <property name="cost" type="big_decimal">
+            <column name="COST" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="blnum" type="string">
+            <column name="BLNUM" length="80" not-null="true" />
+        </property>
+        <set name="stages" inverse="true">
+            <key>
+                <column name="ID_PART" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="h.entity.Stage" />
+        </set>
+    </class>
+</hibernate-mapping>

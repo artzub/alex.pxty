@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 11, 2014 9:30:18 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="h.entity.Stage" table="STAGE" schema="PARTS">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="part" class="h.entity.Part" fetch="select">
+            <column name="ID_PART" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stageByIdNext" class="h.entity.Stage" fetch="select">
+            <column name="ID_NEXT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="surface" class="h.entity.Surface" fetch="select">
+            <column name="ID_SURFACE" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stageByIdPrev" class="h.entity.Stage" fetch="select">
+            <column name="ID_PREV" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="dep" class="h.entity.Dep" fetch="select">
+            <column name="ID_DEP" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <set name="stagesForIdNext" inverse="true">
+            <key>
+                <column name="ID_NEXT" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="h.entity.Stage" />
+        </set>
+        <set name="stagesForIdPrev" inverse="true">
+            <key>
+                <column name="ID_PREV" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="h.entity.Stage" />
+        </set>
+    </class>
+</hibernate-mapping>
